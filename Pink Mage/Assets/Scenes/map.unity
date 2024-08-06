@@ -275,6 +275,10 @@ MonoBehaviour:
   _velocityWalk: 5
   _camera: {fileID: 1101864786}
   Life: 10
+  Speed: 10
+  Immunidades: 
+  Vulnerabilities: 05000000
+  Resistances: 
   PlayerState: 0
 --- !u!114 &707781837
 MonoBehaviour:

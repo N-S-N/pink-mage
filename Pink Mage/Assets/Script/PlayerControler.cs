@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerControler : characterBasics
 {
     #region variavesis
     //movimento player
@@ -10,8 +11,12 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] Camera _camera;
 
     [Header("compate")]
-    [SerializeField] float Life;
-
+    public float Life;
+    public float Speed;
+    public List<element> Immunidades = new List<element>();
+    public List<element> Vulnerabilities = new List<element>();
+    public List<element> Resistances = new List<element>();
+    
 
     // variaves privadas
     private Animator InimeAnimator;
