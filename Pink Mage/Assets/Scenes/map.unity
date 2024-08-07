@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &381458307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381458309}
+  - component: {fileID: 381458308}
+  m_Layer: 0
+  m_Name: Controler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &381458308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381458307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02019e17cccf25145882490dde8a4d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  personagmeScrips: []
+  playerControler: {fileID: 0}
+  ordemCombates: []
+--- !u!4 &381458309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381458307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.97, z: -4.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &707781830
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,13 +320,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fa53c6225c13042ae8380fa70bb93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Life: 10
+  LifeMax: 10
+  Speed: 10
+  bunusDamege: []
+  bunusResistem: []
+  aliado: []
+  inimigo: []
+  Immunidades: 
+  Vulnerabilities: 
+  Resistances: 
+  combate: {fileID: 381458308}
   _velocityWalk: 5
   _camera: {fileID: 1101864786}
-  Life: 10
-  Speed: 10
-  Immunidades: 
-  Vulnerabilities: 05000000
-  Resistances: 
   PlayerState: 0
 --- !u!114 &707781837
 MonoBehaviour:
@@ -935,6 +988,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 381458309}
   - {fileID: 1101864787}
   - {fileID: 1814234083}
   - {fileID: 1938724287}

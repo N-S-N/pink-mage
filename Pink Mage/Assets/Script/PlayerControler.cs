@@ -5,18 +5,13 @@ using UnityEngine.InputSystem;
 public class PlayerControler : characterBasics
 {
     #region variavesis
+    [SerializeField] CombateControler combate;
+
     //movimento player
     [Header("movimentação")]
     [SerializeField] float _velocityWalk;
     [SerializeField] Camera _camera;
 
-    [Header("compate")]
-    public float Life;
-    public float Speed;
-    public List<element> Immunidades = new List<element>();
-    public List<element> Vulnerabilities = new List<element>();
-    public List<element> Resistances = new List<element>();
-    
 
     // variaves privadas
     private Animator InimeAnimator;
@@ -45,6 +40,8 @@ public class PlayerControler : characterBasics
         PlayerState = State.Iddle;
         InimeAnimator = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
+
+        combater = combate;
     }
 
     private void Update()
@@ -153,6 +150,17 @@ public class PlayerControler : characterBasics
         Vector3 move = new Vector3(moveDirection.x, rig.velocity.y, moveDirection.y) * _velocityWalk;
         rig.velocity = move;
     }
+
+
+    #endregion
+
+    #region combate
+
+    public void startCombate()
+    {
+
+    }
+
 
 
     #endregion
