@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &263435199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263435201}
+  - component: {fileID: 263435200}
+  m_Layer: 0
+  m_Name: inimigo teste (zumbi)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &263435200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263435199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 30
+  LifeMax: 30
+  Speed: 20
+  bunusDamege:
+  - Elemento: 6
+    Bonus: 3
+  - Elemento: 8
+    Bonus: 3
+  - Elemento: 5
+    Bonus: 3
+  bunusResistem:
+  - Elemento: 2
+    Bonus: 2
+  - Elemento: 3
+    Bonus: 2
+  - Elemento: 4
+    Bonus: 2
+  aliado: []
+  inimigo: []
+  Immunidades: 0600000008000000
+  Vulnerabilities: 00000000
+  Resistances: 050000000a000000
+  atteck: []
+  combate: {fileID: 381458308}
+--- !u!4 &263435201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263435199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.97, z: -4.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &381458307
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +253,7 @@ GameObject:
   - component: {fileID: 707781831}
   - component: {fileID: 707781836}
   - component: {fileID: 707781837}
+  - component: {fileID: 707781838}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -380,6 +449,30 @@ MonoBehaviour:
   m_DefaultActionMap: playerControler
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &707781838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707781830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 0
+  LifeMax: 0
+  Speed: 0
+  bunusDamege: []
+  bunusResistem: []
+  aliado: []
+  inimigo: []
+  Immunidades: 
+  Vulnerabilities: 
+  Resistances: 
+  atteck: []
+  combate: {fileID: 0}
 --- !u!1 &1101864784
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,3 +1088,4 @@ SceneRoots:
   - {fileID: 1415212623}
   - {fileID: 707781835}
   - {fileID: 1156031963}
+  - {fileID: 263435201}

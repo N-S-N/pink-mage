@@ -34,8 +34,9 @@ public class characterBasics : MonoBehaviour
         poison,
         thunder,
         psychic,
-        lightning
-            
+        lightning,
+        darkness
+
     }
     public void levardano(BonusDamed atteck)
     {
