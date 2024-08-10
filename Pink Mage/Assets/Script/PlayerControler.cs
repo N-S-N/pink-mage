@@ -10,6 +10,7 @@ public class PlayerControler : characterBasics
     //movimento player
     [Header("movimentação")]
     [SerializeField] float _velocityWalk;
+    [SerializeField] float _velocityRun;
     [SerializeField] Camera _camera;
 
 

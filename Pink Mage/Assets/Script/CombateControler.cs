@@ -9,9 +9,12 @@ public class CombateControler : MonoBehaviour
     List<float> Speed;
     [HideInInspector] public List<ordemCombate> ordemCombates = new List<ordemCombate>();
     int indexrand = 0;
+    [HideInInspector]public bool IsCombater = false;
 
     public void ordem()
     {
+        IsCombater = true;
+
         int maior = 0;
 
         for (int i = 0;i < personagmeScrips.Count;i++)
@@ -98,7 +101,10 @@ public class CombateControler : MonoBehaviour
 
     public void endAction()
     {
+        if (ordemCombates.Count == 0) return;
+
         indexrand++;
+
         if (indexrand > ordemCombates.Count)
             indexrand = 0;
 
@@ -113,6 +119,16 @@ public class CombateControler : MonoBehaviour
 
     }
 
+    public void endCombater()
+    {
+        IsCombater = false;
+        personagmeScrips.Clear();
+        playerControler.aliado.Clear();
+        playerControler = null;
+        ordemCombates.Clear();
+        Speed.Clear();
+        indexrand = 0;
+    }
 }
 
 [System.Serializable]

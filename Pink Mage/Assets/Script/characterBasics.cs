@@ -19,7 +19,7 @@ public class characterBasics : MonoBehaviour
     public List<element> Vulnerabilities = new List<element>();
     public List<element> Resistances = new List<element>();
 
-    protected CombateControler combater;
+    [HideInInspector] public CombateControler combater;
     protected EnimyControler personagem;
     protected PlayerControler player;
 
@@ -81,10 +81,19 @@ public class characterBasics : MonoBehaviour
             combater.playerControler = null;
             combater.ordemCombates.Remove(new ordemCombate(null, player));
         }
-      
+
+        if (aliado.Count == 0)
+        {
+            combater.endCombater();
+            return;
+        }
+        for (int i = 0; i < aliado.Count;i++)
+        {
+            if (aliado[i].personagmeScrips != null || aliado[i].playerControler != null) return;
+        }
+        combater.endCombater();
 
     }
-
     public void aticlizarInimigo(List<ordemCombate> combate)
     {
         inimigo.Clear();

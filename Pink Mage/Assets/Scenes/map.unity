@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &210687897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210687899}
+  - component: {fileID: 210687898}
+  m_Layer: 0
+  m_Name: spawm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &210687898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210687897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8c2e1d56edd1142af364581189db6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _regionSpam: 0
+  rota: []
+  _sapwmPrefeb:
+  - spawn:
+    - {fileID: 263435199}
+  - spawn: []
+  - spawn: []
+  combate: {fileID: 381458308}
+  player: {fileID: 707781836}
+--- !u!4 &210687899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210687897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -4.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263435199
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,13 +186,15 @@ GameObject:
   m_Component:
   - component: {fileID: 263435201}
   - component: {fileID: 263435200}
+  - component: {fileID: 263435202}
+  - component: {fileID: 263435203}
   m_Layer: 0
   m_Name: inimigo teste (zumbi)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &263435200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,8 +229,14 @@ MonoBehaviour:
   Immunidades: 0600000008000000
   Vulnerabilities: 00000000
   Resistances: 050000000a000000
+  combater: {fileID: 0}
   atteck: []
-  combate: {fileID: 381458308}
+  _velocityWalk: 0
+  _velocityRun: 0
+  rota: []
+  comportamonto: 1
+  Distancia: 10
+  playerScripter: {fileID: 0}
 --- !u!4 &263435201
 Transform:
   m_ObjectHideFlags: 0
@@ -191,6 +252,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &263435202
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263435199}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &263435203
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263435199}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &381458307
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +332,7 @@ MonoBehaviour:
   personagmeScrips: []
   playerControler: {fileID: 0}
   ordemCombates: []
+  IsCombater: 0
 --- !u!4 &381458309
 Transform:
   m_ObjectHideFlags: 0
@@ -253,8 +363,7 @@ GameObject:
   - component: {fileID: 707781831}
   - component: {fileID: 707781836}
   - component: {fileID: 707781837}
-  - component: {fileID: 707781838}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,8 +508,10 @@ MonoBehaviour:
   Immunidades: 
   Vulnerabilities: 
   Resistances: 
+  combater: {fileID: 0}
   combate: {fileID: 381458308}
   _velocityWalk: 5
+  _velocityRun: 0
   _camera: {fileID: 1101864786}
   PlayerState: 0
 --- !u!114 &707781837
@@ -449,30 +560,6 @@ MonoBehaviour:
   m_DefaultActionMap: playerControler
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &707781838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707781830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Life: 0
-  LifeMax: 0
-  Speed: 0
-  bunusDamege: []
-  bunusResistem: []
-  aliado: []
-  inimigo: []
-  Immunidades: 
-  Vulnerabilities: 
-  Resistances: 
-  atteck: []
-  combate: {fileID: 0}
 --- !u!1 &1101864784
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285033698}
   - component: {fileID: 1285033699}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: imagem teste
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,3 +1176,4 @@ SceneRoots:
   - {fileID: 707781835}
   - {fileID: 1156031963}
   - {fileID: 263435201}
+  - {fileID: 210687899}
