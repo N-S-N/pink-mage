@@ -84,9 +84,9 @@ public class CombateControler : MonoBehaviour
         for (int i = 0; i < ordemCombates.Count; i++)
         {
             if (i+1 < personagmeScrips.Count)
-                personagmeScrips[i].aticlizarInimigo(ordemCombates);
+                personagmeScrips[i].atualizarInimigo(ordemCombates);
             else
-                playerControler.aticlizarInimigo(ordemCombates);
+                playerControler.atualizarInimigo(ordemCombates);
         }
 
         if (ordemCombates[indexrand].playerControler != null)

@@ -159,6 +159,7 @@ public class PlayerControler : characterBasics
 
     public void startCombate()
     {
+        if (!efeitosaplicados()) return;
 
     }
 

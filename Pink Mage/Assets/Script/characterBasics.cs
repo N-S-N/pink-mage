@@ -9,6 +9,9 @@ public class characterBasics : MonoBehaviour
     public float Life;
     public float LifeMax;
     public float Speed;
+    public float Mana;
+    public float Medo;
+
     public List<BonusDamed> bunusDamege = new List<BonusDamed>();
     public List<BonusDamed> bunusResistem = new List<BonusDamed>();
 
@@ -19,6 +22,8 @@ public class characterBasics : MonoBehaviour
     public List<element> Vulnerabilities = new List<element>();
     public List<element> Resistances = new List<element>();
 
+    [HideInInspector] public List<EfeitosCausados> EfeitoAtivos = new List<EfeitosCausados>();    
+
     [HideInInspector] public CombateControler combater;
     protected EnimyControler personagem;
     protected PlayerControler player;
@@ -27,9 +32,7 @@ public class characterBasics : MonoBehaviour
     {
         fire,
         cold,
-        bludgeoning,
-        slashing,
-        piercing,
+        fisico,
         necrotic,
         poison,
         thunder,
@@ -38,8 +41,47 @@ public class characterBasics : MonoBehaviour
         darkness
 
     }
-    public void levardano(BonusDamed atteck)
+
+    public enum efeitos 
+    { 
+        envenenado,
+        imobiliza
+    }
+
+    public bool efeitosaplicados()
     {
+        if (EfeitoAtivos.Count != 0)
+        {
+            for (int i = 0; i < EfeitoAtivos.Count; i++)
+            {
+                float danoefeito = 0;
+                for (int j = 0;j < EfeitoAtivos[i].multiplos; j ++) 
+                {
+                    danoefeito += Random.Range(EfeitoAtivos[i].Mimdano, EfeitoAtivos[i].Maxdano);
+                }
+                levardano(new BonusDamed(EfeitoAtivos[i].elementoDoDano, danoefeito), null, true);
+                EfeitoAtivos[i].rands--;
+                if (EfeitoAtivos[i].rands <= 0)
+                {
+                    EfeitoAtivos.Remove(EfeitoAtivos[i]);
+                }
+                if (Life <= 0)
+                {
+                    combater.endAction();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void levardano(BonusDamed atteck, EfeitosCausados efeitosaplicados = null, bool seaplicado = false)
+    {
+        if(efeitosaplicados!= null)
+        {
+            EfeitoAtivos.Add(efeitosaplicados);
+        }
+
         if (Immunidades.IndexOf(atteck.Elemento) != -1)
         {
             atteck.Bonus = 0;
@@ -64,10 +106,12 @@ public class characterBasics : MonoBehaviour
         }
 
         Life -= atteck.Bonus;
-        if (Life <= 0)
-            dead();
+        if(!seaplicado)
+            if (Life <= 0)
+                dead();
 
     }
+
     public void dead()
     {
         if(player == null)
@@ -94,7 +138,8 @@ public class characterBasics : MonoBehaviour
         combater.endCombater();
 
     }
-    public void aticlizarInimigo(List<ordemCombate> combate)
+
+    public void atualizarInimigo(List<ordemCombate> combate)
     {
         inimigo.Clear();
 
@@ -123,13 +168,43 @@ public class BonusDamed
 }
 
 [System.Serializable]
+public class EfeitosCausados 
+{
+    public efeitos efeito;
+    public element elementoDoDano;
+    public float multiplos = 1;
+    public float Maxdano;
+    public float Mimdano;
+    public int rands;
+    public EfeitosCausados(efeitos efeito, element elementoDoDano, float maxdano, float mimdano, int rands, float multipl)
+    {
+        this.efeito = efeito;
+        this.elementoDoDano = elementoDoDano;
+        this.Maxdano = maxdano;
+        this.Mimdano = mimdano;
+        this.rands = rands;
+        this.multiplos = multipl;
+    }
+}
+
+[System.Serializable]
 public class atteck
 {
-    public BonusDamed atributos;
+    public element Elemento;
+    public float MimDamege;
+    public float maxdamege;
     public float porcentagem;
-    public atteck(BonusDamed Elemento, float bonus)
+    public EfeitosCausados efeitos;
+    public float custoLife = 0;
+    public float custoMana = 0;
+    public atteck(element Elemento,float maxdamege,float MimDamege, float bonus, EfeitosCausados efeitos,float custoLife,float custoMna)
     {
-        this.atributos = Elemento;
+        this.Elemento = Elemento;
+        this.MimDamege = MimDamege;
+        this.maxdamege = maxdamege;
         this.porcentagem = bonus;
+        this.efeitos = efeitos;
+        this.custoLife = custoLife;
+        this.custoMana = custoMna;
     }
 }

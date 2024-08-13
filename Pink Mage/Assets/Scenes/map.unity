@@ -210,6 +210,8 @@ MonoBehaviour:
   Life: 30
   LifeMax: 30
   Speed: 20
+  Mana: 0
+  medo: 0
   bunusDamege:
   - Elemento: 6
     Bonus: 3
@@ -220,17 +222,27 @@ MonoBehaviour:
   bunusResistem:
   - Elemento: 2
     Bonus: 2
-  - Elemento: 3
-    Bonus: 2
-  - Elemento: 4
-    Bonus: 2
   aliado: []
   inimigo: []
   Immunidades: 0600000008000000
   Vulnerabilities: 00000000
-  Resistances: 050000000a000000
+  Resistances: 0500000002000000
+  EfeitoAtivos: []
   combater: {fileID: 0}
-  atteck: []
+  atteck:
+  - Elemento: 4
+    MimDamege: 0
+    maxdamege: 0
+    porcentagem: 100
+    efeitos:
+      efeito: 0
+      elementoDoDano: 4
+      multiplos: 2
+      Maxdano: 5
+      Mimdano: 8
+      rands: 3
+    custoLife: 0
+    custoMana: 0
   _velocityWalk: 0
   _velocityRun: 0
   rota: []
@@ -501,6 +513,8 @@ MonoBehaviour:
   Life: 10
   LifeMax: 10
   Speed: 10
+  Mana: 0
+  medo: 0
   bunusDamege: []
   bunusResistem: []
   aliado: []
@@ -508,6 +522,7 @@ MonoBehaviour:
   Immunidades: 
   Vulnerabilities: 
   Resistances: 
+  EfeitoAtivos: []
   combater: {fileID: 0}
   combate: {fileID: 381458308}
   _velocityWalk: 5
