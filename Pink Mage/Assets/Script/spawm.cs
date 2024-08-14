@@ -25,7 +25,6 @@ public class spawm : MonoBehaviour
         gate
     }
 
-
     private void Start()
     {
 

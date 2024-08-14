@@ -8,9 +8,80 @@ public class CombateControler : MonoBehaviour
     [HideInInspector] public PlayerControler playerControler;
     List<float> Speed;
     [HideInInspector] public List<ordemCombate> ordemCombates = new List<ordemCombate>();
+    [HideInInspector] public List<ordemCombate> ordemCombates2 = new List<ordemCombate>();
+    [HideInInspector] public List<ordemCombate> ordemCombates3 = new List<ordemCombate>();
     int indexrand = 0;
     [HideInInspector]public bool IsCombater = false;
+    int indexCauntPersonagem = 0;
 
+    public void trigerStartCombater()
+    {
+        IsCombater = true;
+        ordemCombates.Clear();
+        ordemCombates.Add(new ordemCombate(null, playerControler));
+        for (int i = 0; i < personagmeScrips.Count; i++)
+        {
+            ordemCombates.Add(new ordemCombate(personagmeScrips[i], null));
+        }
+        playerControler.atualizarInimigo(ordemCombates);
+        playerControler.ButomActive();
+        for (int i = 0; i < personagmeScrips.Count; i++)
+        {
+            personagmeScrips[i].atualizarInimigo(ordemCombates);
+            personagmeScrips[i].startCombate();
+        }
+    }
+
+    public void startRond(float speed, PlayerControler player = null , EnimyControler personagem = null)
+    {
+        indexCauntPersonagem ++ ;
+        Speed.Add(speed);
+        ordemCombates2.Add(new ordemCombate(personagem, player));
+
+        if (indexCauntPersonagem == ordemCombates.Count - 1)
+        {
+            for (int i = 0; i < ordemCombates2.Count; i++)
+            {
+                int mas = 0;
+                for (int j = 0; j < ordemCombates2.Count; j++)
+                {
+                    if (Speed[j] > Speed[mas]) mas = j;
+                }
+                ordemCombates3.Add(new ordemCombate(ordemCombates2[mas].personagmeScrips, ordemCombates2[mas].playerControler));
+                ordemCombates2.Remove(ordemCombates2[mas]);
+            }
+
+            indexCauntPersonagem = 0;
+            Speed.Clear();
+            ordemCombates2.Clear();
+
+
+            if (ordemCombates3[0].playerControler != null) ordemCombates3[0].playerControler.startCombate();
+            else ordemCombates3[0].personagmeScrips.Atteck();
+
+            ordemCombates3.Remove(ordemCombates3[0]);
+
+        }
+    }
+
+    public void nestruen()
+    {
+        if (ordemCombates3[0].playerControler != null) ordemCombates3[0].playerControler.startCombate();
+        else ordemCombates3[0].personagmeScrips.Atteck();
+
+        ordemCombates3.Remove(ordemCombates3[0]);
+
+        if (ordemCombates3.Count == 0)
+        {
+            playerControler.ButomActive();
+            for (int i = 0; i < personagmeScrips.Count; i++)
+            {
+                personagmeScrips[i].startCombate();
+            }
+        }
+    }
+
+    /*
     public void ordem()
     {
         IsCombater = true;
@@ -118,6 +189,7 @@ public class CombateControler : MonoBehaviour
         }
 
     }
+    */
 
     public void endCombater()
     {

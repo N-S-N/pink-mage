@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnimyControler : characterBasics
 {
+    #region variaves
     [Header("compate")]
     public List<atteck> atteck = new List<atteck>();
     //[HideInInspector] public CombateControler combate;
@@ -23,7 +24,9 @@ public class EnimyControler : characterBasics
     [HideInInspector] public PlayerControler playerScripter;
 
     Rigidbody rb;
+    #endregion
 
+    #region fora de combate
     public enum comportamento
     {
         fugir,
@@ -92,77 +95,31 @@ public class EnimyControler : characterBasics
         }
     }
 
+    #endregion
+
+    #region combater
     public void startCombate()
     {
-        if (!efeitosaplicados()) return;
-
         int randominimigo = Random.Range(0, inimigo.Count-1);
 
-        int randomatteck = Random.Range(0, atteck.Count-1);
+        personagemEscolido = inimigo[randominimigo];
 
         List<int> anterior = new List<int>();
-        anterior.Add(randomatteck);
+
+        int randomatteck = 0;
 
         if (inimigo[randominimigo].playerControler != null)
         {
             for (int i = 0; i < atteck.Count; i++)
             {
-                if (inimigo[randominimigo].playerControler.Immunidades.IndexOf(atteck[randomatteck].Elemento) != -1
+                randomatteck = Random.Range(0, atteck.Count - 1);
+                anterior.Add(randomatteck);
+
+                if (inimigo[randomatteck].playerControler.Immunidades.IndexOf(atteck[randomatteck].Elemento) != -1
                     || atteck[randomatteck].custoMana > Mana
                     || atteck[randomatteck].custoLife >= Life)
-                {
-                    int randomatteck2 = Random.Range(0, atteck.Count - 1);
-                    if (anterior.IndexOf(randomatteck2) != 1 || atteck[randomatteck].custoMana > Mana || atteck[randomatteck].custoLife >= Life)
-                    {
-                        i--;
-                    }
-                    else if (atteck[randomatteck].custoMana > Mana)
-                    {
-                        i--;
-                    }
-                    else if (atteck[randomatteck].custoLife >= Life && anterior.Count -1 < atteck.Count)
-                    {
-                        i--;
-                    }
-                    anterior.Add(randomatteck2);
-                }
-                else
-                    break;
-            }
-            //ver se acertou
-            float randomAcerto = Random.Range(0, 100.0f);
-            float demegerBonus = 0;
-            if (randomAcerto <= atteck[randomatteck].porcentagem)
-            {
-                for (int i = 0; i < bunusDamege.Count; i++)
-                {
-                    if (bunusDamege[i].Elemento == atteck[randomatteck].Elemento)
-                        demegerBonus += bunusResistem[i].Bonus;
-                }
-                Mana -= atteck[randomatteck].custoMana;
-                Life -= atteck[randomatteck].custoLife;
-
-
-                inimigo[randominimigo].playerControler.levardano(new BonusDamed(atteck[randomatteck].Elemento,
-                                                                 Random.Range(atteck[randomatteck].MimDamege, atteck[randomatteck].maxdamege)+ demegerBonus),
-                                                                 new EfeitosCausados(atteck[randomatteck].efeitos.efeito,
-                                                                                     atteck[randomatteck].efeitos.elementoDoDano,
-                                                                                     atteck[randomatteck].efeitos.Maxdano,
-                                                                                     atteck[randomatteck].efeitos.Mimdano,
-                                                                                     atteck[randomatteck].efeitos.rands,
-                                                                                     Random.Range(1, atteck[randomatteck].efeitos.multiplos)));
-            }
-        }
-        else
-        {         
-            for (int i = 0; i < atteck.Count; i++)
-            {
-                if (inimigo[randominimigo].personagmeScrips.Immunidades.IndexOf(atteck[randomatteck].Elemento) != -1
-                    || atteck[randomatteck].custoMana > Mana
-                    || atteck[randomatteck].custoLife >= Life)
-                {
-                    int randomatteck2 = Random.Range(0, atteck.Count - 1);
-                    if (anterior.IndexOf(randomatteck2) != 1 || atteck[randomatteck].custoMana > Mana || atteck[randomatteck].custoLife >= Life)
+                {            
+                    if (anterior.IndexOf(randomatteck) != 1 || atteck[randomatteck].custoMana > Mana || atteck[randomatteck].custoLife >= Life)
                     {
                         i--;
                     }
@@ -174,37 +131,99 @@ public class EnimyControler : characterBasics
                     {
                         i--;
                     }
-                    anterior.Add(randomatteck2);
+                    anterior.Add(randomatteck);
+                }
+                else
+                    break;     
+
+            }
+        }
+        else
+        {         
+            for (int i = 0; i < atteck.Count; i++)
+            {
+                randomatteck = Random.Range(0, atteck.Count - 1);
+                anterior.Add(randomatteck);
+                if (inimigo[randominimigo].personagmeScrips.Immunidades.IndexOf(atteck[randomatteck].Elemento) != -1
+                    || atteck[randomatteck].custoMana > Mana
+                    || atteck[randomatteck].custoLife >= Life)
+                {
+                    if (anterior.IndexOf(randomatteck) != 1 || atteck[randomatteck].custoMana > Mana || atteck[randomatteck].custoLife >= Life)
+                    {
+                        i--;
+                    }
+                    else if (atteck[randomatteck].custoMana > Mana)
+                    {
+                        i--;
+                    }
+                    else if (atteck[randomatteck].custoLife >= Life && anterior.Count - 1 < atteck.Count)
+                    {
+                        i--;
+                    }
+                    anterior.Add(randomatteck);
                 }
                 else
                     break;
             }
-            //ver se acertou
-            float randomAcerto = Random.Range(0, 100.0f);
-            float demegerBonus = 0;
-            if (randomAcerto <= atteck[randomatteck].porcentagem)
-            {
-                for (int i = 0; i < bunusDamege.Count; i++)
-                {
-                    if (bunusDamege[i].Elemento == atteck[randomatteck].Elemento)
-                        demegerBonus += bunusResistem[i].Bonus;
+        }
 
-                }
-                Mana -= atteck[randomatteck].custoMana;
-                Life -= atteck[randomatteck].custoLife;
-                inimigo[randominimigo].playerControler.levardano(new BonusDamed(atteck[randomatteck].Elemento, 
-                                                                 Random.Range(atteck[randomatteck].MimDamege, atteck[randomatteck].maxdamege) + demegerBonus),
-                                                                 new EfeitosCausados(atteck[randomatteck].efeitos.efeito,
-                                                                                     atteck[randomatteck].efeitos.elementoDoDano,
-                                                                                     atteck[randomatteck].efeitos.Maxdano,
-                                                                                     atteck[randomatteck].efeitos.Mimdano,
-                                                                                     atteck[randomatteck].efeitos.rands,
-                                                                                     Random.Range(1, atteck[randomatteck].efeitos.multiplos)));
+        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck);
+
+        efeitosSpeed();
+
+        combater.startRond(ataqueEscolido.speedAtteck,null,this);
+    }
+
+    public void Atteck()
+    {
+        if (!efeitosaplicados())
+        {
+            dead();
+            return;
+        }
+
+        float randomAcerto = Random.Range(0, 100.0f);
+        float demegerBonus = 0;
+
+        Mana -= ataqueEscolido.custoMana;
+        Life -= ataqueEscolido.custoLife;
+
+        if (randomAcerto <= ataqueEscolido.porcentagemDeAcerto)
+        {
+            for (int i = 0; i < bunusDamege.Count; i++)
+            {
+                if (bunusDamege[i].Elemento == ataqueEscolido.Elemento)
+                    demegerBonus += bunusResistem[i].Bonus;
             }
+            if(personagemEscolido.playerControler != null)
+                personagemEscolido.playerControler.levardano(new BonusDamed(ataqueEscolido.Elemento,
+                                                                 Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
+                                                                 new EfeitosCausados(ataqueEscolido.efeitos.efeito,
+                                                                                     ataqueEscolido.efeitos.elementoDoDano,
+                                                                                     ataqueEscolido.efeitos.Maxdano,
+                                                                                     ataqueEscolido.efeitos.Mimdano,
+                                                                                     ataqueEscolido.efeitos.rands,
+                                                                                     Random.Range(1, ataqueEscolido.efeitos.multiplos),
+                                                                                     ataqueEscolido.efeitos.AtrubutoDiminuir,
+                                                                                     ataqueEscolido.efeitos.porcentagemDano));
+            else
+                personagemEscolido.personagmeScrips.levardano(new BonusDamed(ataqueEscolido.Elemento,
+                                                                     Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
+                                                                     new EfeitosCausados(ataqueEscolido.efeitos.efeito,
+                                                                                         ataqueEscolido.efeitos.elementoDoDano,
+                                                                                         ataqueEscolido.efeitos.Maxdano,
+                                                                                         ataqueEscolido.efeitos.Mimdano,
+                                                                                         ataqueEscolido.efeitos.rands,
+                                                                                         Random.Range(1, ataqueEscolido.efeitos.multiplos),
+                                                                                         ataqueEscolido.efeitos.AtrubutoDiminuir,
+                                                                                         ataqueEscolido.efeitos.porcentagemDano));
+
         }
 
         if (Life <= 0) dead();
 
-        combater.endAction();
+        combater.nestruen();
     }
+
+    #endregion
 }

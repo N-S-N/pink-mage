@@ -7,11 +7,15 @@ public class PlayerControler : characterBasics
     #region variavesis
     [SerializeField] CombateControler combate;
 
+    [Header("compate")]
+    [HideInInspector]public List<atteck> atteck = new List<atteck>();
+
     //movimento player
     [Header("movimentação")]
     [SerializeField] float _velocityWalk;
     [SerializeField] float _velocityRun;
     [SerializeField] Camera _camera;
+
 
 
     // variaves privadas
@@ -157,13 +161,71 @@ public class PlayerControler : characterBasics
 
     #region combate
 
-    public void startCombate()
+    public void ButomActive()
     {
-        if (!efeitosaplicados()) return;
 
     }
 
+    public void startCombate()
+    {
+        if (!efeitosaplicados())
+        {
+            dead();
+            return;
+        }
 
+        float randomAcerto = Random.Range(0, 100.0f);
+        float demegerBonus = 0;
+
+        Mana -= ataqueEscolido.custoMana;
+        Life -= ataqueEscolido.custoLife;
+
+        if (randomAcerto <= ataqueEscolido.porcentagemDeAcerto)
+        {
+            for (int i = 0; i < bunusDamege.Count; i++)
+            {
+                if (bunusDamege[i].Elemento == ataqueEscolido.Elemento)
+                    demegerBonus += bunusResistem[i].Bonus;
+            }
+            if (personagemEscolido.playerControler != null)
+                personagemEscolido.playerControler.levardano(new BonusDamed(ataqueEscolido.Elemento,
+                                                                 Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
+                                                                 new EfeitosCausados(ataqueEscolido.efeitos.efeito,
+                                                                                     ataqueEscolido.efeitos.elementoDoDano,
+                                                                                     ataqueEscolido.efeitos.Maxdano,
+                                                                                     ataqueEscolido.efeitos.Mimdano,
+                                                                                     ataqueEscolido.efeitos.rands,
+                                                                                     Random.Range(1, ataqueEscolido.efeitos.multiplos),
+                                                                                     ataqueEscolido.efeitos.AtrubutoDiminuir,
+                                                                                     ataqueEscolido.efeitos.porcentagemDano));
+            else
+                personagemEscolido.personagmeScrips.levardano(new BonusDamed(ataqueEscolido.Elemento,
+                                                                     Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
+                                                                     new EfeitosCausados(ataqueEscolido.efeitos.efeito,
+                                                                                         ataqueEscolido.efeitos.elementoDoDano,
+                                                                                         ataqueEscolido.efeitos.Maxdano,
+                                                                                         ataqueEscolido.efeitos.Mimdano,
+                                                                                         ataqueEscolido.efeitos.rands,
+                                                                                         Random.Range(1, ataqueEscolido.efeitos.multiplos),
+                                                                                         ataqueEscolido.efeitos.AtrubutoDiminuir,
+                                                                                         ataqueEscolido.efeitos.porcentagemDano));
+
+        }
+
+        if (Life <= 0) dead();
+
+        combater.nestruen();
+
+    }
+
+    public void ActionSpeed(int randomatteck)
+    {
+        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck);
+
+        efeitosSpeed();
+
+        combater.startRond(ataqueEscolido.speedAtteck, this);
+    }
 
     #endregion
 }
