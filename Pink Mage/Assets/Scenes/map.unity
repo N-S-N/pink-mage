@@ -123,6 +123,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &11904010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11904012}
+  - component: {fileID: 11904011}
+  m_Layer: 0
+  m_Name: iteam(teste)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &11904011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11904010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa894529b0889d349adc2484149c1e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemConfig:
+    Life: 0
+    Mana: 0
+    Medo: 0
+    tipo: 0
+    descricao: 
+    atteck:
+      Elemento: 0
+      MimDamege: 0
+      maxdamege: 0
+      porcentagemDeAcerto: 0
+      speedAtteck: 0
+      efeitos:
+        efeito: 0
+        AtrubutoDiminuir: 0
+        elementoDoDano: 0
+        multiplos: 0
+        Maxdano: 0
+        Mimdano: 0
+        porcentagemDano: 0
+        rands: 0
+      custoLife: 0
+      custoMana: 0
+    bunusDamege: []
+    bunusResistem: []
+    Immunidades: 
+    Vulnerabilities: 
+    Resistances: 
+  imagem: {fileID: 0}
+--- !u!4 &11904012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11904010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.7877791, y: 0.4928426, z: -4.712742}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210687897
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +284,7 @@ MonoBehaviour:
   LifeMax: 30
   Speed: 20
   Mana: 0
-  medo: 0
+  Medo: 0
   bunusDamege:
   - Elemento: 6
     Bonus: 3
@@ -233,13 +306,16 @@ MonoBehaviour:
   - Elemento: 4
     MimDamege: 0
     maxdamege: 0
-    porcentagem: 100
+    porcentagemDeAcerto: 0
+    speedAtteck: 0
     efeitos:
       efeito: 0
+      AtrubutoDiminuir: 0
       elementoDoDano: 4
       multiplos: 2
       Maxdano: 5
       Mimdano: 8
+      porcentagemDano: 0
       rands: 3
     custoLife: 0
     custoMana: 0
@@ -344,6 +420,8 @@ MonoBehaviour:
   personagmeScrips: []
   playerControler: {fileID: 0}
   ordemCombates: []
+  ordemCombates2: []
+  ordemCombates3: []
   IsCombater: 0
 --- !u!4 &381458309
 Transform:
@@ -374,6 +452,7 @@ GameObject:
   - component: {fileID: 707781832}
   - component: {fileID: 707781831}
   - component: {fileID: 707781836}
+  - component: {fileID: 707781838}
   - component: {fileID: 707781837}
   m_Layer: 3
   m_Name: Player
@@ -510,11 +589,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fa53c6225c13042ae8380fa70bb93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 10
-  LifeMax: 10
+  Life: 0
+  LifeMax: 0
   Speed: 10
   Mana: 0
-  medo: 0
+  Medo: 0
   bunusDamege: []
   bunusResistem: []
   aliado: []
@@ -525,8 +604,9 @@ MonoBehaviour:
   EfeitoAtivos: []
   combater: {fileID: 0}
   combate: {fileID: 381458308}
+  atteck: []
   _velocityWalk: 5
-  _velocityRun: 0
+  _velocityRun: 7
   _camera: {fileID: 1101864786}
   PlayerState: 0
 --- !u!114 &707781837
@@ -575,6 +655,766 @@ MonoBehaviour:
   m_DefaultActionMap: playerControler
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &707781838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707781830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06060377f7efabd4db04aec9e1f63855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipamentosUnsando:
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 1
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 2
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 3
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  equipamentosQuadado:
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  - Iteam:
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    Imagem: {fileID: 0}
+    texto: {fileID: 0}
+    ImagemLocal: {fileID: 0}
+  la: 0
+  couro: 0
 --- !u!1 &1101864784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,3 +2032,4 @@ SceneRoots:
   - {fileID: 1156031963}
   - {fileID: 263435201}
   - {fileID: 210687899}
+  - {fileID: 11904012}

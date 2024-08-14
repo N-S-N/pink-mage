@@ -10,7 +10,6 @@ public class CombateControler : MonoBehaviour
     [HideInInspector] public List<ordemCombate> ordemCombates = new List<ordemCombate>();
     [HideInInspector] public List<ordemCombate> ordemCombates2 = new List<ordemCombate>();
     [HideInInspector] public List<ordemCombate> ordemCombates3 = new List<ordemCombate>();
-    int indexrand = 0;
     [HideInInspector]public bool IsCombater = false;
     int indexCauntPersonagem = 0;
 
@@ -199,7 +198,6 @@ public class CombateControler : MonoBehaviour
         playerControler = null;
         ordemCombates.Clear();
         Speed.Clear();
-        indexrand = 0;
     }
 }
 
