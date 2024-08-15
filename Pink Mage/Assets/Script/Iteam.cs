@@ -1,9 +1,15 @@
+using TMPro;
 using UnityEngine;
 
 public class Iteam : MonoBehaviour
 {
     public ItemaConfig ItemConfig;
     public Sprite imagem;
+    public TMP_Text descrição;
+    private void Awake()
+    {
+        ItemConfig.descricao = descrição.text;
+    }
 
     public enum TipoIteam
     {

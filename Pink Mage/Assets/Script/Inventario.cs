@@ -26,11 +26,22 @@ public class Inventario : MonoBehaviour
     public int la;
     public int couro;
 
+    [Header("ropa Inicial")]
+    [SerializeField] GameObject capacete;
+    [SerializeField] GameObject peitora, calca, bota;
+
     private PlayerControler player;
 
     private void Start()
     {
         player = GetComponent<PlayerControler>();
+        addIteamInicial();
+
+        Destroy(capacete);
+        Destroy(peitora);
+        Destroy(calca);
+        Destroy(bota);
+
         for (int i = 0; i < equipamentosQuadado.Count; i++)
         {
             if (equipamentosQuadado[i].Imagem == null)
@@ -44,6 +55,30 @@ public class Inventario : MonoBehaviour
         }
         laText.text = la.ToString();
         courotext.text = couro.ToString();
+    }
+    
+    void addIteamInicial()
+    {
+
+        equipamentosUnsando[0].Iteam = capacete.GetComponent<Iteam>().ItemConfig;
+        equipamentosUnsando[0].Imagem = capacete.GetComponent<Iteam>().imagem;
+        equipamentosUnsando[0].texto.text = equipamentosUnsando[0].Iteam.Nome;
+
+        equipamentosUnsando[1].Iteam = peitora.GetComponent<Iteam>().ItemConfig;
+        equipamentosUnsando[1].Imagem = peitora.GetComponent<Iteam>().imagem;
+        equipamentosUnsando[1].texto.text = equipamentosUnsando[1].Iteam.Nome;
+
+        equipamentosUnsando[2].Iteam = calca.GetComponent<Iteam>().ItemConfig;
+        equipamentosUnsando[2].Imagem = calca.GetComponent<Iteam>().imagem;
+        equipamentosUnsando[2].texto.text = equipamentosUnsando[2].Iteam.Nome;
+
+        equipamentosUnsando[3].Iteam = bota.GetComponent<Iteam>().ItemConfig;
+        equipamentosUnsando[3].Imagem = bota.GetComponent<Iteam>().imagem;
+        equipamentosUnsando[3].texto.text = equipamentosUnsando[3].Iteam.Nome;
+        for (int i = 0; i < equipamentosUnsando.Count; i ++) 
+        {
+            addItemaPlayer(equipamentosUnsando[i].Iteam);
+        }
     }
 
     public void ColoetarItema(ItemaConfig Iteam, Sprite Imagem)
@@ -72,6 +107,46 @@ public class Inventario : MonoBehaviour
 
                 break;
         }
+    }
+
+    void addItemaPlayer(ItemaConfig Iteam)
+    {
+        #region colocando no player
+        //colocando  os atributos
+        player.Life += Iteam.Life;
+        player.Mana += Iteam.Mana;
+        player.Medo += Iteam.Medo;
+
+        //adicionando o attack
+        player.atteck.Add(Iteam.atteck);
+
+        //adicionando bunusDamege
+        for (int i = 0; i < Iteam.bunusDamege.Count; i++)
+        {
+            player.bunusDamege.Add(Iteam.bunusDamege[i]);
+        }
+        //adicionando bunusResistem
+        for (int i = 0; i < Iteam.bunusResistem.Count; i++)
+        {
+            player.bunusResistem.Add(Iteam.bunusResistem[i]);
+        }
+        //adicionando Immunidades
+        for (int i = 0; i < Iteam.Immunidades.Count; i++)
+        {
+            player.Immunidades.Add(Iteam.Immunidades[i]);
+        }
+        //adicionando Vulnerabilities
+        for (int i = 0; i < Iteam.Vulnerabilities.Count; i++)
+        {
+            player.Vulnerabilities.Add(Iteam.Vulnerabilities[i]);
+        }
+        //adicionando Resistances
+        for (int i = 0; i < Iteam.Resistances.Count; i++)
+        {
+            player.Resistances.Add(Iteam.Resistances[i]);
+        }
+
+        #endregion
     }
 
     public void SubisituirEquipamento(int positiom)
@@ -122,14 +197,18 @@ public class Inventario : MonoBehaviour
     {
         if (positiom >= 0)
         {
-            descricao.text = equipamentosQuadado[positiom].Iteam.descricao;
+
+            descricao.text += equipamentosQuadado[positiom].Iteam.descricao;
+
             descricaoObj.SetActive(true);
         }
         else
         {
             positiom *= -1;
             positiom -= 1;
+
             descricao.text = equipamentosUnsando[positiom].Iteam.descricao;
+
             descricaoObj.SetActive(true);
         }
     }
@@ -182,42 +261,7 @@ public class Inventario : MonoBehaviour
 
         #endregion
 
-        #region colocando no player
-        //colocando  os atributos
-        player.Life += adiquirir.Iteam.Life;
-        player.Mana += adiquirir.Iteam.Mana;
-        player.Medo += adiquirir.Iteam.Medo;
-
-        //adicionando o attack
-        player.atteck.Add(adiquirir.Iteam.atteck);
-
-        //adicionando bunusDamege
-        for (int i = 0; i < adiquirir.Iteam.bunusDamege.Count; i++)
-        {
-            player.bunusDamege.Add(adiquirir.Iteam.bunusDamege[i]);
-        }
-        //adicionando bunusResistem
-        for (int i = 0; i < adiquirir.Iteam.bunusResistem.Count; i++)
-        {
-            player.bunusResistem.Add(adiquirir.Iteam.bunusResistem[i]);
-        }
-        //adicionando Immunidades
-        for (int i = 0; i < adiquirir.Iteam.Immunidades.Count; i++)
-        {
-            player.Immunidades.Add(adiquirir.Iteam.Immunidades[i]);
-        }
-        //adicionando Vulnerabilities
-        for (int i = 0; i < adiquirir.Iteam.Vulnerabilities.Count; i++)
-        {
-            player.Vulnerabilities.Add(adiquirir.Iteam.Vulnerabilities[i]);
-        }
-        //adicionando Resistances
-        for (int i = 0; i < adiquirir.Iteam.Resistances.Count; i++)
-        {
-            player.Resistances.Add(adiquirir.Iteam.Resistances[i]);
-        }
-
-        #endregion
+        addItemaPlayer(adiquirir.Iteam);
     }
 
     public void AtiveteInterfece(int posintiom)
@@ -253,7 +297,7 @@ public class ItemaConfig
     public TipoIteam tipo;
 
     [Header("descrecãos")]
-    public string descricao;
+    [HideInInspector]public string descricao;
 
     [Header("ataque")]
     public atteck atteck;
