@@ -16,7 +16,8 @@ public class PlayerControler : characterBasics
     [SerializeField] float _velocityRun;
     [SerializeField] Camera _camera;
 
-
+    [Header("OBJ")]
+    [SerializeField] GameObject Inventario;
 
     // variaves privadas
     private Animator InimeAnimator;
@@ -51,6 +52,7 @@ public class PlayerControler : characterBasics
 
     private void Update()
     {
+        if(DetectUIOpem())return;
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
         //InimeAnimator.SetInteger("State", (int)PlayerState);
@@ -145,7 +147,14 @@ public class PlayerControler : characterBasics
     {
         moveDirection = context.ReadValue<Vector2>();
     }
-    
+
+    public void AtivarInventario(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Inventario.SetActive(!Inventario.activeInHierarchy);
+        }
+    }
 
     #endregion
 
@@ -225,6 +234,23 @@ public class PlayerControler : characterBasics
         efeitosSpeed();
 
         combater.startRond(ataqueEscolido.speedAtteck, this);
+    }
+
+    #endregion
+
+    #region Ui
+    private bool DetectUIOpem()
+    {
+        if (Inventario.activeInHierarchy)
+        {
+            Time.timeScale = 0;
+            return true;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            return false;
+        }
     }
 
     #endregion

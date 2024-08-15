@@ -8,17 +8,42 @@ using static Iteam;
 
 public class Inventario : MonoBehaviour
 {
+    [Header("spaço de equipamentos")]
     public List<rquipamentos> equipamentosUnsando = new List<rquipamentos>();
     public List<rquipamentos> equipamentosQuadado = new List<rquipamentos>();
+
     private rquipamentos subistuir, adiquirir;
 
+    [Header("UI de Interectiom")]
+    public List<GameObject> Iterface = new List<GameObject>();
+    public List<GameObject> IterfaceEquipavel = new List<GameObject>();
+
+    [Header("Texto dos equipamentos")]
+    [SerializeField]TMP_Text laText, courotext,descricao;
+    [SerializeField] GameObject descricaoObj;
+
+    [Header("Materia prima")]
     public int la;
     public int couro;
+
     private PlayerControler player;
 
     private void Start()
     {
         player = GetComponent<PlayerControler>();
+        for (int i = 0; i < equipamentosQuadado.Count; i++)
+        {
+            if (equipamentosQuadado[i].Imagem == null)
+            {
+                equipamentosQuadado[i].texto.text = "Sem Iteam";
+            }
+            else
+            {
+                equipamentosQuadado[i].texto.text = equipamentosQuadado[i].Iteam.Nome;
+            }
+        }
+        laText.text = la.ToString();
+        courotext.text = couro.ToString();
     }
 
     public void ColoetarItema(ItemaConfig Iteam, Sprite Imagem)
@@ -27,19 +52,20 @@ public class Inventario : MonoBehaviour
         {
             case TipoIteam.la:
                 la++;
-
+                laText.text = la.ToString();
                 break;
             case TipoIteam.couro:
                 couro++;
-
+                courotext.text = couro.ToString();
                 break;
             default:
-                for(int i = 0; i< equipamentosQuadado.Count;i++)
+                for (int i = 0; i < equipamentosQuadado.Count; i++)
                 {
                     if (equipamentosQuadado[i].Imagem == null)
                     {
                         equipamentosQuadado[i].Iteam = Iteam;
                         equipamentosQuadado[i].Imagem = Imagem;
+                        equipamentosQuadado[i].texto.text = equipamentosQuadado[i].Iteam.Nome;
                         break;
                     }
                 }
@@ -50,44 +76,62 @@ public class Inventario : MonoBehaviour
 
     public void SubisituirEquipamento(int positiom)
     {
-        adiquirir = new rquipamentos(equipamentosQuadado[positiom].Iteam,
-                                     equipamentosQuadado[positiom].Imagem,
-                                     equipamentosQuadado[positiom].texto);
-        switch (equipamentosQuadado[positiom].Iteam.tipo)
+        if (equipamentosQuadado[positiom].Imagem != null)
         {
-            case TipoIteam.capacete:
-                subistuir = new rquipamentos(equipamentosUnsando[0].Iteam,
-                                             equipamentosUnsando[0].Imagem,
-                                             equipamentosUnsando[0].texto);
-                TIraEquipamento(equipamentosUnsando[0].Iteam, positiom,0);
+            adiquirir = new rquipamentos(equipamentosQuadado[positiom].Iteam,
+                                         equipamentosQuadado[positiom].Imagem,
+                                         equipamentosQuadado[positiom].texto);
+            switch (equipamentosQuadado[positiom].Iteam.tipo)
+            {
+                case TipoIteam.capacete:
+                    subistuir = new rquipamentos(equipamentosUnsando[0].Iteam,
+                                                 equipamentosUnsando[0].Imagem,
+                                                 equipamentosUnsando[0].texto);
+                    TIraEquipamento(equipamentosUnsando[0].Iteam, positiom, 0);
 
 
-                break;
-            case TipoIteam.peitoral:
-                subistuir = new rquipamentos(equipamentosUnsando[1].Iteam,
-                                             equipamentosUnsando[1].Imagem,
-                                             equipamentosUnsando[1].texto);
-                TIraEquipamento(equipamentosUnsando[1].Iteam, positiom, 1);
+                    break;
+                case TipoIteam.peitoral:
+                    subistuir = new rquipamentos(equipamentosUnsando[1].Iteam,
+                                                 equipamentosUnsando[1].Imagem,
+                                                 equipamentosUnsando[1].texto);
+                    TIraEquipamento(equipamentosUnsando[1].Iteam, positiom, 1);
 
-                break;
-            case TipoIteam.calca:
-                subistuir = new rquipamentos(equipamentosUnsando[2].Iteam,
-                                             equipamentosUnsando[2].Imagem,
-                                             equipamentosUnsando[2].texto);
-                TIraEquipamento(equipamentosUnsando[2].Iteam, positiom, 2);
+                    break;
+                case TipoIteam.calca:
+                    subistuir = new rquipamentos(equipamentosUnsando[2].Iteam,
+                                                 equipamentosUnsando[2].Imagem,
+                                                 equipamentosUnsando[2].texto);
+                    TIraEquipamento(equipamentosUnsando[2].Iteam, positiom, 2);
 
-                break;
-            case TipoIteam.bolta:
-                subistuir = new rquipamentos(equipamentosUnsando[3].Iteam,
-                                             equipamentosUnsando[3].Imagem,
-                                             equipamentosUnsando[3].texto);
-                TIraEquipamento(equipamentosUnsando[3].Iteam, positiom, 3);
+                    break;
+                case TipoIteam.bolta:
+                    subistuir = new rquipamentos(equipamentosUnsando[3].Iteam,
+                                                 equipamentosUnsando[3].Imagem,
+                                                 equipamentosUnsando[3].texto);
+                    TIraEquipamento(equipamentosUnsando[3].Iteam, positiom, 3);
 
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
+            }
         }
+    }
 
+    public void descricaoFunciom(int positiom)
+    {
+        if (positiom >= 0)
+        {
+            descricao.text = equipamentosQuadado[positiom].Iteam.descricao;
+            descricaoObj.SetActive(true);
+        }
+        else
+        {
+            positiom *= -1;
+            positiom -= 1;
+            descricao.text = equipamentosUnsando[positiom].Iteam.descricao;
+            descricaoObj.SetActive(true);
+        }
     }
 
     public void TIraEquipamento(ItemaConfig Iteam, int positionEquipamento, int positiomSubsituir)
@@ -97,7 +141,7 @@ public class Inventario : MonoBehaviour
         player.Life -= Iteam.Life;
         player.Mana -= Iteam.Mana;
         player.Medo -= Iteam.Medo;
-        
+
         //remover o attack
         player.atteck.Remove(Iteam.atteck);
 
@@ -132,6 +176,9 @@ public class Inventario : MonoBehaviour
 
         equipamentosUnsando[positiomSubsituir] = new rquipamentos(adiquirir.Iteam, adiquirir.Imagem, subistuir.texto, equipamentosUnsando[positiomSubsituir].ImagemLocal);
         equipamentosQuadado[positionEquipamento] = new rquipamentos(subistuir.Iteam, subistuir.Imagem, adiquirir.texto, equipamentosQuadado[positionEquipamento].ImagemLocal);
+        equipamentosQuadado[positionEquipamento].texto.text = equipamentosQuadado[positionEquipamento].Iteam.Nome;
+        equipamentosUnsando[positionEquipamento].texto.text = equipamentosUnsando[positionEquipamento].Iteam.Nome;
+
 
         #endregion
 
@@ -172,12 +219,31 @@ public class Inventario : MonoBehaviour
 
         #endregion
     }
-}
 
+    public void AtiveteInterfece(int posintiom)
+    {
+        if (posintiom >= 0)
+        {
+            if (equipamentosQuadado[posintiom].Imagem != null)
+            {
+                Iterface[posintiom].SetActive(true);
+            }
+        }
+        else
+        {
+            posintiom *= -1;
+            posintiom -= 1;
+            IterfaceEquipavel[posintiom].SetActive(true);
+        }
+    }
+}
 
 [System.Serializable]
 public class ItemaConfig 
 {
+    [Header("Nome")]
+    public string Nome;
+
     [Header("variaves padrão")]
     public float Life;
     public float Mana;
@@ -200,8 +266,9 @@ public class ItemaConfig
     public List<element> Immunidades = new List<element>();
     public List<element> Vulnerabilities = new List<element>();
     public List<element> Resistances = new List<element>();
-    public ItemaConfig(float Life,float Mana,float Medo, TipoIteam Tipo, string descricao,atteck attack, List<BonusDamed> bunusDamege, List<BonusDamed> bunusResistem, List<element> Immunidades, List<element> Vulnerabilities, List<element> Resistances)
+    public ItemaConfig(float Life,float Mana,float Medo, TipoIteam Tipo, string descricao,atteck attack, List<BonusDamed> bunusDamege, List<BonusDamed> bunusResistem, List<element> Immunidades, List<element> Vulnerabilities, List<element> Resistances , string nome)
     {
+        this.Nome = nome;
         this.Life = Life;
         this.Mana = Mana;
         this.Medo = Medo;
