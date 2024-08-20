@@ -37,6 +37,7 @@ public class EnimyControler : characterBasics
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        personagem = this;
     }
 
     private void Update()
@@ -192,7 +193,7 @@ public class EnimyControler : characterBasics
             for (int i = 0; i < bunusDamege.Count; i++)
             {
                 if (bunusDamege[i].Elemento == ataqueEscolido.Elemento)
-                    demegerBonus += bunusResistem[i].Bonus;
+                    demegerBonus += bunusDamege[i].Bonus;
             }
             if(personagemEscolido.playerControler != null)
                 personagemEscolido.playerControler.levardano(new BonusDamed(ataqueEscolido.Elemento,

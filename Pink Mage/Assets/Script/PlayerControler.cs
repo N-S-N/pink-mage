@@ -51,6 +51,7 @@ public class PlayerControler : characterBasics
         rig = GetComponent<Rigidbody>();
 
         combater = combate;
+        player = this;
     }
 
     private void Update()
@@ -176,7 +177,7 @@ public class PlayerControler : characterBasics
 
     public void ButomActive()
     {
-        Combater.SetActive(true);
+        Invoke("activeteButom",0.1f);
         for (int i = 0; i < buttom.Length; i++)
         {
 
@@ -189,8 +190,13 @@ public class PlayerControler : characterBasics
                 buttom[i].enabled = true;
             }
         }
+        personagemEscolido = inimigo[0];
     }
 
+    void activeteButom()
+    {
+        Combater.SetActive(true);
+    }
     public void startCombate()
     {
         if (!efeitosaplicados())
@@ -198,7 +204,6 @@ public class PlayerControler : characterBasics
             dead();
             return;
         }
-
         float randomAcerto = Random.Range(0, 100.0f);
         float demegerBonus = 0;
 

@@ -197,9 +197,11 @@ public class characterBasics : MonoBehaviour
                     atteck.Bonus = 0;
             }
         }
-
+        
         Life -= atteck.Bonus;
-        if(!seaplicado)
+        Debug.Log(Life + "  " + atteck.Elemento);
+
+        if (!seaplicado)
             if (Life <= 0)
                 dead();
 
@@ -207,27 +209,30 @@ public class characterBasics : MonoBehaviour
 
     public void dead()
     {
+        Debug.Log(player + "  " + personagem);
         if(player == null)
         {
             if (aliado.Count == 0)
             {
                 combater.endCombater();
-                Destroy(personagem, 0.1f);
+                Destroy(personagem.gameObject, 0.1f);
                 return;
             }
             else
             {
+
+                Destroy(personagem.gameObject);
+                //combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(personagem, null).StartsWith)]);
                 combater.personagmeScrips.Remove(personagem);
-                combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(personagem, null).StartsWith)]);
-                Destroy(personagem, 0.1f);
+               
             }
         }
         else
         {
-            combater.endCombater();
+            combater.endCombater();          
+            //combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(null, player).StartsWith)]);
             combater.playerControler = null;
-            combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(null, player).StartsWith)]);
-            Destroy(player, 0.1f);
+            Destroy(player.gameObject, 0.1f);
         }
       
         for (int i = 0; i < aliado.Count;i++)

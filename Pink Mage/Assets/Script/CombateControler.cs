@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombateControler : MonoBehaviour
 {
     [HideInInspector] public List<EnimyControler> personagmeScrips = new List<EnimyControler>();
     [HideInInspector] public PlayerControler playerControler;
     public List<float> Speed;
-    [HideInInspector] public List<ordemCombate> ordemCombates = new List<ordemCombate>();
+    public List<ordemCombate> ordemCombates = new List<ordemCombate>();
     [HideInInspector] public List<ordemCombate> ordemCombates2 = new List<ordemCombate>();
-    [HideInInspector] public List<ordemCombate> ordemCombates3 = new List<ordemCombate>();
+    public List<ordemCombate> ordemCombates3 = new List<ordemCombate>();
     [HideInInspector]public bool IsCombater = false;
     int indexCauntPersonagem = 0;
 
@@ -41,6 +42,7 @@ public class CombateControler : MonoBehaviour
 
         if (indexCauntPersonagem == ordemCombates.Count)
         {
+
             for (int i = 0; i < ordemCombates2.Count; i++)
             {
                 int mas = 0;
@@ -51,27 +53,59 @@ public class CombateControler : MonoBehaviour
                 ordemCombates3.Add(new ordemCombate(ordemCombates2[mas].personagmeScrips, ordemCombates2[mas].playerControler));
                 ordemCombates2.Remove(ordemCombates2[mas]);
             }
+            ordemCombates3.Add(new ordemCombate(ordemCombates2[0].personagmeScrips, ordemCombates2[0].playerControler));
 
             indexCauntPersonagem = 0;
             Speed.Clear();
             ordemCombates2.Clear();
 
+            if (ordemCombates3[0].playerControler != null)
+            {
+                PlayerControler playersave = ordemCombates3[0].playerControler;
+                ordemCombates3.Remove(ordemCombates3[0]);
 
-            if (ordemCombates3[0].playerControler != null) ordemCombates3[0].playerControler.startCombate();
-            else ordemCombates3[0].personagmeScrips.Atteck();
+                playersave.startCombate();
+            }
+            else
+            {
+                EnimyControler enimy = ordemCombates3[0].personagmeScrips;
+                ordemCombates3.Remove(ordemCombates3[0]);
 
-            ordemCombates3.Remove(ordemCombates3[0]);
+                enimy.Atteck();
+            }
+           
 
+            
         }
     }
 
     public void nestruen()
     {
-        if (ordemCombates3[0].playerControler != null) ordemCombates3[0].playerControler.startCombate();
-        else ordemCombates3[0].personagmeScrips.Atteck();
+        if(ordemCombates3.Count == 0)
+        {
+            playerControler.ButomActive();
+            for (int i = 0; i < personagmeScrips.Count; i++)
+            {
+                personagmeScrips[i].startCombate();
+                return;
+            }
+        }
 
-        ordemCombates3.Remove(ordemCombates3[0]);
+        if (ordemCombates3[0].playerControler != null)
+        {
+            PlayerControler playersave = ordemCombates3[0].playerControler;
+            ordemCombates3.Remove(ordemCombates3[0]);
 
+            playersave.startCombate();
+        }
+        else
+        {
+            EnimyControler enimy = ordemCombates3[0].personagmeScrips;
+            ordemCombates3.Remove(ordemCombates3[0]);
+
+            enimy.Atteck();
+        }
+        return;
         if (ordemCombates3.Count == 0)
         {
             playerControler.ButomActive();
