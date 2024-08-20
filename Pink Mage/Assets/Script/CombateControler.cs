@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CombateControler : MonoBehaviour
 {
     [HideInInspector] public List<EnimyControler> personagmeScrips = new List<EnimyControler>();
     [HideInInspector] public PlayerControler playerControler;
-    List<float> Speed;
+    public List<float> Speed;
     [HideInInspector] public List<ordemCombate> ordemCombates = new List<ordemCombate>();
     [HideInInspector] public List<ordemCombate> ordemCombates2 = new List<ordemCombate>();
     [HideInInspector] public List<ordemCombate> ordemCombates3 = new List<ordemCombate>();
@@ -22,6 +23,7 @@ public class CombateControler : MonoBehaviour
         {
             ordemCombates.Add(new ordemCombate(personagmeScrips[i], null));
         }
+        playerControler.aliado.Add(new ordemCombate(null, playerControler));
         playerControler.atualizarInimigo(ordemCombates);
         playerControler.ButomActive();
         for (int i = 0; i < personagmeScrips.Count; i++)
@@ -34,10 +36,10 @@ public class CombateControler : MonoBehaviour
     public void startRond(float speed, PlayerControler player = null , EnimyControler personagem = null)
     {
         indexCauntPersonagem ++ ;
-        Speed.Add(speed);
+        Speed.Add((float)speed);
         ordemCombates2.Add(new ordemCombate(personagem, player));
 
-        if (indexCauntPersonagem == ordemCombates.Count - 1)
+        if (indexCauntPersonagem == ordemCombates.Count)
         {
             for (int i = 0; i < ordemCombates2.Count; i++)
             {
@@ -204,11 +206,19 @@ public class CombateControler : MonoBehaviour
 [System.Serializable]
 public class ordemCombate
 {
-    [HideInInspector] public EnimyControler personagmeScrips;
-    [HideInInspector] public PlayerControler playerControler;
+    public EnimyControler personagmeScrips;
+    public PlayerControler playerControler;
     public ordemCombate(EnimyControler enimy, PlayerControler player)
     {
         this.personagmeScrips = enimy;
         this.playerControler = player;
+    }
+
+    public bool StartsWith(ordemCombate e)
+    {
+        if (e.personagmeScrips == personagmeScrips && e.playerControler == playerControler)
+            return true;
+        else 
+            return false;
     }
 }

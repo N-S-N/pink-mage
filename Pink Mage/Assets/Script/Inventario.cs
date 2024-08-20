@@ -17,6 +17,7 @@ public class Inventario : MonoBehaviour
     [Header("UI de Interectiom")]
     public List<GameObject> Iterface = new List<GameObject>();
     public List<GameObject> IterfaceEquipavel = new List<GameObject>();
+    public TMP_Text[] NomeAtteck;
 
     [Header("Texto dos equipamentos")]
     [SerializeField]TMP_Text laText, courotext,descricao;
@@ -77,7 +78,8 @@ public class Inventario : MonoBehaviour
         equipamentosUnsando[3].texto.text = equipamentosUnsando[3].Iteam.Nome;
         for (int i = 0; i < equipamentosUnsando.Count; i ++) 
         {
-            addItemaPlayer(equipamentosUnsando[i].Iteam);
+            addItemaPlayer(equipamentosUnsando[i].Iteam,i);
+            
         }
     }
 
@@ -109,7 +111,7 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    void addItemaPlayer(ItemaConfig Iteam)
+    void addItemaPlayer(ItemaConfig Iteam,int lugar = 0)
     {
         #region colocando no player
         //colocando  os atributos
@@ -145,6 +147,8 @@ public class Inventario : MonoBehaviour
         {
             player.Resistances.Add(Iteam.Resistances[i]);
         }
+        //muddar o nome
+        NomeAtteck[lugar].text = Iteam.atteck.Nome;
 
         #endregion
     }
@@ -261,7 +265,7 @@ public class Inventario : MonoBehaviour
 
         #endregion
 
-        addItemaPlayer(adiquirir.Iteam);
+        addItemaPlayer(adiquirir.Iteam, positiomSubsituir);
     }
 
     public void AtiveteInterfece(int posintiom)

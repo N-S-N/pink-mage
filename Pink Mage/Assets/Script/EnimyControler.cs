@@ -21,7 +21,7 @@ public class EnimyControler : characterBasics
     [Header("Comportamento quando o player chega perto")]
     [SerializeField] comportamento comportamonto;
     [SerializeField] float Distancia;
-    [HideInInspector] public PlayerControler playerScripter;
+    public PlayerControler playerScripter;
 
     Rigidbody rb;
     #endregion
@@ -98,24 +98,23 @@ public class EnimyControler : characterBasics
     #endregion
 
     #region combater
+
     public void startCombate()
     {
-        int randominimigo = Random.Range(0, inimigo.Count-1);
+        int randominimigo = Random.Range(0, inimigo.Count);
 
         personagemEscolido = inimigo[randominimigo];
 
         List<int> anterior = new List<int>();
 
         int randomatteck = 0;
-
         if (inimigo[randominimigo].playerControler != null)
         {
             for (int i = 0; i < atteck.Count; i++)
             {
-                randomatteck = Random.Range(0, atteck.Count - 1);
+                randomatteck = Random.Range(0, atteck.Count);
                 anterior.Add(randomatteck);
-
-                if (inimigo[randomatteck].playerControler.Immunidades.IndexOf(atteck[randomatteck].Elemento) != -1
+                if (inimigo[randominimigo].playerControler.Immunidades.IndexOf(atteck[randomatteck].Elemento) != -1
                     || atteck[randomatteck].custoMana > Mana
                     || atteck[randomatteck].custoLife >= Life)
                 {            
@@ -167,7 +166,7 @@ public class EnimyControler : characterBasics
             }
         }
 
-        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck);
+        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome);
 
         efeitosSpeed();
 

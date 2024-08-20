@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static characterBasics;
@@ -21,7 +22,7 @@ public class characterBasics : MonoBehaviour
 
     [Header("Companheiros")]
     public List<ordemCombate> aliado = new List<ordemCombate>();
-    [HideInInspector] public List<ordemCombate> inimigo = new List<ordemCombate>();
+    public List<ordemCombate> inimigo = new List<ordemCombate>();
 
     [Header("Restistencias A elemnetos")]
     public List<element> Immunidades = new List<element>();
@@ -31,7 +32,7 @@ public class characterBasics : MonoBehaviour
 
     [HideInInspector] public List<EfeitosCausados> EfeitoAtivos = new List<EfeitosCausados>();    
 
-    [HideInInspector] public CombateControler combater;
+    public CombateControler combater;
     protected EnimyControler personagem;
     protected PlayerControler player;
 
@@ -51,7 +52,7 @@ public class characterBasics : MonoBehaviour
         thunder,
         psychic,
         lightning,
-        darkness
+        darkness,
 
     }
 
@@ -208,21 +209,27 @@ public class characterBasics : MonoBehaviour
     {
         if(player == null)
         {
-            combater.personagmeScrips.Remove(personagem);
-            combater.ordemCombates.Remove(new ordemCombate(personagem, null));
-            Destroy(personagem,0.1f);
+            if (aliado.Count == 0)
+            {
+                combater.endCombater();
+                Destroy(personagem, 0.1f);
+                return;
+            }
+            else
+            {
+                combater.personagmeScrips.Remove(personagem);
+                combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(personagem, null).StartsWith)]);
+                Destroy(personagem, 0.1f);
+            }
         }
         else
         {
-            combater.playerControler = null;
-            combater.ordemCombates.Remove(new ordemCombate(null, player));
-        }
-
-        if (aliado.Count == 0)
-        {
             combater.endCombater();
-            return;
+            combater.playerControler = null;
+            combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(null, player).StartsWith)]);
+            Destroy(player, 0.1f);
         }
+      
         for (int i = 0; i < aliado.Count;i++)
         {
             if (aliado[i].personagmeScrips != null || aliado[i].playerControler != null) return;
@@ -240,12 +247,11 @@ public class characterBasics : MonoBehaviour
 
         for(int i = 0;i < combate.Count; i++)
         {
-            if (aliado.IndexOf(combate[i]) == -1)
+            if (aliado.FindIndex(0, aliado.Count, combate[i].StartsWith) == -1)
             {
                 inimigo.Add(combate[i]);
             }
         }
-
     }
     #endregion
 }
@@ -297,6 +303,8 @@ public class EfeitosCausados
 [System.Serializable]
 public class atteck
 {
+    [Header("Nome")]
+    public string Nome;
     [Header("Elemento Do Ataque")]
     public element Elemento;
     [Header("dano do ataque")]
@@ -310,7 +318,7 @@ public class atteck
     [Header("custo Do Ataque")]
     public float custoLife = 0;
     public float custoMana = 0;
-    public atteck(element Elemento,float maxdamege,float MimDamege, float bonus, EfeitosCausados efeitos,float custoLife,float custoMna,float speedAtteck)
+    public atteck(element Elemento,float maxdamege,float MimDamege, float bonus, EfeitosCausados efeitos,float custoLife,float custoMna,float speedAtteck, string nome)
     {
         this.Elemento = Elemento;
         this.MimDamege = MimDamege;
@@ -320,6 +328,7 @@ public class atteck
         this.custoLife = custoLife;
         this.custoMana = custoMna;
         this.speedAtteck = speedAtteck;
+        this.Nome = nome;
     }
 }
 

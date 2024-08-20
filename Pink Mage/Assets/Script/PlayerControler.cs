@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerControler : characterBasics
 {
@@ -18,6 +19,8 @@ public class PlayerControler : characterBasics
 
     [Header("OBJ")]
     [SerializeField] GameObject Inventario;
+    [SerializeField] GameObject Combater;
+    [SerializeField] Button[] buttom;
 
     // variaves privadas
     private Animator InimeAnimator;
@@ -52,7 +55,8 @@ public class PlayerControler : characterBasics
 
     private void Update()
     {
-        if(DetectUIOpem())return;
+        if (combater.IsCombater) return;
+        if (DetectUIOpem())return;
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
         //InimeAnimator.SetInteger("State", (int)PlayerState);
@@ -172,7 +176,19 @@ public class PlayerControler : characterBasics
 
     public void ButomActive()
     {
+        Combater.SetActive(true);
+        for (int i = 0; i < buttom.Length; i++)
+        {
 
+            if(Mana < atteck[i].custoMana)
+            {
+                buttom[i].enabled = false;
+            }
+            else
+            {
+                buttom[i].enabled = true;
+            }
+        }
     }
 
     public void startCombate()
@@ -229,11 +245,13 @@ public class PlayerControler : characterBasics
 
     public void ActionSpeed(int randomatteck)
     {
-        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck);
+        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome);
 
         efeitosSpeed();
 
         combater.startRond(ataqueEscolido.speedAtteck, this);
+
+        Combater.SetActive(false);
     }
 
     #endregion
