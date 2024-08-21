@@ -31,7 +31,8 @@ public class spawm : MonoBehaviour
         //spanar um inimigo aleatorio baseado na posisão
         GameObject spawm = Instantiate(_sapwmPrefeb[(int)_regionSpam].spawn[Random.Range(0, _sapwmPrefeb[(int)_regionSpam].spawn.Count - 1)],
                                        transform.position,
-                                       transform.rotation);
+                                       transform.rotation,
+                                       gameObject.transform.parent);
 
         controlerEnymy = spawm.GetComponent<EnimyControler>();
         controlerEnymy.combater = combate;

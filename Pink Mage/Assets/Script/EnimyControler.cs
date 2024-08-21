@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnimyControler : characterBasics
 {
@@ -21,9 +22,14 @@ public class EnimyControler : characterBasics
     [Header("Comportamento quando o player chega perto")]
     [SerializeField] comportamento comportamonto;
     [SerializeField] float Distancia;
+    [SerializeField] float DistanciaOfTriugerCombater;
+
     public PlayerControler playerScripter;
 
     Rigidbody rb;
+
+    NavMeshAgent navMeshAgent;
+
     #endregion
 
     #region fora de combate
@@ -37,6 +43,7 @@ public class EnimyControler : characterBasics
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         personagem = this;
     }
 
@@ -44,32 +51,50 @@ public class EnimyControler : characterBasics
     {
         if (combater.IsCombater) return;
 
-        if (Vector3.Distance(playerScripter.transform.position , transform.position) < Distancia)
+        if (playerScripter == null)
+        {
+            navMeshAgent.speed = _velocityWalk;
+            ceguindoRota();
+            return;
+        }
+
+        //por distancia
+        if (Vector3.Distance(playerScripter.transform.position, transform.position) < DistanciaOfTriugerCombater && Medo <= playerScripter.Medo)
+        {
+            combater.playerControler = playerScripter;
+            combater.personagmeScrips.Clear();
+            combater.personagmeScrips.Add(this);
+            combater.trigerStartCombater();
+        }
+
+        if (Vector3.Distance(playerScripter.transform.position, transform.position) < Distancia && Medo <= playerScripter.Medo)
+        {
+            navMeshAgent.speed = _velocityRun;
             persegindo();
+        }
         else
-            ceguindoRota();     
+        {
+            navMeshAgent.speed = _velocityWalk;
+            ceguindoRota();
+        }
     }
 
     void persegindo()
     {
         if (comportamonto == comportamento.persegir)
         {
-            Vector3 direction = (playerScripter.transform.position - transform.position).normalized;
-            direction *= _velocityRun;
-            direction.y = rb.velocity.y;
-
-            rb.velocity = direction;
+            navMeshAgent.SetDestination(playerScripter.transform.position);
         }
         else if (comportamonto == comportamento.fugir)
         {
             Vector3 direction = (transform.position - playerScripter.transform.position).normalized;
-            direction *= _velocityRun;
-            direction.y = rb.velocity.y;
+            Vector3 posicaoPersonagme = (direction*10)+ transform.position;
 
-            rb.velocity = direction;
+            navMeshAgent.SetDestination(posicaoPersonagme);
         }
         else
         {
+            navMeshAgent.speed = _velocityWalk;
             ceguindoRota();
         }
     }
@@ -78,15 +103,9 @@ public class EnimyControler : characterBasics
     {
         if (rota.Count == 0) return;
 
-        Vector3 novaVelocidade = rota[index].transform.position - transform.position;
-        novaVelocidade.Normalize();
-        novaVelocidade *= _velocityWalk;
-        novaVelocidade.y = rb.velocity.y;
+        navMeshAgent.SetDestination(rota[index].transform.position);
 
-        rb.velocity = novaVelocidade;
-
-        float distanciaDoPonto = Vector3.Distance(transform.position, rota[index].transform.position);
-        if (distanciaDoPonto <= 0.5f)
+        if (Vector3.Distance(transform.position, rota[index].transform.position) <= 0.5f)
         {
             index++;
             if (index >= rota.Count)

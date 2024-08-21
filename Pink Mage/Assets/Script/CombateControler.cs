@@ -20,13 +20,15 @@ public class CombateControler : MonoBehaviour
         IsCombater = true;
         ordemCombates.Clear();
         ordemCombates.Add(new ordemCombate(null, playerControler));
+        playerControler.thispersonagme = ordemCombates[0];
         for (int i = 0; i < personagmeScrips.Count; i++)
         {
             ordemCombates.Add(new ordemCombate(personagmeScrips[i], null));
+            personagmeScrips[i].thispersonagme = ordemCombates[i+1];
         }
         playerControler.aliado.Add(new ordemCombate(null, playerControler));
         playerControler.atualizarInimigo(ordemCombates);
-        playerControler.ButomActive();
+                playerControler.ButomActive();
         for (int i = 0; i < personagmeScrips.Count; i++)
         {
             personagmeScrips[i].atualizarInimigo(ordemCombates);
@@ -73,22 +75,22 @@ public class CombateControler : MonoBehaviour
 
                 enimy.Atteck();
             }
-           
-
-            
+                 
         }
     }
 
     public void nestruen()
     {
+        if (!IsCombater) return;
+
         if(ordemCombates3.Count == 0)
         {
             playerControler.ButomActive();
             for (int i = 0; i < personagmeScrips.Count; i++)
             {
                 personagmeScrips[i].startCombate();
-                return;
             }
+            return;
         }
 
         if (ordemCombates3[0].playerControler != null)
@@ -105,133 +107,17 @@ public class CombateControler : MonoBehaviour
 
             enimy.Atteck();
         }
-        return;
-        if (ordemCombates3.Count == 0)
-        {
-            playerControler.ButomActive();
-            for (int i = 0; i < personagmeScrips.Count; i++)
-            {
-                personagmeScrips[i].startCombate();
-            }
-        }
     }
-
-    /*
-    public void ordem()
-    {
-        IsCombater = true;
-
-        int maior = 0;
-
-        for (int i = 0;i < personagmeScrips.Count;i++)
-        {
-            Speed.Add(personagmeScrips[i].Speed);
-            if(i != 0)
-            {
-                if (personagmeScrips[maior].Speed <= personagmeScrips[i].Speed)
-                    maior = i;
-            }
-
-        }
-        Speed.Add(playerControler.Speed);
-        
-
-        if (personagmeScrips[maior].Speed <= playerControler.Speed)
-            maior = -1;
-
-
-        if (maior == -1)
-        {
-            ordemCombates.Add(new ordemCombate(null, playerControler));
-        }
-        else
-        {
-            ordemCombates.Add(new ordemCombate(personagmeScrips[maior], null));
-        }
-
-        if(personagmeScrips.Count < 1)
-        {
-            if (maior == -1)
-            {
-                ordemCombates.Add(new ordemCombate(personagmeScrips[maior], null));            
-            }
-            else
-            {
-                ordemCombates.Add(new ordemCombate(null, playerControler));
-            }
-        }
-
-        for (int i = 0; i < personagmeScrips.Count; i++)
-        {
-            if (maior == -1)
-            {
-                int indexnest = Speed.IndexOf(playerControler.Speed - 1);
-                if(indexnest != -1)
-                    ordemCombates.Add(new ordemCombate(personagmeScrips[indexnest], null));
-
-            }
-            else
-            {
-                int indexnest = Speed.IndexOf(personagmeScrips[maior].Speed-1);
-                if (indexnest != -1)
-                {
-                    if (indexnest !> personagmeScrips.Count) 
-                    {
-                        ordemCombates.Add(new ordemCombate(personagmeScrips[indexnest], null));
-                    }
-                    else
-                    {
-                        ordemCombates.Add(new ordemCombate(null, playerControler));
-                    }
-                }
-            }
-        }
-
-        for (int i = 0; i < ordemCombates.Count; i++)
-        {
-            if (i+1 < personagmeScrips.Count)
-                personagmeScrips[i].atualizarInimigo(ordemCombates);
-            else
-                playerControler.atualizarInimigo(ordemCombates);
-        }
-
-        if (ordemCombates[indexrand].playerControler != null)
-        {
-            ordemCombates[indexrand].playerControler.startCombate();
-        }
-        else
-        {
-            ordemCombates[indexrand].personagmeScrips.startCombate();
-        }
-    }
-
-    public void endAction()
-    {
-        if (ordemCombates.Count == 0) return;
-
-        indexrand++;
-
-        if (indexrand > ordemCombates.Count)
-            indexrand = 0;
-
-        if (ordemCombates[indexrand].playerControler != null)
-        {
-            ordemCombates[indexrand].playerControler.startCombate();
-        }
-        else
-        {
-            ordemCombates[indexrand].personagmeScrips.startCombate();
-        }
-
-    }
-    */
 
     public void endCombater()
     {
         IsCombater = false;
         personagmeScrips.Clear();
-        playerControler.aliado.Clear();
-        playerControler = null;
+        if (playerControler != null)
+        {
+            playerControler.aliado.Clear();
+            playerControler = null;
+        }
         ordemCombates.Clear();
         Speed.Clear();
     }

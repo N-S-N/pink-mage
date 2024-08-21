@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5988019428356690547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7680154846970208183}
+  - component: {fileID: 9160262601250769623}
+  - component: {fileID: 4408167706330484697}
+  - component: {fileID: 7485454216750337386}
+  - component: {fileID: 650092469125006038}
+  - component: {fileID: 8013857270351823339}
+  m_Layer: 0
+  m_Name: Zombir Teste
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7680154846970208183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988019428356690547}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.14644, y: 2.84, z: 1.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9160262601250769623
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988019428356690547}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &4408167706330484697
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988019428356690547}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5317d09893f24094a950feb328e5bdcb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &7485454216750337386
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988019428356690547}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &650092469125006038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988019428356690547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Life: 100
+  LifeMax: 100
+  Speed: 0
+  Mana: 10
+  Medo: 10
+  bunusDamege:
+  - Elemento: 2
+    Bonus: 3
+  - Elemento: 4
+    Bonus: 3
+  bunusResistem:
+  - Elemento: 2
+    Bonus: 2
+  aliado:
+  - personagmeScrips: {fileID: 650092469125006038}
+    playerControler: {fileID: 0}
+  inimigo: []
+  Immunidades: 0400000006000000
+  Vulnerabilities: 00000000
+  Resistances: 03000000
+  EfeitoAtivos: []
+  combater: {fileID: 0}
+  thispersonagme:
+    personagmeScrips: {fileID: 0}
+    playerControler: {fileID: 0}
+  atteck:
+  - Nome: Golpe Putrefato
+    Elemento: 2
+    MimDamege: 8
+    maxdamege: 12
+    porcentagemDeAcerto: 100
+    speedAtteck: 5
+    efeitos:
+      efeito: 0
+      AtrubutoDiminuir: 0
+      elementoDoDano: 0
+      multiplos: 0
+      Maxdano: 0
+      Mimdano: 0
+      porcentagemDano: 0
+      rands: 0
+    custoLife: 0
+    custoMana: 0
+  - Nome: Mordida Infectada
+    Elemento: 4
+    MimDamege: 5
+    maxdamege: 10
+    porcentagemDeAcerto: 100
+    speedAtteck: 5
+    efeitos:
+      efeito: 0
+      AtrubutoDiminuir: 0
+      elementoDoDano: 4
+      multiplos: 1
+      Maxdano: 3
+      Mimdano: 3
+      porcentagemDano: 100
+      rands: 2
+    custoLife: 0
+    custoMana: 0
+  - Nome: Apodrecer
+    Elemento: 3
+    MimDamege: 0
+    maxdamege: 0
+    porcentagemDeAcerto: 100
+    speedAtteck: 5
+    efeitos:
+      efeito: 0
+      AtrubutoDiminuir: 0
+      elementoDoDano: 3
+      multiplos: 1
+      Maxdano: 5
+      Mimdano: 5
+      porcentagemDano: 100
+      rands: 2
+    custoLife: 5
+    custoMana: 0
+  _velocityWalk: 2
+  _velocityRun: 4
+  rota: []
+  comportamonto: 1
+  Distancia: 6
+  DistanciaOfTriugerCombater: 2
+  playerScripter: {fileID: 0}
+--- !u!195 &8013857270351823339
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988019428356690547}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

@@ -39,6 +39,8 @@ public class characterBasics : MonoBehaviour
     //iniciativa de ataque
     protected atteck ataqueEscolido;
     protected ordemCombate personagemEscolido;
+    [HideInInspector] public ordemCombate thispersonagme;
+
     #endregion
 
     #region enum
@@ -199,7 +201,7 @@ public class characterBasics : MonoBehaviour
         }
         
         Life -= atteck.Bonus;
-        Debug.Log(Life + "  " + atteck.Elemento);
+        //Debug.Log(Life + "  " + atteck.Bonus);
 
         if (!seaplicado)
             if (Life <= 0)
@@ -209,7 +211,6 @@ public class characterBasics : MonoBehaviour
 
     public void dead()
     {
-        Debug.Log(player + "  " + personagem);
         if(player == null)
         {
             if (aliado.Count == 0)
@@ -219,18 +220,21 @@ public class characterBasics : MonoBehaviour
                 return;
             }
             else
-            {
-
-                Destroy(personagem.gameObject);
-                //combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(personagem, null).StartsWith)]);
+            {     
+                int a = combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, thispersonagme.StartsWith);
+                if (a != -1)
+                    combater.ordemCombates.Remove(combater.ordemCombates[a]);
                 combater.personagmeScrips.Remove(personagem);
-               
+                Destroy(personagem.gameObject);
             }
         }
         else
         {
-            combater.endCombater();          
-            //combater.ordemCombates.Remove(combater.ordemCombates[combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, new ordemCombate(null, player).StartsWith)]);
+            int a = combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, thispersonagme.StartsWith);
+            if (a != -1)
+                combater.ordemCombates.Remove(combater.ordemCombates[a]);
+
+            combater.endCombater();
             combater.playerControler = null;
             Destroy(player.gameObject, 0.1f);
         }
