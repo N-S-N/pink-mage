@@ -21,8 +21,8 @@ public class spawm : MonoBehaviour
     public enum region
     {
         florest,
-        castel,
-        gate
+        cidade,
+        castelo
     }
 
     private void Start()

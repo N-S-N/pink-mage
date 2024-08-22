@@ -30,7 +30,8 @@ public class characterBasics : MonoBehaviour
     public List<element> Resistances = new List<element>();
 
 
-    [HideInInspector] public List<EfeitosCausados> EfeitoAtivos = new List<EfeitosCausados>();    
+    [HideInInspector] public List<EfeitosCausados> EfeitoAtivos = new List<EfeitosCausados>();
+    [HideInInspector] public List<EfeitosCausados> EfeitoAutoAplicadoAtivos = new List<EfeitosCausados>();
 
     public CombateControler combater;
     protected EnimyControler personagem;
@@ -55,13 +56,15 @@ public class characterBasics : MonoBehaviour
         psychic,
         lightning,
         darkness,
-
+        distancia,
+        nada
     }
 
     public enum efeitos 
     { 
         dano,
-        imobiliza
+        diversos,
+        nada
     }
 
     public enum tiposDiversos 
@@ -69,9 +72,24 @@ public class characterBasics : MonoBehaviour
         dano,
         volocidade,
         acerto,
-
+        confuso,
+        Imobilizacao,
+        cura,
+        nada
     }
 
+    public enum tipoCondicao
+    {
+        nada,
+        confuso,
+        Imobilizacao
+    }
+
+    public enum efeitoCondicao
+    {
+        nada,
+        dano
+    }
     #endregion
 
     #region efeitos causados
@@ -93,6 +111,11 @@ public class characterBasics : MonoBehaviour
                         {
                             ataqueEscolido.speedAtteck -= randow;
                         }
+                        EfeitoAtivos[i].rands--;
+                        if(EfeitoAtivos[i].rands <= 0)
+                        {
+                            EfeitoAtivos.Remove(EfeitoAtivos[i]);
+                        }
                         break;
                     default:
                         break;
@@ -100,14 +123,64 @@ public class characterBasics : MonoBehaviour
             }
         }
     }
+    public bool efeitoImobilizar()
+    {
+        if (EfeitoAtivos.Count != 0)
+        {
+            for (int i = 0; i < EfeitoAtivos.Count; i++)
+            {
+                switch (EfeitoAtivos[i].AtrubutoDiminuir)
+                {
+                    case tiposDiversos.Imobilizacao:
+                        EfeitoAtivos[i].rands--;
+                        if (EfeitoAtivos[i].rands <= 0)
+                        {
+                            EfeitoAtivos.Remove(EfeitoAtivos[i]);
+                        }
+                        return true;
+                    default:
+                        break;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+    public void efeitoCunfucao()
+    {
+        if (EfeitoAtivos.Count != 0)
+        {
+            for (int i = 0; i < EfeitoAtivos.Count; i++)
+            {
+                switch (EfeitoAtivos[i].AtrubutoDiminuir)
+                {
+                    case tiposDiversos.confuso:
 
+                        if (aliado.Count > 0)
+                            personagemEscolido = aliado[Random.Range(0, aliado.Count)];
+                        else
+                            personagemEscolido = thispersonagme;
+
+                        EfeitoAtivos[i].rands--;
+                        if (EfeitoAtivos[i].rands <= 0)
+                        {
+                            EfeitoAtivos.Remove(EfeitoAtivos[i]);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+    }
     public bool efeitosaplicados()
     {
         if (EfeitoAtivos.Count != 0)
         {
             for (int i = 0; i < EfeitoAtivos.Count; i++)
             {
-                if (EfeitoAtivos[i].efeito != efeitos.imobiliza)
+                if (EfeitoAtivos[i].efeito != efeitos.diversos)
                 {
                     float danoefeito = 0;
                     for (int j = 0; j < EfeitoAtivos[i].multiplos; j++)
@@ -144,7 +217,11 @@ public class characterBasics : MonoBehaviour
                             }
                             ataqueEscolido.MimDamege = ataqueEscolido.MimDamege < 0 ? 0 : ataqueEscolido.MimDamege;
                             ataqueEscolido.maxdamege = ataqueEscolido.maxdamege < 0 ? 0 : ataqueEscolido.maxdamege;
-
+                            EfeitoAtivos[i].rands--;
+                            if (EfeitoAtivos[i].rands <= 0)
+                            {
+                                EfeitoAtivos.Remove(EfeitoAtivos[i]);
+                            }
                             break;
                         case tiposDiversos.acerto:
                             if (EfeitoAtivos[i].porcentagemDano > 0)
@@ -154,6 +231,11 @@ public class characterBasics : MonoBehaviour
                             else
                             {
                                 ataqueEscolido.porcentagemDeAcerto -= randow;
+                            }
+                            EfeitoAtivos[i].rands--;
+                            if (EfeitoAtivos[i].rands <= 0)
+                            {
+                                EfeitoAtivos.Remove(EfeitoAtivos[i]);
                             }
                             break;
                         default:
@@ -197,6 +279,26 @@ public class characterBasics : MonoBehaviour
                 atteck.Bonus -= bunusResistem[i].Bonus;
                 if (atteck.Bonus <= 0)
                     atteck.Bonus = 0;
+            }
+        }
+
+        for(int i = 0;i < EfeitoAutoAplicadoAtivos.Count;i++)
+        {
+            if (EfeitoAutoAplicadoAtivos[i].AtrubutoDiminuir == tiposDiversos.dano)
+            {
+                if(EfeitoAutoAplicadoAtivos[i].porcentagemDano > 0)
+                {
+                    atteck.Bonus = (EfeitoAutoAplicadoAtivos[i].porcentagemDano * atteck.Bonus) / 100;
+                }
+                else
+                {
+                    atteck.Bonus -= Random.Range(EfeitoAutoAplicadoAtivos[i].Mimdano, EfeitoAutoAplicadoAtivos[i].Maxdano);
+                }
+                EfeitoAutoAplicadoAtivos[i].rands--;
+                if (EfeitoAutoAplicadoAtivos[i].rands <= 0)
+                {
+                    EfeitoAutoAplicadoAtivos.Remove(EfeitoAutoAplicadoAtivos[i]);
+                }
             }
         }
         
@@ -284,6 +386,8 @@ public class EfeitosCausados
     [Header("tipo do efeito")]
     public efeitos efeito;
     public tiposDiversos AtrubutoDiminuir;
+    [Header("pocentagem de acerto")]
+    public float porcentagemAceto;
     [Header("elemento do efeito")]
     public element elementoDoDano;
     [Header("fator multiplicador do efeito")]
@@ -296,7 +400,7 @@ public class EfeitosCausados
     [Header("tempo de duração do efeito")]
     public int rands;
     
-    public EfeitosCausados(efeitos efeito, element elementoDoDano, float maxdano, float mimdano, int rands, float multipl , tiposDiversos atrubutoDiminuir,float porcentagemDano)
+    public EfeitosCausados(efeitos efeito, element elementoDoDano, float maxdano, float mimdano, int rands, float multipl , tiposDiversos atrubutoDiminuir,float porcentagemDano,float porcentagemAceto)
     {
         this.efeito = efeito;
         this.elementoDoDano = elementoDoDano;
@@ -306,6 +410,7 @@ public class EfeitosCausados
         this.multiplos = multipl;
         this.AtrubutoDiminuir = atrubutoDiminuir;
         this.porcentagemDano = porcentagemDano;
+        this.porcentagemAceto = porcentagemAceto;
     }
 }
 
@@ -314,20 +419,52 @@ public class atteck
 {
     [Header("Nome")]
     public string Nome;
+    [Header("\n")]
     [Header("Elemento Do Ataque")]
     public element Elemento;
+    [Header("\n")]
     [Header("dano do ataque")]
     public float MimDamege;
     public float maxdamege;
+    [Header("\n")]
     [Header("estatistica do ataque")]
     public float porcentagemDeAcerto;
     public float speedAtteck;
+    [Header("\n")]
+    [Header("EfeitoAutoAplicado")]
+    public EfeitosCausados efeitosAuto;
+    [Header("\n")]
+    [Header("condição")]
+    public efeitoCondicao tipoDaCondição;
+    public tiposDiversos efeitoCondicao;
+    public float porcentagemCondicao;
+    public float Maxcondicao;
+    public float mimCondicao;
+    [Header("\n")]
     [Header("efeitos")]
     public EfeitosCausados efeitos;
+    [Header("\n")]
     [Header("custo Do Ataque")]
     public float custoLife = 0;
     public float custoMana = 0;
-    public atteck(element Elemento,float maxdamege,float MimDamege, float bonus, EfeitosCausados efeitos,float custoLife,float custoMna,float speedAtteck, string nome)
+
+
+
+    public atteck(element Elemento,
+                  float maxdamege,
+                  float MimDamege,
+                  float bonus,
+                  EfeitosCausados efeitos,
+                  float custoLife,
+                  float custoMna,
+                  float speedAtteck,
+                  string nome,
+                  tiposDiversos tipoDaCondição,
+                  efeitoCondicao efeitoCondicao,
+                  float porcentagemCondicao,
+                  float Maxcondicao,
+                  float mimCondicao,
+                  EfeitosCausados efeitosAuto)
     {
         this.Elemento = Elemento;
         this.MimDamege = MimDamege;
@@ -338,6 +475,12 @@ public class atteck
         this.custoMana = custoMna;
         this.speedAtteck = speedAtteck;
         this.Nome = nome;
+        this.efeitoCondicao = tipoDaCondição;
+        this.tipoDaCondição = efeitoCondicao;
+        this.porcentagemCondicao = porcentagemCondicao;
+        this.Maxcondicao = Maxcondicao;
+        this.mimCondicao = mimCondicao;
+        this.efeitosAuto = efeitosAuto;
     }
 }
 

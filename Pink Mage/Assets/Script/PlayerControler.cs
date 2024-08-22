@@ -174,9 +174,16 @@ public class PlayerControler : characterBasics
     #endregion
 
     #region combate
-
+    bool isImobilizedi;
     public void ButomActive()
     {
+        if (efeitoImobilizar())
+        {
+            isImobilizedi = true;
+            combater.startRond(atteck[0].speedAtteck, this, null);
+            return;
+        }
+
         Invoke("activeteButom",0.1f);
         for (int i = 0; i < buttom.Length; i++)
         {
@@ -197,6 +204,7 @@ public class PlayerControler : characterBasics
     {
         Combater.SetActive(true);
     }
+
     public void startCombate()
     {
         if (!efeitosaplicados())
@@ -204,6 +212,14 @@ public class PlayerControler : characterBasics
             dead();
             return;
         }
+        if (isImobilizedi == true)
+        {
+            combater.nestruen();
+            return;
+        }
+        efeitoCunfucao();
+
+
         float randomAcerto = Random.Range(0, 100.0f);
         float demegerBonus = 0;
 
@@ -215,9 +231,30 @@ public class PlayerControler : characterBasics
             for (int i = 0; i < bunusDamege.Count; i++)
             {
                 if (bunusDamege[i].Elemento == ataqueEscolido.Elemento)
-                    demegerBonus += bunusResistem[i].Bonus;
+                    demegerBonus += bunusDamege[i].Bonus;
             }
+
             if (personagemEscolido.playerControler != null)
+            {
+                for(int i = 0; i < personagemEscolido.playerControler.EfeitoAtivos.Count;i++)
+                {
+                    if (personagemEscolido.playerControler.EfeitoAtivos[i].AtrubutoDiminuir == ataqueEscolido.efeitoCondicao)
+                    {
+                        if (ataqueEscolido.tipoDaCondição == efeitoCondicao.dano)
+                        {
+                            if(ataqueEscolido.porcentagemCondicao > 0)
+                            {
+                                demegerBonus += (ataqueEscolido.porcentagemCondicao * Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege)) / 100;
+                            }
+                            else
+                            {
+                                demegerBonus += Random.Range(ataqueEscolido.mimCondicao, ataqueEscolido.Maxcondicao);
+                            }
+
+                        }
+                        break;
+                    }
+                }
                 personagemEscolido.playerControler.levardano(new BonusDamed(ataqueEscolido.Elemento,
                                                                  Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
                                                                  new EfeitosCausados(ataqueEscolido.efeitos.efeito,
@@ -227,8 +264,39 @@ public class PlayerControler : characterBasics
                                                                                      ataqueEscolido.efeitos.rands,
                                                                                      Random.Range(1, ataqueEscolido.efeitos.multiplos),
                                                                                      ataqueEscolido.efeitos.AtrubutoDiminuir,
-                                                                                     ataqueEscolido.efeitos.porcentagemDano));
+                                                                                     ataqueEscolido.efeitos.porcentagemDano,
+                                                                                     ataqueEscolido.efeitos.porcentagemAceto));
+
+                float randomAcertoEfeito = Random.Range(0, 100.0f);
+                if (randomAcertoEfeito > ataqueEscolido.efeitos.porcentagemAceto)
+                    personagemEscolido.playerControler.EfeitoAtivos.Remove(personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1]);
+
+
+                if (personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1].efeito == efeitos.nada)
+                    personagemEscolido.playerControler.EfeitoAtivos.Remove(personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1]);
+            }
             else
+            {
+                for (int i = 0; i < personagemEscolido.personagmeScrips.EfeitoAtivos.Count; i++)
+                {
+                    if (personagemEscolido.personagmeScrips.EfeitoAtivos[i].AtrubutoDiminuir == ataqueEscolido.efeitoCondicao)
+                    {
+                        if (ataqueEscolido.tipoDaCondição == efeitoCondicao.dano)
+                        {
+                            if (ataqueEscolido.porcentagemCondicao > 0)
+                            {
+                                demegerBonus += (ataqueEscolido.porcentagemCondicao * Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege)) / 100;
+                            }
+                            else
+                            {
+                                demegerBonus += Random.Range(ataqueEscolido.mimCondicao, ataqueEscolido.Maxcondicao);
+                            }
+
+                        }
+                        break;
+                    }
+                }
+
                 personagemEscolido.personagmeScrips.levardano(new BonusDamed(ataqueEscolido.Elemento,
                                                                      Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
                                                                      new EfeitosCausados(ataqueEscolido.efeitos.efeito,
@@ -238,8 +306,82 @@ public class PlayerControler : characterBasics
                                                                                          ataqueEscolido.efeitos.rands,
                                                                                          Random.Range(1, ataqueEscolido.efeitos.multiplos),
                                                                                          ataqueEscolido.efeitos.AtrubutoDiminuir,
-                                                                                         ataqueEscolido.efeitos.porcentagemDano));
+                                                                                         ataqueEscolido.efeitos.porcentagemDano,
+                                                                                         ataqueEscolido.efeitos.porcentagemAceto));
 
+                float randomAcertoEfeito = Random.Range(0, 100.0f);
+                if (randomAcertoEfeito > ataqueEscolido.efeitos.porcentagemAceto)
+                    personagemEscolido.personagmeScrips.EfeitoAtivos.Remove(personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1]);
+
+
+                if (personagemEscolido.personagmeScrips.EfeitoAtivos[personagemEscolido.personagmeScrips.EfeitoAtivos.Count - 1].efeito == efeitos.nada)
+                    personagemEscolido.personagmeScrips.EfeitoAtivos.Remove(personagemEscolido.personagmeScrips.EfeitoAtivos[personagemEscolido.personagmeScrips.EfeitoAtivos.Count - 1]);
+            }
+            if (ataqueEscolido.efeitosAuto.efeito != efeitos.nada)
+            {
+                if (ataqueEscolido.efeitosAuto.AtrubutoDiminuir == tiposDiversos.cura)
+                {
+                    List<ordemCombate> AliadoJaCurado = new List<ordemCombate>();
+                    for (int i = 0; i < ataqueEscolido.efeitosAuto.multiplos; i++)
+                    {
+                        if (aliado.Count < i)
+                        {
+                            int a = Random.Range(0, aliado.Count);
+                            if (AliadoJaCurado.IndexOf(aliado[a]) != -1)
+                                AliadoJaCurado.Add(aliado[a]);
+                            else
+                            {
+                                while (true)
+                                {
+                                    int b = Random.Range(0, aliado.Count);
+                                    if (AliadoJaCurado.IndexOf(aliado[b]) != -1)
+                                    {
+                                        AliadoJaCurado.Add(aliado[b]);
+                                        break;
+                                    }
+                                }
+                            }
+                            if (AliadoJaCurado[i].playerControler == null)
+                            {
+                                if (ataqueEscolido.efeitosAuto.porcentagemDano <= 0)
+                                    AliadoJaCurado[i].personagmeScrips.Life += Random.Range(ataqueEscolido.efeitosAuto.Mimdano, ataqueEscolido.efeitosAuto.Maxdano);
+                                else
+                                    AliadoJaCurado[i].personagmeScrips.Life = (AliadoJaCurado[i].personagmeScrips.Life * ataqueEscolido.efeitosAuto.porcentagemDano) / 100;
+                            }
+                            else
+                            {
+                                if (ataqueEscolido.efeitosAuto.porcentagemDano <= 0)
+                                    AliadoJaCurado[i].playerControler.Life += Random.Range(ataqueEscolido.efeitosAuto.Mimdano, ataqueEscolido.efeitosAuto.Maxdano);
+                                else
+                                    AliadoJaCurado[i].playerControler.Life = (AliadoJaCurado[i].playerControler.Life * ataqueEscolido.efeitosAuto.porcentagemDano) / 100;
+                            }
+                        }
+                        else
+                        {
+                            if (ataqueEscolido.efeitosAuto.porcentagemDano <= 0)
+                                Life += Random.Range(ataqueEscolido.efeitosAuto.Mimdano, ataqueEscolido.efeitosAuto.Maxdano);
+                            else
+                                Life = (Life * ataqueEscolido.efeitosAuto.porcentagemDano) / 100;
+                        }
+                    }
+                }
+                else
+                {
+                    float randomAcertoEfeito = Random.Range(0, 100.0f);
+                    if (ataqueEscolido.efeitosAuto.porcentagemAceto <= randomAcertoEfeito)
+                    {
+                        EfeitoAutoAplicadoAtivos.Add(new EfeitosCausados(ataqueEscolido.efeitosAuto.efeito,
+                                                                                             ataqueEscolido.efeitosAuto.elementoDoDano,
+                                                                                             ataqueEscolido.efeitosAuto.Maxdano,
+                                                                                             ataqueEscolido.efeitosAuto.Mimdano,
+                                                                                             ataqueEscolido.efeitosAuto.rands,
+                                                                                             Random.Range(1, ataqueEscolido.efeitosAuto.multiplos),
+                                                                                             ataqueEscolido.efeitosAuto.AtrubutoDiminuir,
+                                                                                             ataqueEscolido.efeitosAuto.porcentagemDano,
+                                                                                             ataqueEscolido.efeitosAuto.porcentagemAceto));
+                    }
+                }
+            }
         }
 
         if (Life <= 0) dead();
@@ -250,7 +392,7 @@ public class PlayerControler : characterBasics
 
     public void ActionSpeed(int randomatteck)
     {
-        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome);
+        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto);
 
         efeitosSpeed();
 

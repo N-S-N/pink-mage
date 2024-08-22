@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5988019428356690547
+--- !u!1 &7970922153077666176
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7680154846970208183}
-  - component: {fileID: 9160262601250769623}
-  - component: {fileID: 4408167706330484697}
-  - component: {fileID: 7485454216750337386}
-  - component: {fileID: 650092469125006038}
-  - component: {fileID: 8013857270351823339}
+  - component: {fileID: 5563164609317887051}
+  - component: {fileID: 2329118908707714229}
+  - component: {fileID: 5067962009462898845}
+  - component: {fileID: 1755010450919333270}
+  - component: {fileID: 484899806726418284}
+  - component: {fileID: 6587638182142181712}
   m_Layer: 0
-  m_Name: Zombir Teste
+  m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7680154846970208183
+--- !u!4 &5563164609317887051
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 7970922153077666176}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.14644, y: 2.84, z: 1.58}
@@ -36,21 +36,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9160262601250769623
+--- !u!33 &2329118908707714229
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 7970922153077666176}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4408167706330484697
+--- !u!23 &5067962009462898845
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 7970922153077666176}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5317d09893f24094a950feb328e5bdcb, type: 2}
+  - {fileID: 2100000, guid: 0f676e656ab77554f99c27d6705aad08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7485454216750337386
+--- !u!135 &1755010450919333270
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 7970922153077666176}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -107,38 +107,36 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &650092469125006038
+--- !u!114 &484899806726418284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 7970922153077666176}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
-  LifeMax: 100
+  Life: 60
+  LifeMax: 60
   Speed: 0
   Mana: 10
   Medo: 0
   bunusDamege:
-  - Elemento: 2
-    Bonus: 3
-  - Elemento: 4
-    Bonus: 3
-  bunusResistem:
-  - Elemento: 2
+  - Elemento: 9
     Bonus: 2
-  aliado:
-  - personagmeScrips: {fileID: 650092469125006038}
-    playerControler: {fileID: 0}
+  - Elemento: 2
+    Bonus: 1
+  bunusResistem:
+  - Elemento: 9
+    Bonus: 3
+  aliado: []
   inimigo: []
-  Immunidades: 0400000006000000
-  Vulnerabilities: 00000000
-  Resistances: 03000000
+  Immunidades: 
+  Vulnerabilities: 06000000
+  Resistances: 04000000
   EfeitoAtivos: []
   EfeitoAutoAplicadoAtivos: []
   combater: {fileID: 0}
@@ -146,48 +144,15 @@ MonoBehaviour:
     personagmeScrips: {fileID: 0}
     playerControler: {fileID: 0}
   atteck:
-  - Nome: Golpe Putrefato
-    Elemento: 2
-    MimDamege: 8
-    maxdamege: 12
-    porcentagemDeAcerto: 100
-    speedAtteck: 5
-    efeitosAuto:
-      efeito: 2
-      AtrubutoDiminuir: 5
-      porcentagemAceto: 0
-      elementoDoDano: 0
-      multiplos: 0
-      Maxdano: 0
-      Mimdano: 0
-      porcentagemDano: 0
-      rands: 0
-    "tipoDaCondi\xE7\xE3o": 0
-    efeitoCondicao: 0
-    porcentagemCondicao: 0
-    Maxcondicao: 0
-    mimCondicao: 0
-    efeitos:
-      efeito: 0
-      AtrubutoDiminuir: 0
-      porcentagemAceto: 0
-      elementoDoDano: 0
-      multiplos: 0
-      Maxdano: 0
-      Mimdano: 0
-      porcentagemDano: 0
-      rands: 0
-    custoLife: 0
-    custoMana: 0
-  - Nome: Mordida Infectada
+  - Nome: Dardo Envenenado
     Elemento: 4
-    MimDamege: 5
-    maxdamege: 10
+    MimDamege: 8
+    maxdamege: 8
     porcentagemDeAcerto: 100
-    speedAtteck: 5
+    speedAtteck: 10
     efeitosAuto:
       efeito: 2
-      AtrubutoDiminuir: 5
+      AtrubutoDiminuir: 6
       porcentagemAceto: 0
       elementoDoDano: 0
       multiplos: 0
@@ -203,24 +168,57 @@ MonoBehaviour:
     efeitos:
       efeito: 0
       AtrubutoDiminuir: 0
-      porcentagemAceto: 0
+      porcentagemAceto: 100
       elementoDoDano: 4
       multiplos: 1
-      Maxdano: 3
-      Mimdano: 3
-      porcentagemDano: 100
+      Maxdano: 2
+      Mimdano: 2
+      porcentagemDano: 0
       rands: 2
     custoLife: 0
     custoMana: 0
-  - Nome: Apodrecer
-    Elemento: 3
+  - Nome: Ataque Furtivo
+    Elemento: 2
+    MimDamege: 10
+    maxdamege: 15
+    porcentagemDeAcerto: 100
+    speedAtteck: 10
+    efeitosAuto:
+      efeito: 2
+      AtrubutoDiminuir: 6
+      porcentagemAceto: 0
+      elementoDoDano: 0
+      multiplos: 0
+      Maxdano: 0
+      Mimdano: 0
+      porcentagemDano: 0
+      rands: 0
+    "tipoDaCondi\xE7\xE3o": 0
+    efeitoCondicao: 0
+    porcentagemCondicao: 0
+    Maxcondicao: 0
+    mimCondicao: 0
+    efeitos:
+      efeito: 2
+      AtrubutoDiminuir: 6
+      porcentagemAceto: 0
+      elementoDoDano: 0
+      multiplos: 0
+      Maxdano: 0
+      Mimdano: 0
+      porcentagemDano: 0
+      rands: 0
+    custoLife: 0
+    custoMana: 0
+  - Nome: Chamado da Floresta
+    Elemento: 10
     MimDamege: 0
     maxdamege: 0
     porcentagemDeAcerto: 100
-    speedAtteck: 5
+    speedAtteck: 10
     efeitosAuto:
       efeito: 2
-      AtrubutoDiminuir: 5
+      AtrubutoDiminuir: 6
       porcentagemAceto: 0
       elementoDoDano: 0
       multiplos: 0
@@ -236,35 +234,35 @@ MonoBehaviour:
     efeitos:
       efeito: 0
       AtrubutoDiminuir: 0
-      porcentagemAceto: 0
-      elementoDoDano: 3
-      multiplos: 1
-      Maxdano: 5
-      Mimdano: 5
-      porcentagemDano: 100
+      porcentagemAceto: 100
+      elementoDoDano: 10
+      multiplos: 2
+      Maxdano: 6
+      Mimdano: 3
+      porcentagemDano: 0
       rands: 2
-    custoLife: 5
+    custoLife: 0
     custoMana: 0
   _velocityWalk: 2
   _velocityRun: 4
   rota: []
-  comportamentoDeAmadilha: 0
-  Amadilha: {fileID: 0}
-  timeOFDrep: 0
-  DanoMimAmadilha: 0
-  DanoMaxAmadilha: 0
-  elemento: 0
+  comportamentoDeAmadilha: 1
+  Amadilha: {fileID: 8999583590320932698, guid: c22262ea275e3ca498902a74e5504edf, type: 3}
+  timeOFDrep: 10
+  DanoMimAmadilha: 8
+  DanoMaxAmadilha: 12
+  elemento: 10
   comportamonto: 1
   Distancia: 6
   DistanciaOfTriugerCombater: 2
   playerScripter: {fileID: 0}
---- !u!195 &8013857270351823339
+--- !u!195 &6587638182142181712
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 7970922153077666176}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5

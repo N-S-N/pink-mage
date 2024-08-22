@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5988019428356690547
+--- !u!1 &568679590072206704
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7680154846970208183}
-  - component: {fileID: 9160262601250769623}
-  - component: {fileID: 4408167706330484697}
-  - component: {fileID: 7485454216750337386}
-  - component: {fileID: 650092469125006038}
-  - component: {fileID: 8013857270351823339}
+  - component: {fileID: 5718367345540277667}
+  - component: {fileID: 1407028235806633212}
+  - component: {fileID: 6538585538801216558}
+  - component: {fileID: 3478486608226574043}
+  - component: {fileID: 6341553526248890279}
+  - component: {fileID: 5223912283121923545}
   m_Layer: 0
-  m_Name: Zombir Teste
+  m_Name: Mimic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7680154846970208183
+--- !u!4 &5718367345540277667
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 568679590072206704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.14644, y: 2.84, z: 1.58}
@@ -36,21 +36,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9160262601250769623
+--- !u!33 &1407028235806633212
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 568679590072206704}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4408167706330484697
+--- !u!23 &6538585538801216558
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 568679590072206704}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5317d09893f24094a950feb328e5bdcb, type: 2}
+  - {fileID: 2100000, guid: a8f782a0cf4ab8f4a9a2bebe796787db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7485454216750337386
+--- !u!135 &3478486608226574043
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 568679590072206704}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -107,38 +107,34 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &650092469125006038
+--- !u!114 &6341553526248890279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 568679590072206704}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 100
-  LifeMax: 100
+  Life: 120
+  LifeMax: 120
   Speed: 0
   Mana: 10
   Medo: 0
   bunusDamege:
   - Elemento: 2
-    Bonus: 3
-  - Elemento: 4
-    Bonus: 3
+    Bonus: 4
   bunusResistem:
   - Elemento: 2
-    Bonus: 2
-  aliado:
-  - personagmeScrips: {fileID: 650092469125006038}
-    playerControler: {fileID: 0}
+    Bonus: 3
+  aliado: []
   inimigo: []
-  Immunidades: 0400000006000000
+  Immunidades: 04000000
   Vulnerabilities: 00000000
-  Resistances: 03000000
+  Resistances: 0300000002000000
   EfeitoAtivos: []
   EfeitoAutoAplicadoAtivos: []
   combater: {fileID: 0}
@@ -146,81 +142,15 @@ MonoBehaviour:
     personagmeScrips: {fileID: 0}
     playerControler: {fileID: 0}
   atteck:
-  - Nome: Golpe Putrefato
-    Elemento: 2
-    MimDamege: 8
-    maxdamege: 12
-    porcentagemDeAcerto: 100
-    speedAtteck: 5
-    efeitosAuto:
-      efeito: 2
-      AtrubutoDiminuir: 5
-      porcentagemAceto: 0
-      elementoDoDano: 0
-      multiplos: 0
-      Maxdano: 0
-      Mimdano: 0
-      porcentagemDano: 0
-      rands: 0
-    "tipoDaCondi\xE7\xE3o": 0
-    efeitoCondicao: 0
-    porcentagemCondicao: 0
-    Maxcondicao: 0
-    mimCondicao: 0
-    efeitos:
-      efeito: 0
-      AtrubutoDiminuir: 0
-      porcentagemAceto: 0
-      elementoDoDano: 0
-      multiplos: 0
-      Maxdano: 0
-      Mimdano: 0
-      porcentagemDano: 0
-      rands: 0
-    custoLife: 0
-    custoMana: 0
-  - Nome: Mordida Infectada
-    Elemento: 4
-    MimDamege: 5
-    maxdamege: 10
-    porcentagemDeAcerto: 100
-    speedAtteck: 5
-    efeitosAuto:
-      efeito: 2
-      AtrubutoDiminuir: 5
-      porcentagemAceto: 0
-      elementoDoDano: 0
-      multiplos: 0
-      Maxdano: 0
-      Mimdano: 0
-      porcentagemDano: 0
-      rands: 0
-    "tipoDaCondi\xE7\xE3o": 0
-    efeitoCondicao: 0
-    porcentagemCondicao: 0
-    Maxcondicao: 0
-    mimCondicao: 0
-    efeitos:
-      efeito: 0
-      AtrubutoDiminuir: 0
-      porcentagemAceto: 0
-      elementoDoDano: 4
-      multiplos: 1
-      Maxdano: 3
-      Mimdano: 3
-      porcentagemDano: 100
-      rands: 2
-    custoLife: 0
-    custoMana: 0
-  - Nome: Apodrecer
-    Elemento: 3
+  - Nome: Armadilha Adesiva
+    Elemento: 10
     MimDamege: 0
     maxdamege: 0
     porcentagemDeAcerto: 100
     speedAtteck: 5
     efeitosAuto:
       efeito: 2
-      AtrubutoDiminuir: 5
+      AtrubutoDiminuir: 6
       porcentagemAceto: 0
       elementoDoDano: 0
       multiplos: 0
@@ -234,37 +164,70 @@ MonoBehaviour:
     Maxcondicao: 0
     mimCondicao: 0
     efeitos:
-      efeito: 0
-      AtrubutoDiminuir: 0
-      porcentagemAceto: 0
-      elementoDoDano: 3
+      efeito: 1
+      AtrubutoDiminuir: 1
+      porcentagemAceto: 100
+      elementoDoDano: 9
       multiplos: 1
-      Maxdano: 5
-      Mimdano: 5
-      porcentagemDano: 100
+      Maxdano: 0
+      Mimdano: 0
+      porcentagemDano: 50
       rands: 2
-    custoLife: 5
+    custoLife: 0
     custoMana: 0
-  _velocityWalk: 2
-  _velocityRun: 4
+  - Nome: "Devora\xE7\xE3o"
+    Elemento: 10
+    MimDamege: 10
+    maxdamege: 10
+    porcentagemDeAcerto: 100
+    speedAtteck: 5
+    efeitosAuto:
+      efeito: 2
+      AtrubutoDiminuir: 6
+      porcentagemAceto: 0
+      elementoDoDano: 0
+      multiplos: 0
+      Maxdano: 0
+      Mimdano: 0
+      porcentagemDano: 0
+      rands: 0
+    "tipoDaCondi\xE7\xE3o": 0
+    efeitoCondicao: 0
+    porcentagemCondicao: 0
+    Maxcondicao: 0
+    mimCondicao: 0
+    efeitos:
+      efeito: 2
+      AtrubutoDiminuir: 6
+      porcentagemAceto: 0
+      elementoDoDano: 0
+      multiplos: 0
+      Maxdano: 0
+      Mimdano: 0
+      porcentagemDano: 0
+      rands: 0
+    custoLife: 0
+    custoMana: 0
+  _velocityWalk: 0
+  _velocityRun: 0
   rota: []
-  comportamentoDeAmadilha: 0
+  comportamentoDeAmadilha: 2
   Amadilha: {fileID: 0}
   timeOFDrep: 0
-  DanoMimAmadilha: 0
-  DanoMaxAmadilha: 0
-  elemento: 0
+  DanoMimAmadilha: 8
+  DanoMaxAmadilha: 12
+  elemento: 2
   comportamonto: 1
   Distancia: 6
   DistanciaOfTriugerCombater: 2
   playerScripter: {fileID: 0}
---- !u!195 &8013857270351823339
+--- !u!195 &5223912283121923545
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5988019428356690547}
+  m_GameObject: {fileID: 568679590072206704}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
