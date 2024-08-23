@@ -267,13 +267,7 @@ public class PlayerControler : characterBasics
                                                                                      ataqueEscolido.efeitos.porcentagemDano,
                                                                                      ataqueEscolido.efeitos.porcentagemAceto));
 
-                float randomAcertoEfeito = Random.Range(0, 100.0f);
-                if (randomAcertoEfeito > ataqueEscolido.efeitos.porcentagemAceto)
-                    personagemEscolido.playerControler.EfeitoAtivos.Remove(personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1]);
 
-
-                if (personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1].efeito == efeitos.nada)
-                    personagemEscolido.playerControler.EfeitoAtivos.Remove(personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1]);
             }
             else
             {
@@ -308,14 +302,6 @@ public class PlayerControler : characterBasics
                                                                                          ataqueEscolido.efeitos.AtrubutoDiminuir,
                                                                                          ataqueEscolido.efeitos.porcentagemDano,
                                                                                          ataqueEscolido.efeitos.porcentagemAceto));
-
-                float randomAcertoEfeito = Random.Range(0, 100.0f);
-                if (randomAcertoEfeito > ataqueEscolido.efeitos.porcentagemAceto)
-                    personagemEscolido.personagmeScrips.EfeitoAtivos.Remove(personagemEscolido.playerControler.EfeitoAtivos[personagemEscolido.playerControler.EfeitoAtivos.Count - 1]);
-
-
-                if (personagemEscolido.personagmeScrips.EfeitoAtivos[personagemEscolido.personagmeScrips.EfeitoAtivos.Count - 1].efeito == efeitos.nada)
-                    personagemEscolido.personagmeScrips.EfeitoAtivos.Remove(personagemEscolido.personagmeScrips.EfeitoAtivos[personagemEscolido.personagmeScrips.EfeitoAtivos.Count - 1]);
             }
             if (ataqueEscolido.efeitosAuto.efeito != efeitos.nada)
             {

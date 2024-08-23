@@ -9209,7 +9209,7 @@ MonoBehaviour:
   Life: 80
   LifeMax: 80
   Speed: 10
-  Mana: 9999999
+  Mana: 120
   Medo: 0
   bunusDamege: []
   bunusResistem: []

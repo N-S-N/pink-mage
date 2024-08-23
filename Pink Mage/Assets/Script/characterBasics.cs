@@ -254,9 +254,20 @@ public class characterBasics : MonoBehaviour
     #region função de combates
     public void levardano(BonusDamed atteck, EfeitosCausados efeitosaplicados = null, bool seaplicado = false)
     {
-        if(efeitosaplicados!= null)
+      
+        if (efeitosaplicados!= null)
         {
             EfeitoAtivos.Add(efeitosaplicados);
+            if (EfeitoAtivos[EfeitoAtivos.Count - 1].efeito == efeitos.nada)
+            {
+                EfeitoAtivos.Remove(EfeitoAtivos[EfeitoAtivos.Count - 1]);
+            }
+            else
+            {
+                float randomAcertoEfeito = Random.Range(0, 100.0f);
+                if (randomAcertoEfeito > efeitosaplicados.porcentagemAceto)
+                    EfeitoAtivos.Remove(EfeitoAtivos[EfeitoAtivos.Count - 1]);
+            }
         }
 
         if (Immunidades.IndexOf(atteck.Elemento) != -1)
@@ -411,6 +422,14 @@ public class EfeitosCausados
         this.AtrubutoDiminuir = atrubutoDiminuir;
         this.porcentagemDano = porcentagemDano;
         this.porcentagemAceto = porcentagemAceto;
+    }
+
+    public bool StartsWith(EfeitosCausados e)
+    {
+        if (e.efeito == efeito && e.AtrubutoDiminuir == AtrubutoDiminuir && e.porcentagemAceto == porcentagemAceto && e.elementoDoDano == elementoDoDano && e.multiplos == multiplos && e.Maxdano == Maxdano && e.Mimdano == Mimdano && e.porcentagemDano == porcentagemDano && e.rands == rands)
+            return true;
+        else
+            return false;
     }
 }
 
