@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -21,6 +22,12 @@ public class PlayerControler : characterBasics
     [SerializeField] GameObject Inventario;
     [SerializeField] GameObject Combater;
     [SerializeField] Button[] buttom;
+
+    [Header("UI")]
+    [SerializeField] GameObject visualizension;
+    [SerializeField] Image vidaImagem;
+    [SerializeField] Image manaImage;
+    [SerializeField] TMP_Text vidaText, manaText;
 
     // variaves privadas
     private Animator InimeAnimator;
@@ -56,7 +63,16 @@ public class PlayerControler : characterBasics
 
     private void Update()
     {
-        if (combater.IsCombater) return;
+        if (combater.IsCombater)
+        {
+            visualizension.SetActive(true);
+            updadeStatus();
+            return;
+        }
+        else
+        {
+            visualizension.SetActive(false);
+        }
         if (DetectUIOpem())return;
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
@@ -402,6 +418,14 @@ public class PlayerControler : characterBasics
             Time.timeScale = 1;
             return false;
         }
+    }
+
+    void updadeStatus()
+    {
+        vidaImagem.fillAmount = Life / LifeMax;
+        manaImage.fillAmount = Mana / MaxMana;
+        vidaText.text = Life.ToString() + "/" + LifeMax.ToString();
+        manaText.text = Mana.ToString() + "/" + MaxMana.ToString();
     }
 
     #endregion

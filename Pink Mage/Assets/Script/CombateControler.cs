@@ -38,6 +38,7 @@ public class CombateControler : MonoBehaviour
 
     public void startRond(float speed, PlayerControler player = null , EnimyControler personagem = null)
     {
+
         indexCauntPersonagem ++ ;
         Speed.Add((float)speed);
         ordemCombates2.Add(new ordemCombate(personagem, player));
@@ -81,7 +82,13 @@ public class CombateControler : MonoBehaviour
 
     public void nestruen()
     {
+
         if (!IsCombater) return;
+        if (ordemCombates.Count == 1)
+        {
+            endCombater();
+            return;
+        }
 
         if(ordemCombates3.Count == 0)
         {

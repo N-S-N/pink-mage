@@ -14,6 +14,7 @@ public class characterBasics : MonoBehaviour
     public float LifeMax;
     [HideInInspector]public float Speed;
     public float Mana;
+    public float MaxMana;
     public float Medo;
 
     [Header("Bonus Elementar")]
