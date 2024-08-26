@@ -42,6 +42,7 @@ public class characterBasics : MonoBehaviour
     protected atteck ataqueEscolido;
     protected ordemCombate personagemEscolido;
     [HideInInspector] public ordemCombate thispersonagme;
+    protected bool defender;
 
     #endregion
 
@@ -96,30 +97,33 @@ public class characterBasics : MonoBehaviour
     #region efeitos causados
     public void efeitosSpeed()
     {
-        if (EfeitoAtivos.Count != 0)
+        if (ataqueEscolido != null)
         {
-            for (int i = 0; i < EfeitoAtivos.Count; i++)
+            if (EfeitoAtivos.Count != 0)
             {
-                float randow = Random.Range(EfeitoAtivos[i].Mimdano, EfeitoAtivos[i].Maxdano);
-                switch (EfeitoAtivos[i].AtrubutoDiminuir)
+                for (int i = 0; i < EfeitoAtivos.Count; i++)
                 {
-                    case tiposDiversos.volocidade:
-                        if (EfeitoAtivos[i].porcentagemDano > 0)
-                        {
-                            ataqueEscolido.speedAtteck = (EfeitoAtivos[i].porcentagemDano * ataqueEscolido.speedAtteck) / 100;
-                        }
-                        else
-                        {
-                            ataqueEscolido.speedAtteck -= randow;
-                        }
-                        EfeitoAtivos[i].rands--;
-                        if(EfeitoAtivos[i].rands <= 0)
-                        {
-                            EfeitoAtivos.Remove(EfeitoAtivos[i]);
-                        }
-                        break;
-                    default:
-                        break;
+                    float randow = Random.Range(EfeitoAtivos[i].Mimdano, EfeitoAtivos[i].Maxdano);
+                    switch (EfeitoAtivos[i].AtrubutoDiminuir)
+                    {
+                        case tiposDiversos.volocidade:
+                            if (EfeitoAtivos[i].porcentagemDano > 0)
+                            {
+                                ataqueEscolido.speedAtteck = (EfeitoAtivos[i].porcentagemDano * ataqueEscolido.speedAtteck) / 100;
+                            }
+                            else
+                            {
+                                ataqueEscolido.speedAtteck -= randow;
+                            }
+                            EfeitoAtivos[i].rands--;
+                            if (EfeitoAtivos[i].rands <= 0)
+                            {
+                                EfeitoAtivos.Remove(EfeitoAtivos[i]);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
         }
@@ -313,7 +317,12 @@ public class characterBasics : MonoBehaviour
                 }
             }
         }
-        
+
+        if (defender)
+        {
+            atteck.Bonus /= 2;
+        }
+
         Life -= atteck.Bonus;
         //Debug.Log(Life + "  " + atteck.Bonus);
 

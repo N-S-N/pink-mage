@@ -123,6 +123,7 @@ MonoBehaviour:
   LifeMax: 60
   Speed: 0
   Mana: 10
+  MaxMana: 0
   Medo: 0
   bunusDamege:
   - Elemento: 9
@@ -132,7 +133,9 @@ MonoBehaviour:
   bunusResistem:
   - Elemento: 9
     Bonus: 3
-  aliado: []
+  aliado:
+  - personagmeScrips: {fileID: 484899806726418284}
+    playerControler: {fileID: 0}
   inimigo: []
   Immunidades: 
   Vulnerabilities: 06000000

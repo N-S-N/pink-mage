@@ -39,6 +39,8 @@ public class EnimyControler : characterBasics
 
     NavMeshAgent navMeshAgent;
 
+    float medoescondido;
+
     #endregion
 
     #region fora de combate
@@ -58,6 +60,7 @@ public class EnimyControler : characterBasics
 
     private void Start()
     {
+        medoescondido = Medo;
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
         personagem = this;
@@ -65,9 +68,20 @@ public class EnimyControler : characterBasics
             InvokeRepeating("amadilha", timeOFDrep, timeOFDrep);
     }
 
+    bool invokecansasado = false;
     private void Update()
     {
-        if (combater.IsCombater) return;
+        if (combater.IsCombater)
+        {
+            CancelInvoke();
+            invokecansasado = true;
+            return;
+        }else if (invokecansasado)
+        {
+            invokecansasado = false;
+            if (comportamentoDeAmadilha == comportamentoDeAticacao.Armadilha)
+                InvokeRepeating("amadilha", timeOFDrep, timeOFDrep);
+        }
 
         if (playerScripter == null)
         {
@@ -152,6 +166,8 @@ public class EnimyControler : characterBasics
     bool isImobilizedi;
     public void startCombate()
     {
+        if (!combater.IsCombater) return;
+
         isImobilizedi = false;
         if (efeitoImobilizar())
         {
@@ -161,7 +177,6 @@ public class EnimyControler : characterBasics
         }
 
         int randominimigo = Random.Range(0, inimigo.Count);
-
         personagemEscolido = inimigo[randominimigo];
 
         List<int> anterior = new List<int>();
@@ -225,11 +240,12 @@ public class EnimyControler : characterBasics
             }
         }
 
-        ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto);
-
-        efeitosSpeed();
-
-        combater.startRond(ataqueEscolido.speedAtteck,null,this);
+        if (!combater.IsCombater) return;
+            ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto);
+        if (!combater.IsCombater) return;
+            efeitosSpeed();
+        if (!combater.IsCombater) return;
+            combater.startRond(ataqueEscolido.speedAtteck,null,this);
     }
 
     public void Atteck()
@@ -397,6 +413,22 @@ public class EnimyControler : characterBasics
         if (Life <= 0) dead();
 
         combater.nestruen();
+    }
+
+    #endregion
+
+    #region endCombate
+
+    public void fimCombateFuga()
+    {
+        Medo = 2000;
+        Invoke("contagemFuga",5f);
+        inimigo.Clear();
+    } 
+
+    void contagemFuga()
+    {
+        Medo = medoescondido;
     }
 
     #endregion

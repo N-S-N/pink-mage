@@ -123,6 +123,7 @@ MonoBehaviour:
   LifeMax: 100
   Speed: 0
   Mana: 10
+  MaxMana: 0
   Medo: 0
   bunusDamege:
   - Elemento: 2

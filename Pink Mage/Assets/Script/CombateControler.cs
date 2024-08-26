@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CombateControler : MonoBehaviour
 {
@@ -38,14 +35,16 @@ public class CombateControler : MonoBehaviour
 
     public void startRond(float speed, PlayerControler player = null , EnimyControler personagem = null)
     {
+        if (!IsCombater) return;
+        if (playerControler == null) return;
+        if (ordemCombates.Count < 2) return;
 
         indexCauntPersonagem ++ ;
         Speed.Add((float)speed);
         ordemCombates2.Add(new ordemCombate(personagem, player));
 
-        if (indexCauntPersonagem == ordemCombates.Count)
+        if (indexCauntPersonagem == ordemCombates.Count && ordemCombates.Count > 1)
         {
-
             for (int i = 0; i < ordemCombates2.Count; i++)
             {
                 int mas = 0;
@@ -126,8 +125,38 @@ public class CombateControler : MonoBehaviour
             playerControler = null;
         }
         ordemCombates.Clear();
+        ordemCombates2.Clear();
+        ordemCombates3.Clear();
         Speed.Clear();
+        indexCauntPersonagem = 0;
     }
+
+    public bool fugir()
+    {
+        float chancerplayer = Random.Range(0,20)+ playerControler.atteck[0].speedAtteck;
+
+        for (int i = 0; i < personagmeScrips.Count; i ++)
+        {
+            float chancerEnimy = Random.Range(0, 20) + personagmeScrips[i].atteck[0].speedAtteck;
+
+            if (playerControler.aliado.FindIndex(0, playerControler.aliado.Count, new ordemCombate(personagmeScrips[i], null).StartsWith) == -1)
+            {
+                if (chancerplayer < chancerEnimy)
+                {
+
+                    return false;
+                }
+
+            }
+        }
+        for (int o = 0; o < personagmeScrips.Count; o++)
+        {
+            personagmeScrips[o].fimCombateFuga();
+            personagmeScrips[o].inimigo.Clear();
+        }
+        return true;
+    }
+
 }
 
 [System.Serializable]
