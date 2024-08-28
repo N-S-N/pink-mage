@@ -20,6 +20,7 @@ public class PlayerControler : characterBasics
 
     [Header("OBJ")]
     [SerializeField] GameObject Inventario;
+    [SerializeField] GameObject pause;
     [SerializeField] GameObject Combater;
     [SerializeField] Button[] buttom;
 
@@ -28,6 +29,11 @@ public class PlayerControler : characterBasics
     [SerializeField] Image vidaImagem;
     [SerializeField] Image manaImage;
     [SerializeField] TMP_Text vidaText, manaText;
+
+    [Header("combate")]
+    [SerializeField] Button ButomDoAttteck;
+    [SerializeField] Image[] CorDoAtteck;
+    [SerializeField] TMP_Text[] CustoDoAtteck;
 
     // variaves privadas
     private Animator InimeAnimator;
@@ -73,7 +79,9 @@ public class PlayerControler : characterBasics
         {
             visualizension.SetActive(false);
         }
+
         if (DetectUIOpem())return;
+
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
         //InimeAnimator.SetInteger("State", (int)PlayerState);
@@ -173,10 +181,36 @@ public class PlayerControler : characterBasics
     {
         if (context.performed)
         {
-            Inventario.SetActive(!Inventario.activeInHierarchy);
+            if(!pause.activeInHierarchy)
+                Inventario.SetActive(!Inventario.activeInHierarchy);
         }
     }
 
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (combater.IsCombater) return;
+        if (context.performed)
+        {
+            if (Inventario.activeInHierarchy)
+            {
+                Inventario.SetActive(false);
+            }
+            else if (pause.activeInHierarchy)
+            {
+                pause.SetActive(false);
+            }
+            else
+            {
+                pause.SetActive(true);
+
+            }
+        }
+    }
+
+    public void sairPause()
+    {
+        pause.SetActive(false);
+    }
     #endregion
 
     #region funcion de movimentação
@@ -201,18 +235,27 @@ public class PlayerControler : characterBasics
         }
 
         Invoke("activeteButom",0.1f);
+        ButomDoAttteck.enabled = false;
         for (int i = 0; i < buttom.Length; i++)
         {
+            //cor
+            CorDoAtteck[i].color = atteck[i].cor;
+            //custo
+            CustoDoAtteck[i].text = atteck[i].custoMana.ToString();
 
-            if(Mana < atteck[i].custoMana)
+            //ativar
+            if (Mana < atteck[i].custoMana)
             {
                 buttom[i].enabled = false;
             }
             else
             {
                 buttom[i].enabled = true;
+                ButomDoAttteck.enabled = true;
             }
         }
+
+
         personagemEscolido = inimigo[0];
     }
 
@@ -417,7 +460,7 @@ public class PlayerControler : characterBasics
         {
             defender = false;
 
-            ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto);
+            ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto, atteck[randomatteck].cor);
 
             efeitosSpeed();
 
@@ -449,15 +492,19 @@ public class PlayerControler : characterBasics
     #region Ui
     private bool DetectUIOpem()
     {
-        if (Inventario.activeInHierarchy)
+        if (Inventario.activeInHierarchy || pause.activeInHierarchy)
         {
             Time.timeScale = 0;
             return true;
         }
-        else
+        else if(!Inventario.activeInHierarchy && !pause.activeInHierarchy)
         {
             Time.timeScale = 1;
             return false;
+        }
+        else
+        {
+            return true;
         }
     }
 

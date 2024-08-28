@@ -449,6 +449,9 @@ public class atteck
     [Header("Nome")]
     public string Nome;
     [Header("\n")]
+    [Header("Nome")]
+    public Color cor;
+    [Header("\n")]
     [Header("Elemento Do Ataque")]
     public element Elemento;
     [Header("\n")]
@@ -493,7 +496,8 @@ public class atteck
                   float porcentagemCondicao,
                   float Maxcondicao,
                   float mimCondicao,
-                  EfeitosCausados efeitosAuto)
+                  EfeitosCausados efeitosAuto,
+                  Color cor)
     {
         this.Elemento = Elemento;
         this.MimDamege = MimDamege;
@@ -510,6 +514,7 @@ public class atteck
         this.Maxcondicao = Maxcondicao;
         this.mimCondicao = mimCondicao;
         this.efeitosAuto = efeitosAuto;
+        this.cor = cor;
     }
 }
 

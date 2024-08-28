@@ -201,10 +201,12 @@ public class Inventario : MonoBehaviour
     {
         if (positiom >= 0)
         {
+            if (equipamentosQuadado[positiom].Imagem != null) 
+            {
+                descricao.text += equipamentosQuadado[positiom].Iteam.descricao;
 
-            descricao.text += equipamentosQuadado[positiom].Iteam.descricao;
-
-            descricaoObj.SetActive(true);
+                descricaoObj.SetActive(true);
+            }
         }
         else
         {
