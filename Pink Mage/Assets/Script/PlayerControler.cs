@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerControler : characterBasics
@@ -210,6 +211,11 @@ public class PlayerControler : characterBasics
     public void sairPause()
     {
         pause.SetActive(false);
+    }
+
+    public void voltarMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
     #endregion
 
