@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -36,11 +37,17 @@ public class PlayerControler : characterBasics
     [SerializeField] Image[] CorDoAtteck;
     [SerializeField] TMP_Text[] CustoDoAtteck;
 
+    [Header("Scripts")]
+    [SerializeField] Inventario inventario;
+
     // variaves privadas
     private Animator InimeAnimator;
     float stateTIme;
     Vector2 moveDirection = Vector2.zero;
     Rigidbody rig;
+    List<Save> words = new List<Save>();
+    private float TimeGame;
+    private int slot;
 
     #endregion
 
@@ -58,6 +65,14 @@ public class PlayerControler : characterBasics
     #endregion
 
     #region updete e start
+
+    private void Awake()
+    {  
+        slot = PlayerPrefs.GetInt("espaçoDeAmazenamento");
+        TimeGame = PlayerPrefs.GetFloat("Tempo");
+        loud();
+    }
+
     private void Start()
     {
         PlayerState = State.Iddle;
@@ -70,6 +85,9 @@ public class PlayerControler : characterBasics
 
     private void Update()
     {
+        //contagem do tempo
+        TimeGame += Time.deltaTime;
+
         if (combater.IsCombater)
         {
             visualizension.SetActive(true);
@@ -215,8 +233,133 @@ public class PlayerControler : characterBasics
 
     public void voltarMenu()
     {
+        if(words.Count <= 0)
+        {
+            words.Add(new Save(words.Count, 1, null, 0));
+        }
+        //sistema de muda~ça de valores
+        words[slot].Tempo = TimeGame;
+        //Scene scene = SceneManager.GetActiveScene();
+        words[slot].fase = SceneManager.GetActiveScene().buildIndex;
+
+        savePersonagem();
+        //save
+        saveMundo();
         SceneManager.LoadSceneAsync(0);
     }
+
+
+    #endregion
+
+    #region funciom de save
+    public void saveMundo()
+    {
+        SaveData data = new SaveData();
+
+        for (int i = 0; i < words.Count; i++)
+        {
+            Save itemdata = new Save(words[i].sloat, words[i].fase, words[i].personagem, words[i].Tempo);
+            data.slotData.Add(itemdata);
+        }
+
+        string jsonData = JsonUtility.ToJson(data);
+
+        File.WriteAllText("menu.json", jsonData);
+    }
+    public void savePersonagem()
+    {
+        personagem itemdata = new personagem(LifeMax,Life,MaxMana,Mana, Medo, inventario.la, inventario.couro);
+
+        string jsonData = JsonUtility.ToJson(itemdata);
+
+        File.WriteAllText("Personagem" + slot.ToString() + ".json", jsonData);
+
+        //savar inventario
+
+        rquipamentosData data = new rquipamentosData();
+        rquipamentosData data2 = new rquipamentosData();
+        for (int i = 0; i < inventario.equipamentosUnsando.Count; i++)
+        {
+            rquipamentos itemdata2 = new rquipamentos(inventario.equipamentosUnsando[i].Iteam, inventario.equipamentosUnsando[i].Imagem, inventario.equipamentosUnsando[i].texto, inventario.equipamentosUnsando[i].ImagemLocal);
+            data.slotData.Add(itemdata2);
+        }
+        for (int i = 0; i < inventario.equipamentosQuadado.Count; i++)
+        {
+            rquipamentos itemdata3 = new rquipamentos(inventario.equipamentosQuadado[i].Iteam, inventario.equipamentosQuadado[i].Imagem, inventario.equipamentosQuadado[i].texto, inventario.equipamentosQuadado[i].ImagemLocal);
+            data2.slotData.Add(itemdata3);
+        }
+
+        string jsonDataInvantario = JsonUtility.ToJson(data);
+        string jsonDataInvantario2 = JsonUtility.ToJson(data2);
+        File.WriteAllText("InventarioQuadados" + slot.ToString() + ".json", jsonDataInvantario2);
+        File.WriteAllText("InventarioUsando" + slot.ToString() + ".json", jsonDataInvantario);
+    }
+    void loud()
+    {
+        //Puxar o save
+        if (File.Exists("menu.json"))
+        {
+            string jsonData = File.ReadAllText("menu.json");
+
+            SaveData lineMapdafe = JsonUtility.FromJson<SaveData>(jsonData);
+            words = lineMapdafe.slotData;
+        }
+
+        //ver se alguma informação ser puxadas
+        if (PlayerPrefs.GetInt("Carregar") == 1)
+        {
+            if (File.Exists("Personagem" + slot.ToString() + ".json"))
+            {
+                string jsonData = File.ReadAllText("Personagem" + slot.ToString() + ".json");
+
+                personagem lineMapdafe = JsonUtility.FromJson<personagem>(jsonData);
+                LifeMax = lineMapdafe.VidaMax;
+                Life = lineMapdafe.VidaMim;
+                MaxMana = lineMapdafe.ManaMax;
+                Mana = lineMapdafe.ManaMim;
+                Medo = lineMapdafe.medo;
+                inventario.la = lineMapdafe.la;
+                inventario.couro = lineMapdafe.couro;
+            }
+            if (File.Exists("InventarioQuadados" + slot.ToString() + ".json"))
+            {
+                string jsonData = File.ReadAllText("InventarioQuadados" + slot.ToString() + ".json");
+                rquipamentosData lineMapdafe = JsonUtility.FromJson<rquipamentosData>(jsonData);
+
+                for (int i = 0; i < inventario.equipamentosQuadado.Count; i++)
+                {
+                    TMP_Text textoimagem = inventario.equipamentosQuadado[i].texto;
+                    if(lineMapdafe.slotData[i].Iteam.Nome != "")
+                         inventario.equipamentosQuadado[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
+
+                    inventario.equipamentosQuadado = lineMapdafe.slotData;
+                    inventario.equipamentosQuadado[i].texto = textoimagem;
+                   
+                }
+            }
+            if (File.Exists("InventarioUsando" + slot.ToString() + ".json"))
+            {
+                string jsonData = File.ReadAllText("InventarioUsando" + slot.ToString() + ".json");
+                rquipamentosData lineMapdafe = JsonUtility.FromJson<rquipamentosData>(jsonData);
+
+                for (int i = 0; i < inventario.equipamentosUnsando.Count; i++)
+                {
+                    TMP_Text textoimagem = inventario.equipamentosUnsando[i].texto;
+                    inventario.equipamentosUnsando[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
+                    inventario.equipamentosUnsando[i] = lineMapdafe.slotData[i];
+                    inventario.equipamentosUnsando[i].texto = textoimagem;
+                   
+                }
+
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+
     #endregion
 
     #region funcion de movimentação
@@ -524,3 +667,40 @@ public class PlayerControler : characterBasics
 
     #endregion
 }
+
+
+[System.Serializable]
+public class personagem
+{
+    public float VidaMax;
+    public float VidaMim;
+    public float ManaMax;
+    public float ManaMim;
+    public float medo;
+    public int la;
+    public int couro;
+
+    public personagem(float VidaMax,float VidaMim, float ManaMax, float ManaMim,float medo, int la, int couro)
+    {
+        this.VidaMax = VidaMax;
+        this.VidaMim = VidaMim;
+        this.ManaMax = ManaMax;
+        this.ManaMim = ManaMim;
+        this.medo = medo;
+        this.la = la;
+        this.couro = couro;
+
+    }
+}
+
+public class rquipamentosData 
+{
+    public List<rquipamentos> slotData = new List<rquipamentos>();
+
+}
+
+
+
+
+
+

@@ -36,12 +36,24 @@ public class Inventario : MonoBehaviour
     private void Start()
     {
         player = GetComponent<PlayerControler>();
-        addIteamInicial();
-
-        Destroy(capacete);
-        Destroy(peitora);
-        Destroy(calca);
-        Destroy(bota);
+        if (PlayerPrefs.GetInt("Carregar") == 0) 
+        {
+            addIteamInicial();
+            Destroy(capacete);
+            Destroy(peitora);
+            Destroy(calca);
+            Destroy(bota);
+        }
+        else
+        {
+            Destroy(capacete);
+            Destroy(peitora);
+            Destroy(calca);
+            Destroy(bota);
+            laText.text = la.ToString();
+            courotext.text = couro.ToString();
+            return;
+        }  
 
         for (int i = 0; i < equipamentosQuadado.Count; i++)
         {
