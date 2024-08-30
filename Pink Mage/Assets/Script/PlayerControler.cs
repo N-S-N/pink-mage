@@ -275,7 +275,7 @@ public class PlayerControler : characterBasics
         File.WriteAllText("Personagem" + slot.ToString() + ".json", jsonData);
 
         //savar inventario
-
+        
         rquipamentosData data = new rquipamentosData();
         rquipamentosData data2 = new rquipamentosData();
         for (int i = 0; i < inventario.equipamentosUnsando.Count; i++)
@@ -321,6 +321,7 @@ public class PlayerControler : characterBasics
                 inventario.la = lineMapdafe.la;
                 inventario.couro = lineMapdafe.couro;
             }
+            
             if (File.Exists("InventarioQuadados" + slot.ToString() + ".json"))
             {
                 string jsonData = File.ReadAllText("InventarioQuadados" + slot.ToString() + ".json");
@@ -348,7 +349,9 @@ public class PlayerControler : characterBasics
                     inventario.equipamentosUnsando[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
                     inventario.equipamentosUnsando[i] = lineMapdafe.slotData[i];
                     inventario.equipamentosUnsando[i].texto = textoimagem;
-                   
+
+                    atteck.Add(inventario.equipamentosUnsando[i].Iteam.atteck);
+
                 }
 
             }
