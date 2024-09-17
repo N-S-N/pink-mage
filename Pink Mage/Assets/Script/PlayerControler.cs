@@ -36,9 +36,11 @@ public class PlayerControler : characterBasics
     [SerializeField] Button ButomDoAttteck;
     [SerializeField] Image[] CorDoAtteck;
     [SerializeField] TMP_Text[] CustoDoAtteck;
+    [SerializeField] bool CombaterSena = false;
 
     [Header("Scripts")]
     [SerializeField] Inventario inventario;
+
 
     // variaves privadas
     private Animator InimeAnimator;
@@ -193,11 +195,13 @@ public class PlayerControler : characterBasics
     
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (CombaterSena) return;
         moveDirection = context.ReadValue<Vector2>();
     }
 
     public void AtivarInventario(InputAction.CallbackContext context)
     {
+        if (CombaterSena) return;
         if (context.performed)
         {
             if(!pause.activeInHierarchy)
@@ -207,6 +211,7 @@ public class PlayerControler : characterBasics
 
     public void Pause(InputAction.CallbackContext context)
     {
+        if (CombaterSena) return;
         if (combater.IsCombater) return;
         if (context.performed)
         {

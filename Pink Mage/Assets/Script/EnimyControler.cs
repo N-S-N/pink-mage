@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -93,12 +94,9 @@ public class EnimyControler : characterBasics
         //por distancia
         if (Vector3.Distance(playerScripter.transform.position, transform.position) < DistanciaOfTriugerCombater && Medo <= playerScripter.Medo)
         {
-            combater.playerControler = playerScripter;
-            combater.personagmeScrips.Clear();
-            combater.personagmeScrips.Add(this);
             if(comportamentoDeAmadilha == comportamentoDeAticacao.trasformacao)
                 playerScripter.levardano (new BonusDamed(elemento, Random.Range(DanoMimAmadilha, DanoMaxAmadilha)));
-            combater.trigerStartCombater();
+            CombaterComander();
         }
 
         if (Vector3.Distance(playerScripter.transform.position, transform.position) < Distancia && Medo <= playerScripter.Medo)
@@ -159,6 +157,27 @@ public class EnimyControler : characterBasics
         }
     }
 
+
+    public void CombaterComander()
+    {
+        combaterSenaData itemdata2 = new combaterSenaData(null, null);
+
+        itemdata2.enimy.Add(gameObject);
+        
+        for (int i = 0; i < player.aliado.Count; i++)
+        {
+            itemdata2.Aliados.Add(player.aliado[i].personagmeScrips.gameObject);
+        }
+
+        combaterSena itemdata = new combaterSena();
+
+        itemdata.enimy = itemdata2;
+        string jsonData = JsonUtility.ToJson(itemdata);
+
+        File.WriteAllText("combater.json", jsonData);
+        PlayerPrefs.SetInt("Carregar", 1);
+        player.savePersonagem();
+    }
     #endregion
 
     #region combater
