@@ -1,0 +1,593 @@
+fileFormatVersion: 2
+guid: a566fff1774b7ec42a68b73247aa6561
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: corpo esquerda
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 2728
+        width: 67
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c4142a4ebe1c54a838ccdb3ba3a081
+      internalID: -2092578146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpo costas
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 2803
+        width: 73
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89f580182a3ad0478f60181915f9241
+      internalID: 278127569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpo direita
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2728
+        width: 67
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27ed354e73eb47488fa2212af1f95c6
+      internalID: 253271086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: corpo frente
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 2648
+        width: 73
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d94dfb88033ba4ba51f8a4d699a5fb
+      internalID: -1262958396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink mage-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 2159
+        width: 61
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0687df2de2198aa42a4271c4677047ed
+      internalID: -540470350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink mage-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 2078
+        width: 77
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7b7b3bc2ab49346bb942dacaed6132
+      internalID: -42613025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink mage-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2078
+        width: 77
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a663288ee84635469aecaf4238c8598
+      internalID: 987154002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: capa costas
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1539
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 701ec6cfb090e0544ade1c44a7cf60ac
+      internalID: 1908354526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: capa esquerda
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1459
+        width: 72
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db66d88f9ab41de4c9da43dc879fc3a3
+      internalID: -645254908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: capa direita
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1459
+        width: 72
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e4948c04fea35e4e92b87ff1a4251e8
+      internalID: -2016584461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: capa frente
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1378
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41709b9bdd510e0458d20ec279e450b9
+      internalID: 649267351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luvas costa
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 894
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd682ead2f82e94c97493e1d45249b0
+      internalID: 245427771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luvas esquerda
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 819
+        width: 87
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac5151b5550e95f488ef3cf3294a7bc4
+      internalID: -1227976235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luvas direita
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 819
+        width: 89
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255415674cf18b344948408597bc48a7
+      internalID: 541557475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: luvas frente
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 739
+        width: 92
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca231cbe0f1bc34cae1a9fe8c7058c3
+      internalID: -1495610150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chapeu esquerda
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 234
+        width: 76
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f113c3b2a32ab4aa12f9181c499831
+      internalID: -1505654794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chapeu costas
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 303
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0be449bdc32a14ab58516f3b4daa01
+      internalID: -874521517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chapeu direita
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 234
+        width: 78
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc40e9b9d28fabd4d939b74a778bb9e4
+      internalID: 443504034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chapeu frente
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 148
+        width: 83
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b315e807c75c81941948ae0ee6a0325e
+      internalID: -457108784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink mage-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 1999
+        width: 61
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d88e1ae1ffc6849981a6a924f6be4d
+      internalID: 869052151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c00b149df8e734948b012fb3052d754b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      capa costas: 1908354526
+      capa direita: -2016584461
+      capa esquerda: -645254908
+      capa frente: 649267351
+      chapeu costas: -874521517
+      chapeu direita: 443504034
+      chapeu esquerda: -1505654794
+      chapeu frente: -457108784
+      corpo costas: 278127569
+      corpo direita: 253271086
+      corpo esquerda: -2092578146
+      corpo frente: -1262958396
+      luvas costa: 245427771
+      luvas direita: 541557475
+      luvas esquerda: -1227976235
+      luvas frente: -1495610150
+      pink mage-Sheet_0: 869052151
+      pink mage-Sheet_1: -1259628722
+      pink mage-Sheet_10: -2116417698
+      pink mage-Sheet_11: -523776405
+      pink mage-Sheet_12: -540470350
+      pink mage-Sheet_13: -537137091
+      pink mage-Sheet_14: 982353172
+      pink mage-Sheet_15: -42613025
+      pink mage-Sheet_16: 987154002
+      pink mage-Sheet_17: -2081682
+      pink mage-Sheet_18: 372796882
+      pink mage-Sheet_19: -1523739696
+      pink mage-Sheet_2: 422509314
+      pink mage-Sheet_20: 1203476136
+      pink mage-Sheet_21: 1304187691
+      pink mage-Sheet_26: 1350269181
+      pink mage-Sheet_27: -1577929918
+      pink mage-Sheet_28: -2042695840
+      pink mage-Sheet_29: -826559384
+      pink mage-Sheet_3: -429530844
+      pink mage-Sheet_30: 1216773034
+      pink mage-Sheet_31: -353489833
+      pink mage-Sheet_33: -1787228168
+      pink mage-Sheet_35: -38729442
+      pink mage-Sheet_36: 550352948
+      pink mage-Sheet_39: -1400266235
+      pink mage-Sheet_40: -819650895
+      pink mage-Sheet_41: -1758815889
+      pink mage-Sheet_8: -861251258
+      pink mage-Sheet_9: -684371231
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
