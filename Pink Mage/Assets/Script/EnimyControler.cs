@@ -16,8 +16,10 @@ public class EnimyControler : characterBasics
     [SerializeField] float _velocityWalk;
     [SerializeField] float _velocityRun;
 
-    [Header("rota dos movimento")]
+    [Header("personagem")]
+    [SerializeField] GameObject sprite;
 
+    [Header("rota dos movimento")]
     [HideInInspector] public List<GameObject> rota = new List<GameObject>();
     int index = 0;
 
@@ -72,12 +74,17 @@ public class EnimyControler : characterBasics
     bool invokecansasado = false;
     private void Update()
     {
+        //sempre fica para a camera
+
+        sprite.transform.forward = Camera.main.transform.forward;
+
         if (combater.IsCombater)
         {
             CancelInvoke();
             invokecansasado = true;
             return;
-        }else if (invokecansasado)
+        }
+        else if (invokecansasado)
         {
             invokecansasado = false;
             if (comportamentoDeAmadilha == comportamentoDeAticacao.Armadilha)

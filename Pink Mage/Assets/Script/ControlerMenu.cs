@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using Color = UnityEngine.Color;
 
 public class ControlerMenu : MonoBehaviour
 {
@@ -39,7 +40,11 @@ public class ControlerMenu : MonoBehaviour
             //setar butom
             savecon.tempo = words[i].Tempo;
             savecon.Slot = words[i].sloat;
-            savecon.Imagem = words[i].personagem;
+            savecon.Imagem[0].color = words[i].personagemCapacete;
+            savecon.Imagem[1].color = words[i].personagemCapa;
+            savecon.Imagem[2].color = words[i].personagemLuva;
+            savecon.Imagem[3].color = words[i].personagemBota;
+
             savecon.fase = words[i].fase;
 
             //tempo cauculado em horas
@@ -49,7 +54,10 @@ public class ControlerMenu : MonoBehaviour
 
             savecon.TempoDeJogo.text = horas.ToString("F0") + ":" + menutos.ToString("F0");
             savecon.SlotDoButom.text = words[i].sloat.ToString();
-            savecon.imagemDoPersonagem.sprite = words[i].personagem;
+            savecon.imagemDoPersonagem[0].color = words[i].personagemCapacete;
+            savecon.imagemDoPersonagem[1].color = words[i].personagemCapa;
+            savecon.imagemDoPersonagem[2].color = words[i].personagemLuva;
+            savecon.imagemDoPersonagem[3].color = words[i].personagemBota;
 
             //almentar o tamanho coretamente
 
@@ -64,7 +72,7 @@ public class ControlerMenu : MonoBehaviour
 
         for (int i = 0; i < words.Count; i++)
         {
-            Save itemdata = new Save(words[i].sloat, words[i].fase, words[i].personagem, words[i].Tempo);
+            Save itemdata = new Save(words[i].sloat, words[i].fase, words[i].personagemCapacete, words[i].personagemCapa, words[i].personagemLuva, words[i].personagemBota, words[i].Tempo);
             data.slotData.Add(itemdata);
         }
 
@@ -84,7 +92,7 @@ public class ControlerMenu : MonoBehaviour
 
     public void NewGame()
     {
-        words.Add(new Save(words.Count,1,null,0));
+        words.Add(new Save(words.Count,1,Color.white, Color.white, Color.white, Color.white, 0));
         saveMundo();
         PlayerPrefs.SetFloat("Tempo", 0);
         PlayerPrefs.SetInt("Carregar", 0);
@@ -102,14 +110,21 @@ public class Save
 {
     public int sloat;
     public int fase;
-    public Sprite personagem;
+    public Color personagemCapacete;
+    public Color personagemCapa;
+    public Color personagemLuva;
+    public Color personagemBota;
     public float Tempo;
 
-    public Save(int sloat, int fase,Sprite personagem, float tempo)
+    public Save(int sloat, int fase, Color personagemCapacete, Color personagemCapa, Color personagemLuva, Color personagemBota, float tempo)
     {
         this.sloat = sloat;
         this.fase = fase;
-        this.personagem = personagem;
+        this.personagemCapacete = personagemCapacete;
+        this.personagemCapa = personagemCapa;
+        this.personagemLuva = personagemLuva;
+        this.personagemBota = personagemBota;
+
         this.Tempo = tempo;
     }
 }

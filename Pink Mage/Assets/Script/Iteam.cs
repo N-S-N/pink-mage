@@ -4,7 +4,7 @@ using UnityEngine;
 public class Iteam : MonoBehaviour
 {
     public ItemaConfig ItemConfig;
-    public Sprite imagem;
+    public Color imagem;
     public TMP_Text descrição;
     private void Awake()
     {

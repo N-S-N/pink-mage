@@ -105,7 +105,7 @@ public class PlayerControler : characterBasics
 
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
-        //InimeAnimator.SetInteger("State", (int)PlayerState);
+        InimeAnimator.SetFloat("state", (int)PlayerState);
     }
     #endregion
 
@@ -240,7 +240,7 @@ public class PlayerControler : characterBasics
     {
         if(words.Count <= 0)
         {
-            words.Add(new Save(words.Count, 1, null, 0));
+            words.Add(new Save(words.Count, 1, Color.white, Color.white, Color.white, Color.white, 0));
         }
         //sistema de muda~ça de valores
         words[slot].Tempo = TimeGame;
@@ -263,7 +263,7 @@ public class PlayerControler : characterBasics
 
         for (int i = 0; i < words.Count; i++)
         {
-            Save itemdata = new Save(words[i].sloat, words[i].fase, words[i].personagem, words[i].Tempo);
+            Save itemdata = new Save(words[i].sloat, words[i].fase, inventario.equipamentosUnsando[0].Imagem, inventario.equipamentosUnsando[1].Imagem, inventario.equipamentosUnsando[2].Imagem, inventario.equipamentosUnsando[3].Imagem, words[i].Tempo);
             data.slotData.Add(itemdata);
         }
 
@@ -374,6 +374,8 @@ public class PlayerControler : characterBasics
     void Movimentacoa()
     {
         Vector3 move = new Vector3(moveDirection.x, rig.velocity.y, moveDirection.y) * _velocityWalk;
+        InimeAnimator.SetFloat("x", moveDirection.x);
+        InimeAnimator.SetFloat("y", moveDirection.y);
         rig.velocity = move;
     }
 
@@ -676,7 +678,7 @@ public class PlayerControler : characterBasics
     #endregion
 }
 
-
+#region Creat list
 [System.Serializable]
 public class personagem
 {
@@ -706,6 +708,7 @@ public class rquipamentosData
     public List<rquipamentos> slotData = new List<rquipamentos>();
 
 }
+#endregion
 
 
 

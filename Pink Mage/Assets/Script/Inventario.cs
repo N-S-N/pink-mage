@@ -17,6 +17,7 @@ public class Inventario : MonoBehaviour
     [Header("UI de Interectiom")]
     public List<GameObject> Iterface = new List<GameObject>();
     public List<GameObject> IterfaceEquipavel = new List<GameObject>();
+    [SerializeField] List<Image> referencias = new List<Image>(); 
     public TMP_Text[] NomeAtteck;
 
     [Header("Texto dos equipamentos")]
@@ -30,6 +31,8 @@ public class Inventario : MonoBehaviour
     [Header("ropa Inicial")]
     [SerializeField] GameObject capacete;
     [SerializeField] GameObject peitora, calca, bota;
+
+    [SerializeField] List<SpriteRenderer> roupaPersonagem;
 
     private PlayerControler player;
 
@@ -90,12 +93,12 @@ public class Inventario : MonoBehaviour
         equipamentosUnsando[3].texto.text = equipamentosUnsando[3].Iteam.Nome;
         for (int i = 0; i < equipamentosUnsando.Count; i ++) 
         {
-            addItemaPlayer(equipamentosUnsando[i].Iteam,i);
+            addItemaPlayer(equipamentosUnsando[i].Iteam, equipamentosUnsando[i].Imagem, i);
             
         }
     }
 
-    public void ColoetarItema(ItemaConfig Iteam, Sprite Imagem)
+    public void ColoetarItema(ItemaConfig Iteam, Color Imagem)
     {
         switch (Iteam.tipo)
         {
@@ -123,9 +126,10 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    void addItemaPlayer(ItemaConfig Iteam,int lugar = 0)
+    void addItemaPlayer(ItemaConfig Iteam, Color Imagem, int lugar = 0)
     {
         #region colocando no player
+
         //colocando  os atributos
         player.Life += Iteam.Life;
         player.Mana += Iteam.Mana;
@@ -162,6 +166,14 @@ public class Inventario : MonoBehaviour
         //muddar o nome
         NomeAtteck[lugar].text = Iteam.atteck.Nome;
 
+        //mudando a cor
+
+        for (int i = 0; i < roupaPersonagem.Count; i++)
+        {
+            roupaPersonagem[i].color = Imagem;
+            equipamentosUnsando[i].ImagemLocal.color = equipamentosUnsando[i].Imagem;
+            referencias[i].color = equipamentosUnsando[i].Imagem;
+        }
         #endregion
     }
 
@@ -275,11 +287,12 @@ public class Inventario : MonoBehaviour
         equipamentosQuadado[positionEquipamento] = new rquipamentos(subistuir.Iteam, subistuir.Imagem, adiquirir.texto, equipamentosQuadado[positionEquipamento].ImagemLocal);
         equipamentosQuadado[positionEquipamento].texto.text = equipamentosQuadado[positionEquipamento].Iteam.Nome;
         equipamentosUnsando[positionEquipamento].texto.text = equipamentosUnsando[positionEquipamento].Iteam.Nome;
-
+        equipamentosQuadado[positionEquipamento].ImagemLocal.color = equipamentosQuadado[positionEquipamento].Imagem;
+        equipamentosUnsando[positionEquipamento].ImagemLocal.color = equipamentosUnsando[positionEquipamento].Imagem;
 
         #endregion
 
-        addItemaPlayer(adiquirir.Iteam, positiomSubsituir);
+        addItemaPlayer(adiquirir.Iteam, adiquirir.Imagem, positiomSubsituir);
     }
 
     public void AtiveteInterfece(int posintiom)
@@ -350,11 +363,11 @@ public class ItemaConfig
 public class rquipamentos
 {
     public ItemaConfig Iteam;
-    public Sprite Imagem;
+    public Color Imagem;
     public TMP_Text texto;
     public Image ImagemLocal;
 
-    public rquipamentos(ItemaConfig Iteam, Sprite imagem, TMP_Text textoIteam,Image ImagemLocal = null)
+    public rquipamentos(ItemaConfig Iteam, Color imagem, TMP_Text textoIteam,Image ImagemLocal = null)
     {
         this.Iteam = Iteam;
         this.Imagem = imagem;

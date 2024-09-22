@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class SaveControler : MonoBehaviour
 {
-    public Image imagemDoPersonagem;
+    public List<Image> imagemDoPersonagem;
     public TMP_Text SlotDoButom;
     public TMP_Text TempoDeJogo;
 
     public float tempo;
     public int Slot;
-    public Sprite Imagem;
+    public List<Image> Imagem;
     public int fase;
 
     public void selecionou()
