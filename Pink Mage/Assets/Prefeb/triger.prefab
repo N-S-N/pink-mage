@@ -72,3 +72,20 @@ MonoBehaviour:
   damege:
     Elemento: 10
     Bonus: 0
+  referencias: 
+  prefebEnimy:
+  - {fileID: 6850634302101809899, guid: 9a37101cc1fa1714f9db8c1ec4adf56e, type: 3}
+  - {fileID: 7970922153077666176, guid: d1a760397fa06ac45b2bf877a10128ce, type: 3}
+  - {fileID: 568679590072206704, guid: 65702c004b536e94784f2805a6e84cf6, type: 3}
+  - {fileID: 4175442327798981770, guid: 202aabc17f1432f47b7b2b627e6a95a1, type: 3}
+  - {fileID: 1996088598386558946, guid: c3183e1844ce26448a91f70352c5775d, type: 3}
+  - {fileID: 1265715637124357379, guid: 8548c497a20582e458c6ddbd00dd328f, type: 3}
+  - {fileID: 5988019428356690547, guid: 547e56c6ffed33b4d99d2a3aeff28970, type: 3}
+  prefebAliado:
+  - {fileID: 6850634302101809899, guid: 9a37101cc1fa1714f9db8c1ec4adf56e, type: 3}
+  - {fileID: 7970922153077666176, guid: d1a760397fa06ac45b2bf877a10128ce, type: 3}
+  - {fileID: 568679590072206704, guid: 65702c004b536e94784f2805a6e84cf6, type: 3}
+  - {fileID: 4175442327798981770, guid: 202aabc17f1432f47b7b2b627e6a95a1, type: 3}
+  - {fileID: 1996088598386558946, guid: c3183e1844ce26448a91f70352c5775d, type: 3}
+  - {fileID: 1265715637124357379, guid: 8548c497a20582e458c6ddbd00dd328f, type: 3}
+  - {fileID: 5988019428356690547, guid: 547e56c6ffed33b4d99d2a3aeff28970, type: 3}

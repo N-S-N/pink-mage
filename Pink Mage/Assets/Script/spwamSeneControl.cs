@@ -11,10 +11,13 @@ public class spwamSeneControl : MonoBehaviour
     [SerializeField] public GameObject[] spawm;
     [SerializeField] public GameObject[] spawmAliado;
     [Header("spawm")]
+
     [SerializeField] public List <GameObject> prefebEnimy;
     [SerializeField] public List<EnimyControler> NPC = new List<EnimyControler>();
+    [HideInInspector] public List<int> intprerfebenimy;
     [SerializeField] public List<GameObject> prefebAliado;
     [SerializeField] public List<EnimyControler> NPCAniado = new List<EnimyControler>();
+    [HideInInspector] public List<int> intprefebfrends;
 
 
     private void Awake()
@@ -35,36 +38,45 @@ public class spwamSeneControl : MonoBehaviour
             string jsonData = File.ReadAllText("combater.json");
 
             combaterSena lineMapdafe = JsonUtility.FromJson<combaterSena>(jsonData);
-            prefebEnimy = lineMapdafe.enimy.enimy;
-            prefebAliado = lineMapdafe.enimy.Aliados;
+            intprerfebenimy = lineMapdafe.enimy.enimy;
+            intprefebfrends = lineMapdafe.enimy.Aliados;
         }
-        for (int i = 0; i < prefebEnimy.Count; i++)
+        for (int i = 0; i < intprerfebenimy.Count; i++)
         {
-            GameObject enimy = Instantiate(prefebEnimy[i], spawm[i].transform, spawm[i].transform);
-
-            EnimyControler controlerEnymy = enimy.GetComponent<EnimyControler>();
-            controlerEnymy.combater = controler;
-            controlerEnymy.rota = null;
-            controlerEnymy.playerScripter = player;
-            NPC.Add(controlerEnymy);
+            if (intprerfebenimy[i] != -1)
+            {
+                GameObject enimy = Instantiate(prefebEnimy[intprerfebenimy[i]], spawm[i].transform, spawm[i].transform);
+                enimy.transform.localPosition = Vector3.zero;
+                EnimyControler controlerEnymy = enimy.GetComponent<EnimyControler>();
+                controlerEnymy.combater = controler;
+                controlerEnymy.rota = null;
+                controlerEnymy.playerScripter = player;
+                NPC.Add(controlerEnymy);
+            }
         }
-        for (int i = 0; i < prefebAliado.Count; i++)
+        for (int i = 0; i < intprefebfrends.Count; i++)
         {
-            GameObject enimy = Instantiate(prefebAliado[i], spawmAliado[i].transform, spawmAliado[i].transform);
-            EnimyControler controlerEnymy = enimy.GetComponent<EnimyControler>();
-            controlerEnymy.combater = controler;
-            controlerEnymy.rota = null;
-            controlerEnymy.playerScripter = player;
-            NPCAniado.Add(controlerEnymy);
-            player.aliado.Add(new ordemCombate(NPCAniado[i],null));
+            if (intprefebfrends[i] != -1)
+            {
+                GameObject enimy = Instantiate(prefebAliado[intprefebfrends[i]], spawmAliado[i].transform, spawmAliado[i].transform);
+                enimy.transform.localPosition = Vector3.zero;
+                EnimyControler controlerEnymy = enimy.GetComponent<EnimyControler>();
+                controlerEnymy.combater = controler;
+                controlerEnymy.rota = null;
+                controlerEnymy.playerScripter = player;
+                NPCAniado.Add(controlerEnymy);
+                player.aliado.Add(new ordemCombate(NPCAniado[i], null));
+            }
         }
     }
 
     void combater()
     {
+        List<EnimyControler> controlerentidades = new List<EnimyControler>();
+        controlerentidades.AddRange(NPC);
+        controlerentidades.AddRange(NPCAniado);
         controler.playerControler = player;
-        controler.personagmeScrips = NPC;
-        controler.personagmeScrips = NPCAniado;
+        controler.personagmeScrips = controlerentidades;
         controler.trigerStartCombater();
     }
 }

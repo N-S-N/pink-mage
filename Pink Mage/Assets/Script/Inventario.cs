@@ -17,7 +17,7 @@ public class Inventario : MonoBehaviour
     [Header("UI de Interectiom")]
     public List<GameObject> Iterface = new List<GameObject>();
     public List<GameObject> IterfaceEquipavel = new List<GameObject>();
-    [SerializeField] List<Image> referencias = new List<Image>(); 
+    [SerializeField]public List<Image> referencias = new List<Image>(); 
     public TMP_Text[] NomeAtteck;
 
     [Header("Texto dos equipamentos")]
@@ -32,7 +32,7 @@ public class Inventario : MonoBehaviour
     [SerializeField] GameObject capacete;
     [SerializeField] GameObject peitora, calca, bota;
 
-    [SerializeField] List<SpriteRenderer> roupaPersonagem;
+    [SerializeField]public List<SpriteRenderer> roupaPersonagem;
 
     private PlayerControler player;
 

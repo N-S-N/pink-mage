@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnimyControler : characterBasics
 {
@@ -18,7 +19,8 @@ public class EnimyControler : characterBasics
 
     [Header("personagem")]
     [SerializeField] GameObject sprite;
-
+    [SerializeField] public List<GameObject> prefebEnimy;
+    [SerializeField] public List<GameObject> prefebAliado;
     [Header("rota dos movimento")]
     [HideInInspector] public List<GameObject> rota = new List<GameObject>();
     int index = 0;
@@ -60,7 +62,7 @@ public class EnimyControler : characterBasics
         trasformacao,
     }
 
-
+    bool combate = false;
     private void Start()
     {
         medoescondido = Medo;
@@ -75,9 +77,9 @@ public class EnimyControler : characterBasics
     private void Update()
     {
         //sempre fica para a camera
-
         sprite.transform.forward = Camera.main.transform.forward;
 
+        if (combate) return;
         if (combater.IsCombater)
         {
             CancelInvoke();
@@ -104,6 +106,7 @@ public class EnimyControler : characterBasics
             if(comportamentoDeAmadilha == comportamentoDeAticacao.trasformacao)
                 playerScripter.levardano (new BonusDamed(elemento, Random.Range(DanoMimAmadilha, DanoMaxAmadilha)));
             CombaterComander();
+            combate = true;
         }
 
         if (Vector3.Distance(playerScripter.transform.position, transform.position) < Distancia && Medo <= playerScripter.Medo)
@@ -164,18 +167,20 @@ public class EnimyControler : characterBasics
         }
     }
 
-
+    [SerializeField] List<int> referencias = new List<int>();
+    [SerializeField] List<int> referencias1 = new List<int>();
     public void CombaterComander()
     {
-        combaterSenaData itemdata2 = new combaterSenaData(null, null);
-
-        itemdata2.enimy.Add(gameObject);
+        combaterSenaData itemdata2 = new combaterSenaData(referencias, referencias1);
         
-        for (int i = 0; i < player.aliado.Count; i++)
+        itemdata2.enimy.Add(prefebEnimy.IndexOf(gameObject));
+        
+        for (int i = 0; i < playerScripter.aliado.Count; i++)
         {
-            itemdata2.Aliados.Add(player.aliado[i].personagmeScrips.gameObject);
-        }
+            Debug.Log(prefebAliado.IndexOf(playerScripter.aliado[i].personagmeScrips.gameObject));
 
+            itemdata2.Aliados.Add(prefebAliado.IndexOf(playerScripter.aliado[i].personagmeScrips.gameObject));
+        }
         combaterSena itemdata = new combaterSena();
 
         itemdata.enimy = itemdata2;
@@ -183,7 +188,10 @@ public class EnimyControler : characterBasics
 
         File.WriteAllText("combater.json", jsonData);
         PlayerPrefs.SetInt("Carregar", 1);
-        player.savePersonagem();
+        PlayerPrefs.SetInt("espaçoDeAmazenamento", playerScripter.slot);
+        playerScripter.savePersonagem();
+        playerScripter.saveMundo();
+        SceneManager.LoadScene("Combater");
     }
     #endregion
 

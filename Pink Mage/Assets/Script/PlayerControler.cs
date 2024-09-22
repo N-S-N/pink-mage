@@ -49,7 +49,7 @@ public class PlayerControler : characterBasics
     Rigidbody rig;
     List<Save> words = new List<Save>();
     private float TimeGame;
-    private int slot;
+    [HideInInspector]public int slot;
 
     #endregion
 
@@ -354,11 +354,15 @@ public class PlayerControler : characterBasics
                     inventario.equipamentosUnsando[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
                     inventario.equipamentosUnsando[i] = lineMapdafe.slotData[i];
                     inventario.equipamentosUnsando[i].texto = textoimagem;
-
+                    inventario.NomeAtteck[i].text = inventario.equipamentosUnsando[i].Iteam.atteck.Nome;
                     atteck.Add(inventario.equipamentosUnsando[i].Iteam.atteck);
 
                 }
-
+                for (int i = 0; i < inventario.roupaPersonagem.Count; i++)
+                {
+                    inventario.roupaPersonagem[i].color = inventario.equipamentosUnsando[i].Imagem;
+                    inventario.referencias[i].color = inventario.equipamentosUnsando[i].Imagem;
+                }
             }
         }
         else
