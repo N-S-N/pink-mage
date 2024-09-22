@@ -89,6 +89,56 @@ MonoBehaviour:
   Resistances: 0300000002000000
   EfeitoAtivos: []
   EfeitoAutoAplicadoAtivos: []
+  drop:
+    Iteam:
+      Nome: "l\xE1"
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 5
+      descricao: 
+      atteck:
+        Nome: 
+        cor: {r: 0, g: 0, b: 0, a: 0}
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitosAuto:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          porcentagemAceto: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        "tipoDaCondi\xE7\xE3o": 0
+        efeitoCondicao: 0
+        porcentagemCondicao: 0
+        Maxcondicao: 0
+        mimCondicao: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          porcentagemAceto: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    quantidadeIteam: 1
+    color: {r: 1, g: 1, b: 1, a: 1}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -193,6 +243,7 @@ MonoBehaviour:
   DistanciaOfTriugerCombater: 2
   playerScripter: {fileID: 0}
   referencias: 
+  referencias1: 
 --- !u!195 &5223912283121923545
 NavMeshAgent:
   m_ObjectHideFlags: 0

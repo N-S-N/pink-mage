@@ -10530,6 +10530,56 @@ MonoBehaviour:
   Resistances: 
   EfeitoAtivos: []
   EfeitoAutoAplicadoAtivos: []
+  drop:
+    Iteam:
+      Nome: 
+      Life: 0
+      Mana: 0
+      Medo: 0
+      tipo: 0
+      descricao: 
+      atteck:
+        Nome: 
+        cor: {r: 0, g: 0, b: 0, a: 0}
+        Elemento: 0
+        MimDamege: 0
+        maxdamege: 0
+        porcentagemDeAcerto: 0
+        speedAtteck: 0
+        efeitosAuto:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          porcentagemAceto: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        "tipoDaCondi\xE7\xE3o": 0
+        efeitoCondicao: 0
+        porcentagemCondicao: 0
+        Maxcondicao: 0
+        mimCondicao: 0
+        efeitos:
+          efeito: 0
+          AtrubutoDiminuir: 0
+          porcentagemAceto: 0
+          elementoDoDano: 0
+          multiplos: 0
+          Maxdano: 0
+          Mimdano: 0
+          porcentagemDano: 0
+          rands: 0
+        custoLife: 0
+        custoMana: 0
+      bunusDamege: []
+      bunusResistem: []
+      Immunidades: 
+      Vulnerabilities: 
+      Resistances: 
+    quantidadeIteam: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -10548,6 +10598,7 @@ MonoBehaviour:
   - {fileID: 2901108737300118285}
   - {fileID: 1208901218582278585}
   visualizension: {fileID: 2303928961346952984}
+  Canvas: {fileID: 6781226455993430983}
   vidaImagem: {fileID: 8167671708097490702}
   manaImage: {fileID: 6208148774453474686}
   vidaText: {fileID: 5275762112856215979}
@@ -10565,6 +10616,8 @@ MonoBehaviour:
   - {fileID: 6796955960008886386}
   CombaterSena: 0
   inventario: {fileID: 5147618641972064889}
+  words: []
+  slot: 0
   PlayerState: 0
 --- !u!114 &5147618641972064889
 MonoBehaviour:

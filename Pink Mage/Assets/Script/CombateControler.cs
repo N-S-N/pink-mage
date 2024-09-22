@@ -1,8 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombateControler : MonoBehaviour
 {
+    #region variaves
     [HideInInspector] public List<EnimyControler> personagmeScrips = new List<EnimyControler>();
     [HideInInspector] public PlayerControler playerControler;
     public List<float> Speed;
@@ -11,7 +14,12 @@ public class CombateControler : MonoBehaviour
     public List<ordemCombate> ordemCombates3 = new List<ordemCombate>();
     [HideInInspector]public bool IsCombater = false;
     int indexCauntPersonagem = 0;
+    [SerializeField]public ControlerUiCombater telaDeVitoria, TelaDeDerrota, TelaDeFuga;
 
+    public List<recompensas> recompensaCombate = new List<recompensas>();
+    #endregion
+
+    #region inicio Combate
     public void trigerStartCombater()
     {
         IsCombater = true;
@@ -79,6 +87,9 @@ public class CombateControler : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region controle combate
     public void nestruen()
     {
 
@@ -115,20 +126,32 @@ public class CombateControler : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region fim combate
     public void endCombater()
     {
-        IsCombater = false;
-        personagmeScrips.Clear();
-        if (playerControler != null)
+        if (playerControler == null) return;
+        if (playerControler.Life > 0)
         {
-            playerControler.aliado.Clear();
-            playerControler = null;
+            //ver se ta em combate
+            //IsCombater = false;
+            //limpesa de ordem de combater
+            ordemCombates.Clear();
+            ordemCombates2.Clear();
+            ordemCombates3.Clear();
+            Speed.Clear();
+            indexCauntPersonagem = 0;
+            telaDeVitoria.recompensaCombate = recompensaCombate;
+            playerControler.Canvas.SetActive(false);
+            telaDeVitoria.gameObject.SetActive(true);
+           
         }
-        ordemCombates.Clear();
-        ordemCombates2.Clear();
-        ordemCombates3.Clear();
-        Speed.Clear();
-        indexCauntPersonagem = 0;
+        else
+        {
+                 playerControler.Canvas.SetActive(false);
+            TelaDeDerrota.gameObject.SetActive(true);
+        }
     }
 
     public bool fugir()
@@ -156,9 +179,49 @@ public class CombateControler : MonoBehaviour
         }
         return true;
     }
+    #endregion
 
+    #region Buttom
+    public void UIfugar()
+    {
+        //svaer as novas informaçaes do player
+        playerControler.savePersonagem();
+        playerControler.saveMundo();
+        //mandar de volta para o map
+        SceneManager.LoadSceneAsync(playerControler.words[playerControler.slot].fase);
+    }
+
+    public void UIMorte()
+    {
+        //apagar este save
+        //provisorio
+        Debug.Log(playerControler.slot);
+        playerControler.words.Remove(playerControler.words[playerControler.slot]);
+        playerControler.saveMundo();
+        //voltar para o menu
+        SceneManager.LoadSceneAsync(0);
+    }
+
+    public void UIVitoria()
+    {
+        //trop de Iteam para o inventario
+        for (int i = 0; i < recompensaCombate.Count; i++) 
+        {
+            for (int o = 0;o < recompensaCombate[i].quantidadeIteam; o++) 
+            {
+                playerControler.inventario.ColoetarItema(recompensaCombate[i].Iteam, recompensaCombate[i].color);
+            }
+        }
+        //svaer as novas informaçaes do player
+        playerControler.savePersonagem();
+        playerControler.saveMundo();
+        //mandar de volta para o map
+        SceneManager.LoadSceneAsync(playerControler.words[playerControler.slot].fase);
+    }
+    #endregion
 }
 
+#region novas variaves
 [System.Serializable]
 public class ordemCombate
 {
@@ -178,3 +241,4 @@ public class ordemCombate
             return false;
     }
 }
+#endregion

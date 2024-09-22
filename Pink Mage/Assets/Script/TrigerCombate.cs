@@ -47,6 +47,7 @@ public class TrigerCombate : MonoBehaviour
         PlayerPrefs.SetInt("espaçoDeAmazenamento", player.slot);
         player.savePersonagem();
         player.saveMundo();
+        player.voltarMenu();
         SceneManager.LoadScene("Combater");
     }
 

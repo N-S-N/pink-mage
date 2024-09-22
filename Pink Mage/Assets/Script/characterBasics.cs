@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static characterBasics;
@@ -34,10 +35,13 @@ public class characterBasics : MonoBehaviour
     [HideInInspector] public List<EfeitosCausados> EfeitoAtivos = new List<EfeitosCausados>();
     [HideInInspector] public List<EfeitosCausados> EfeitoAutoAplicadoAtivos = new List<EfeitosCausados>();
 
+    [Header("recompensa")]
+    public recompensas drop;
+
     public CombateControler combater;
     protected EnimyControler personagem;
     protected PlayerControler player;
-
+    protected PlayerControler playerStript;
     //iniciativa de ataque
     protected atteck ataqueEscolido;
     protected ordemCombate personagemEscolido;
@@ -338,15 +342,45 @@ public class characterBasics : MonoBehaviour
         {
             if (aliado.Count == 0)
             {
+                int rec = combater.recompensaCombate.FindIndex(0, combater.recompensaCombate.Count, new recompensas(drop.Iteam, 0, Color.red).StartsWith);
+                if (rec != -1)
+                {
+                    combater.recompensaCombate[rec].quantidadeIteam++;
+
+                    combater.endCombater();
+                    Destroy(personagem.gameObject, 0.1f);
+                    return;
+                }
+                combater.recompensaCombate.Add(drop);
+
                 combater.endCombater();
+                
                 Destroy(personagem.gameObject, 0.1f);
                 return;
             }
             else
-            {     
+            {
+                
                 int a = combater.ordemCombates.FindIndex(0, combater.ordemCombates.Count, thispersonagme.StartsWith);
                 if (a != -1)
+                {
+                    if (aliado.FindIndex(0, aliado.Count, new ordemCombate(null, playerStript).StartsWith) == -1) 
+                    {
+                        int rec = combater.recompensaCombate.FindIndex(0, combater.recompensaCombate.Count, new recompensas(drop.Iteam, 0, Color.red).StartsWith);
+                        if (rec != -1)
+                        {
+                            combater.recompensaCombate[rec].quantidadeIteam++;
+
+                            combater.ordemCombates.Remove(combater.ordemCombates[a]);
+                            combater.personagmeScrips.Remove(personagem);
+                            Destroy(personagem.gameObject);
+                            return;
+                        }
+                        
+                        combater.recompensaCombate.Add(drop);
+                    }
                     combater.ordemCombates.Remove(combater.ordemCombates[a]);
+                }
                 combater.personagmeScrips.Remove(personagem);
                 Destroy(personagem.gameObject);
             }
@@ -358,8 +392,7 @@ public class characterBasics : MonoBehaviour
                 combater.ordemCombates.Remove(combater.ordemCombates[a]);
 
             combater.endCombater();
-            combater.playerControler = null;
-            Destroy(player.gameObject, 0.1f);
+            //Destroy(player.gameObject, 0.1f);
         }
       
         for (int i = 0; i < aliado.Count;i++)

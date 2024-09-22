@@ -357,6 +357,24 @@ public class ItemaConfig
         this.Resistances = Resistances;
     }
 
+    public bool StartsWith(ItemaConfig e)
+    {
+        if (e.Nome == Nome
+            && e.Life == Life
+            && e.Mana == Mana
+            && e.Medo == Medo
+            && e.tipo == tipo
+            && e.descricao == descricao
+            && e.atteck == atteck
+            && e.bunusDamege == bunusDamege
+            && e.bunusResistem == bunusResistem
+            && e.Immunidades == Immunidades
+            && e.Vulnerabilities == Vulnerabilities
+            && e.Resistances == Resistances)
+            return true;
+        else
+            return false;
+    }
 }
 
 [System.Serializable]

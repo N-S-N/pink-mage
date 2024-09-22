@@ -28,6 +28,7 @@ public class PlayerControler : characterBasics
 
     [Header("UI")]
     [SerializeField] GameObject visualizension;
+    [SerializeField]public GameObject Canvas;
     [SerializeField] Image vidaImagem;
     [SerializeField] Image manaImage;
     [SerializeField] TMP_Text vidaText, manaText;
@@ -39,7 +40,7 @@ public class PlayerControler : characterBasics
     [SerializeField] bool CombaterSena = false;
 
     [Header("Scripts")]
-    [SerializeField] Inventario inventario;
+    [SerializeField]public Inventario inventario;
 
 
     // variaves privadas
@@ -47,7 +48,7 @@ public class PlayerControler : characterBasics
     float stateTIme;
     Vector2 moveDirection = Vector2.zero;
     Rigidbody rig;
-    List<Save> words = new List<Save>();
+    [HideInInspector] public List<Save> words = new List<Save>();
     private float TimeGame;
     [HideInInspector]public int slot;
 
@@ -335,12 +336,22 @@ public class PlayerControler : characterBasics
                 for (int i = 0; i < inventario.equipamentosQuadado.Count; i++)
                 {
                     TMP_Text textoimagem = inventario.equipamentosQuadado[i].texto;
-                    if(lineMapdafe.slotData[i].Iteam.Nome != "")
-                         inventario.equipamentosQuadado[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
 
-                    inventario.equipamentosQuadado = lineMapdafe.slotData;
-                    inventario.equipamentosQuadado[i].texto = textoimagem;
-                   
+                    if (lineMapdafe.slotData[i].Iteam.Nome != "")
+                    {
+                        inventario.equipamentosQuadado[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
+
+                        rquipamentos back = new rquipamentos(inventario.equipamentosQuadado[i].Iteam, inventario.equipamentosQuadado[i].Imagem, inventario.equipamentosQuadado[i].texto, inventario.equipamentosQuadado[i].ImagemLocal);
+                        inventario.equipamentosQuadado[i] = lineMapdafe.slotData[i];
+                        inventario.equipamentosQuadado[i].ImagemLocal = back.ImagemLocal;
+
+                        inventario.equipamentosQuadado[i].texto = textoimagem;
+
+                        inventario.equipamentosQuadado = lineMapdafe.slotData;
+                        inventario.equipamentosQuadado[i].ImagemLocal.color = inventario.equipamentosQuadado[i].Imagem;
+                        inventario.equipamentosQuadado[i].texto = textoimagem;
+
+                    }
                 }
             }
             if (File.Exists("InventarioUsando" + slot.ToString() + ".json"))
@@ -352,7 +363,11 @@ public class PlayerControler : characterBasics
                 {
                     TMP_Text textoimagem = inventario.equipamentosUnsando[i].texto;
                     inventario.equipamentosUnsando[i].texto.text = lineMapdafe.slotData[i].Iteam.Nome;
+
+                    rquipamentos back = new rquipamentos(inventario.equipamentosUnsando[i].Iteam, inventario.equipamentosUnsando[i].Imagem, inventario.equipamentosUnsando[i].texto, inventario.equipamentosUnsando[i].ImagemLocal);
                     inventario.equipamentosUnsando[i] = lineMapdafe.slotData[i];
+                    inventario.equipamentosUnsando[i].ImagemLocal = back.ImagemLocal;
+
                     inventario.equipamentosUnsando[i].texto = textoimagem;
                     inventario.NomeAtteck[i].text = inventario.equipamentosUnsando[i].Iteam.atteck.Nome;
                     atteck.Add(inventario.equipamentosUnsando[i].Iteam.atteck);
@@ -360,7 +375,8 @@ public class PlayerControler : characterBasics
                 }
                 for (int i = 0; i < inventario.roupaPersonagem.Count; i++)
                 {
-                    inventario.roupaPersonagem[i].color = inventario.equipamentosUnsando[i].Imagem;
+                    inventario. roupaPersonagem[i].color = inventario.equipamentosUnsando[i].Imagem;
+                    inventario.equipamentosUnsando[i].ImagemLocal.color = inventario.equipamentosUnsando[i].Imagem;
                     inventario.referencias[i].color = inventario.equipamentosUnsando[i].Imagem;
                 }
             }
@@ -638,6 +654,8 @@ public class PlayerControler : characterBasics
         if (combater.fugir())
         {
             combater.endCombater();
+            combater.telaDeVitoria.gameObject.SetActive(false);
+            combater.TelaDeFuga.gameObject.SetActive(true);
         }
         else
         {

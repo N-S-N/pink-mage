@@ -65,6 +65,7 @@ public class EnimyControler : characterBasics
     bool combate = false;
     private void Start()
     {
+        playerStript = playerScripter;
         medoescondido = Medo;
         rb = GetComponent<Rigidbody>();
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -153,6 +154,7 @@ public class EnimyControler : characterBasics
 
     void ceguindoRota()
     {
+        if (rota == null) return;
         if (rota.Count == 0) return;
 
         navMeshAgent.SetDestination(rota[index].transform.position);
@@ -191,6 +193,7 @@ public class EnimyControler : characterBasics
         PlayerPrefs.SetInt("espaçoDeAmazenamento", playerScripter.slot);
         playerScripter.savePersonagem();
         playerScripter.saveMundo();
+        playerScripter.voltarMenu();
         SceneManager.LoadScene("Combater");
     }
     #endregion
