@@ -91,6 +91,7 @@ public class Inventario : MonoBehaviour
         equipamentosUnsando[3].Iteam = bota.GetComponent<Iteam>().ItemConfig;
         equipamentosUnsando[3].Imagem = bota.GetComponent<Iteam>().imagem;
         equipamentosUnsando[3].texto.text = equipamentosUnsando[3].Iteam.Nome;
+
         for (int i = 0; i < equipamentosUnsando.Count; i ++) 
         {
             addItemaPlayer(equipamentosUnsando[i].Iteam, equipamentosUnsando[i].Imagem, i);
@@ -170,7 +171,7 @@ public class Inventario : MonoBehaviour
 
         for (int i = 0; i < roupaPersonagem.Count; i++)
         {
-            roupaPersonagem[i].color = Imagem;
+            roupaPersonagem[i].color = equipamentosUnsando[i].Imagem;
             equipamentosUnsando[i].ImagemLocal.color = equipamentosUnsando[i].Imagem;
             referencias[i].color = equipamentosUnsando[i].Imagem;
         }

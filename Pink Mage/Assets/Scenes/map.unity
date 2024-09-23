@@ -939,6 +939,10 @@ MonoBehaviour:
   ordemCombates2: []
   ordemCombates3: []
   IsCombater: 0
+  telaDeVitoria: {fileID: 0}
+  TelaDeDerrota: {fileID: 0}
+  TelaDeFuga: {fileID: 0}
+  recompensaCombate: []
 --- !u!4 &381458309
 Transform:
   m_ObjectHideFlags: 0
@@ -2433,6 +2437,10 @@ MonoBehaviour:
   damege:
     Elemento: 10
     Bonus: 0
+  referencias: 
+  referencias1: 
+  prefebEnimy: []
+  prefebAliado: []
 --- !u!65 &1329064377
 BoxCollider:
   m_ObjectHideFlags: 0

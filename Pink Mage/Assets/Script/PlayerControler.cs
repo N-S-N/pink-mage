@@ -261,10 +261,13 @@ public class PlayerControler : characterBasics
     public void saveMundo()
     {
         SaveData data = new SaveData();
-
+        words[slot].personagemCapacete = inventario.equipamentosUnsando[0].Imagem;
+        words[slot].personagemCapa = inventario.equipamentosUnsando[1].Imagem;
+        words[slot].personagemLuva = inventario.equipamentosUnsando[2].Imagem;
+        words[slot].personagemBota = inventario.equipamentosUnsando[3].Imagem;
         for (int i = 0; i < words.Count; i++)
         {
-            Save itemdata = new Save(words[i].sloat, words[i].fase, inventario.equipamentosUnsando[0].Imagem, inventario.equipamentosUnsando[1].Imagem, inventario.equipamentosUnsando[2].Imagem, inventario.equipamentosUnsando[3].Imagem, words[i].Tempo);
+            Save itemdata = new Save(words[i].sloat, words[i].fase, words[i].personagemCapacete, words[i].personagemCapa, words[i].personagemLuva, words[i].personagemBota, words[i].Tempo);
             data.slotData.Add(itemdata);
         }
 
