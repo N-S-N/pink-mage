@@ -197,7 +197,7 @@ public class CombateControler : MonoBehaviour
         //provisorio
         Debug.Log(playerControler.slot);
         playerControler.words.Remove(playerControler.words[playerControler.slot]);
-        playerControler.saveMundo();
+        playerControler.saveMundo(false);
         //voltar para o menu
         SceneManager.LoadSceneAsync(0);
     }

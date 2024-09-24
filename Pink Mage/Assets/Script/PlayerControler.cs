@@ -258,13 +258,16 @@ public class PlayerControler : characterBasics
     #endregion
 
     #region funciom de save
-    public void saveMundo()
+    public void saveMundo(bool  mapa = true)
     {
         SaveData data = new SaveData();
-        words[slot].personagemCapacete = inventario.equipamentosUnsando[0].Imagem;
-        words[slot].personagemCapa = inventario.equipamentosUnsando[1].Imagem;
-        words[slot].personagemLuva = inventario.equipamentosUnsando[2].Imagem;
-        words[slot].personagemBota = inventario.equipamentosUnsando[3].Imagem;
+        if (mapa)
+        {
+            words[slot].personagemCapacete = inventario.equipamentosUnsando[0].Imagem;
+            words[slot].personagemCapa = inventario.equipamentosUnsando[1].Imagem;
+            words[slot].personagemLuva = inventario.equipamentosUnsando[2].Imagem;
+            words[slot].personagemBota = inventario.equipamentosUnsando[3].Imagem;
+        }
         for (int i = 0; i < words.Count; i++)
         {
             Save itemdata = new Save(words[i].sloat, words[i].fase, words[i].personagemCapacete, words[i].personagemCapa, words[i].personagemLuva, words[i].personagemBota, words[i].Tempo);
@@ -396,7 +399,8 @@ public class PlayerControler : characterBasics
     #region funcion de movimentação
     void Movimentacoa()
     {
-        Vector3 move = new Vector3(moveDirection.x, rig.velocity.y, moveDirection.y) * _velocityWalk;
+        Vector3 move = new Vector3(moveDirection.x, 0, moveDirection.y) * _velocityWalk;
+        move.y = rig.velocity.y;
         InimeAnimator.SetFloat("x", moveDirection.x);
         InimeAnimator.SetFloat("y", moveDirection.y);
         rig.velocity = move;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 
 public class spwamSeneControl : MonoBehaviour
@@ -10,6 +11,8 @@ public class spwamSeneControl : MonoBehaviour
     [SerializeField] public PlayerControler player;
     [SerializeField] public GameObject[] spawm;
     [SerializeField] public GameObject[] spawmAliado;
+    [SerializeField] UiControler Uicontroler;
+
     [Header("spawm")]
 
     [SerializeField] public List <GameObject> prefebEnimy;
@@ -41,6 +44,15 @@ public class spwamSeneControl : MonoBehaviour
             intprerfebenimy = lineMapdafe.enimy.enimy;
             intprefebfrends = lineMapdafe.enimy.Aliados;
         }
+        for (int o = 0; o < Uicontroler.controler.Count; o++)
+        {
+            if (Uicontroler.controler[o].personagem == null)
+            {
+                Uicontroler.controler[o].personagem = player.transform;
+                player.damegeUi = Uicontroler.controler[o].Vunabilidades.GetComponent<TMP_Text>();
+                break;
+            }
+        }
         for (int i = 0; i < intprerfebenimy.Count; i++)
         {
             if (intprerfebenimy[i] != -1)
@@ -48,6 +60,16 @@ public class spwamSeneControl : MonoBehaviour
                 GameObject enimy = Instantiate(prefebEnimy[intprerfebenimy[i]], spawm[i].transform, spawm[i].transform);
                 enimy.transform.localPosition = Vector3.zero;
                 EnimyControler controlerEnymy = enimy.GetComponent<EnimyControler>();
+                for (int o = 0; o < Uicontroler.controler.Count; o++)
+                {
+                    if (Uicontroler.controler[o].personagem == null)
+                    {
+                        Uicontroler.controler[o].personagem = enimy.transform;
+                        controlerEnymy.damegeUi = Uicontroler.controler[o].Vunabilidades.GetComponent<TMP_Text>();
+
+                        break;
+                    }
+                }
                 controlerEnymy.combater = controler;
                 controlerEnymy.rota = null;
                 controlerEnymy.playerScripter = player;
@@ -61,13 +83,25 @@ public class spwamSeneControl : MonoBehaviour
                 GameObject enimy = Instantiate(prefebAliado[intprefebfrends[i]], spawmAliado[i].transform, spawmAliado[i].transform);
                 enimy.transform.localPosition = Vector3.zero;
                 EnimyControler controlerEnymy = enimy.GetComponent<EnimyControler>();
+                for (int o = 0; o < Uicontroler.controler.Count; o++)
+                {
+                    if (Uicontroler.controler[o].personagem == null)
+                    {
+                        Uicontroler.controler[o].personagem = enimy.transform;
+                        controlerEnymy.damegeUi = Uicontroler.controler[o].Vunabilidades.GetComponent<TMP_Text>();
+                        break;
+                    }
+                }
                 controlerEnymy.combater = controler;
                 controlerEnymy.rota = null;
                 controlerEnymy.playerScripter = player;
                 NPCAniado.Add(controlerEnymy);
+
                 player.aliado.Add(new ordemCombate(NPCAniado[i], null));
+                
             }
         }
+
     }
 
     void combater()

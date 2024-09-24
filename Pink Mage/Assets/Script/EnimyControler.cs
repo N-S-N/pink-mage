@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -79,7 +80,6 @@ public class EnimyControler : characterBasics
     {
         //sempre fica para a camera
         sprite.transform.forward = Camera.main.transform.forward;
-
         if (combate) return;
         if (combater.IsCombater)
         {

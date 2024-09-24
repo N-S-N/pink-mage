@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -38,6 +39,10 @@ public class characterBasics : MonoBehaviour
     [Header("recompensa")]
     public recompensas drop;
 
+    [Header("CombateUi")]
+    public TMP_Text damegeUi;
+
+    [Header("scripts")]
     public CombateControler combater;
     protected EnimyControler personagem;
     protected PlayerControler player;
@@ -47,7 +52,6 @@ public class characterBasics : MonoBehaviour
     protected ordemCombate personagemEscolido;
     [HideInInspector] public ordemCombate thispersonagme;
     protected bool defender;
-
     #endregion
 
     #region enum
@@ -328,14 +332,46 @@ public class characterBasics : MonoBehaviour
         }
 
         Life -= atteck.Bonus;
+        if (damegeUi != null)
+        {
+            
+            damegeUi.text += atteck.Bonus.ToString() + "\n";
+            if (player != null)
+                Invoke("LipesaTMP", 1f);
+            else
+            {
+                playerStript.playertime(personagem);
+
+            }
+                
+
+        }
         //Debug.Log(Life + "  " + atteck.Bonus);
+
 
         if (!seaplicado)
             if (Life <= 0)
+            {
+                damegeUi.text = "";
                 dead();
-
+            }
+    }
+    EnimyControler controlenimyUi;
+    public void playertime(EnimyControler eni)
+    {
+        Invoke("time", 1f);
+        controlenimyUi = eni;
     }
 
+    void time()
+    {
+        controlenimyUi.damegeUi.text = "";
+    }
+
+    void LipesaTMP()
+    {
+        damegeUi.text = "";
+    }
     public void dead()
     {
         if(player == null)
