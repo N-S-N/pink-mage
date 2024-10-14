@@ -32,6 +32,10 @@ public class Inventario : MonoBehaviour
     [SerializeField] GameObject capacete;
     [SerializeField] GameObject peitora, calca, bota;
 
+    [Header("imagem Ropa")]
+    [SerializeField]public Sprite capeceteStripe, peitoralStripe, calcaStripe, boltaStripe;
+
+    [Header("Renderer")]
     [SerializeField]public List<SpriteRenderer> roupaPersonagem;
 
     private PlayerControler player;
@@ -119,6 +123,28 @@ public class Inventario : MonoBehaviour
                         equipamentosQuadado[i].Iteam = Iteam;
                         equipamentosQuadado[i].Imagem = Imagem;
                         equipamentosQuadado[i].texto.text = equipamentosQuadado[i].Iteam.Nome;
+
+                        switch (equipamentosQuadado[i].Iteam.tipo)
+                        {
+                            case TipoIteam.capacete:
+                                equipamentosQuadado[i].ImagemLocal.sprite = capeceteStripe;
+
+                                break;
+                            case TipoIteam.peitoral:
+                                equipamentosQuadado[i].ImagemLocal.sprite = peitoralStripe;
+
+                                break;
+                            case TipoIteam.calca:
+                                equipamentosQuadado[i].ImagemLocal.sprite = calcaStripe;
+
+                                break;
+                            case TipoIteam.bolta:
+                                equipamentosQuadado[i].ImagemLocal.sprite = boltaStripe;
+
+                                break;
+                            default:
+                                break;
+                        }
                         break;
                     }
                 }
@@ -192,7 +218,7 @@ public class Inventario : MonoBehaviour
                                                  equipamentosUnsando[0].Imagem,
                                                  equipamentosUnsando[0].texto);
                     TIraEquipamento(equipamentosUnsando[0].Iteam, positiom, 0);
-
+                    equipamentosQuadado[positiom].ImagemLocal.sprite = capeceteStripe;
 
                     break;
                 case TipoIteam.peitoral:
@@ -200,6 +226,7 @@ public class Inventario : MonoBehaviour
                                                  equipamentosUnsando[1].Imagem,
                                                  equipamentosUnsando[1].texto);
                     TIraEquipamento(equipamentosUnsando[1].Iteam, positiom, 1);
+                    equipamentosQuadado[positiom].ImagemLocal.sprite = peitoralStripe;
 
                     break;
                 case TipoIteam.calca:
@@ -207,6 +234,7 @@ public class Inventario : MonoBehaviour
                                                  equipamentosUnsando[2].Imagem,
                                                  equipamentosUnsando[2].texto);
                     TIraEquipamento(equipamentosUnsando[2].Iteam, positiom, 2);
+                    equipamentosQuadado[positiom].ImagemLocal.sprite = calcaStripe;
 
                     break;
                 case TipoIteam.bolta:
@@ -214,6 +242,7 @@ public class Inventario : MonoBehaviour
                                                  equipamentosUnsando[3].Imagem,
                                                  equipamentosUnsando[3].texto);
                     TIraEquipamento(equipamentosUnsando[3].Iteam, positiom, 3);
+                    equipamentosQuadado[positiom].ImagemLocal.sprite = boltaStripe;
 
                     break;
                 default:

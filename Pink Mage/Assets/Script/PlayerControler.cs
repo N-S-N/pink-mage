@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class PlayerControler : characterBasics
 {
     #region variavesis
+
+    #region variaves publics
     [SerializeField] CombateControler combate;
 
     [Header("compate")]
@@ -42,8 +44,14 @@ public class PlayerControler : characterBasics
     [Header("Scripts")]
     [SerializeField]public Inventario inventario;
 
+    [Header("Interacao")]
+    public GameObject UiLoja;
 
+    #endregion
+
+    #region variaves privadas
     // variaves privadas
+
     private Animator InimeAnimator;
     float stateTIme;
     Vector2 moveDirection = Vector2.zero;
@@ -51,6 +59,7 @@ public class PlayerControler : characterBasics
     [HideInInspector] public List<Save> words = new List<Save>();
     private float TimeGame;
     [HideInInspector]public int slot;
+    #endregion
 
     #endregion
 
@@ -102,7 +111,7 @@ public class PlayerControler : characterBasics
             visualizension.SetActive(false);
         }
 
-        if (DetectUIOpem())return;
+        if (DetectUIOpem())return;   
 
         float delta = Time.deltaTime;
         homdleenemyFSM(delta);
@@ -224,10 +233,13 @@ public class PlayerControler : characterBasics
             {
                 pause.SetActive(false);
             }
+            else if (UiLoja.activeInHierarchy)
+            {
+                UiLoja.SetActive(false);
+            }
             else
             {
                 pause.SetActive(true);
-
             }
         }
     }
@@ -680,12 +692,12 @@ public class PlayerControler : characterBasics
     #region Ui
     private bool DetectUIOpem()
     {
-        if (Inventario.activeInHierarchy || pause.activeInHierarchy)
+        if (Inventario.activeInHierarchy || pause.activeInHierarchy || UiLoja.activeInHierarchy)
         {
             Time.timeScale = 0;
             return true;
         }
-        else if(!Inventario.activeInHierarchy && !pause.activeInHierarchy)
+        else if(!Inventario.activeInHierarchy && !pause.activeInHierarchy && !UiLoja.activeInHierarchy)
         {
             Time.timeScale = 1;
             return false;

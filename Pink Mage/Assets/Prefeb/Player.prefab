@@ -10580,6 +10580,7 @@ MonoBehaviour:
       Resistances: 
     quantidadeIteam: 0
     color: {r: 0, g: 0, b: 0, a: 0}
+  damegeUi: {fileID: 0}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -10616,6 +10617,7 @@ MonoBehaviour:
   - {fileID: 6796955960008886386}
   CombaterSena: 0
   inventario: {fileID: 5147618641972064889}
+  UiLoja: {fileID: 3913973505249038976}
   words: []
   slot: 0
   PlayerState: 0
@@ -11879,6 +11881,10 @@ MonoBehaviour:
   peitora: {fileID: 0}
   calca: {fileID: 0}
   bota: {fileID: 0}
+  capeceteStripe: {fileID: -457108784, guid: a566fff1774b7ec42a68b73247aa6561, type: 3}
+  peitoralStripe: {fileID: 649267351, guid: a566fff1774b7ec42a68b73247aa6561, type: 3}
+  calcaStripe: {fileID: -1495610150, guid: a566fff1774b7ec42a68b73247aa6561, type: 3}
+  boltaStripe: {fileID: -540470350, guid: a566fff1774b7ec42a68b73247aa6561, type: 3}
   roupaPersonagem:
   - {fileID: 4223511587950890988}
   - {fileID: 7342550722287551366}
