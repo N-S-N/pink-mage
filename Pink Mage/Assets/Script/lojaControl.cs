@@ -4,10 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.VirtualTexturing;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+
 using static Iteam;
 
 public class lojaControl : MonoBehaviour
@@ -166,7 +164,7 @@ public class lojaControl : MonoBehaviour
     {
         Inventario.ColoetarItema(iteamLoja[intex].Iteam, iteamLoja[intex].Imagem);
 
-        system.currentSelectedGameObject = slider;
+        system.SetSelectedGameObject(slider);
         
         scrol.image.color = scrol.colors.selectedColor;
 
