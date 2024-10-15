@@ -34,7 +34,7 @@ public class Inventario : MonoBehaviour
 
     [Header("imagem Ropa")]
     [SerializeField]public Sprite capeceteStripe, peitoralStripe, calcaStripe, boltaStripe;
-
+    [SerializeField] public Sprite laSrite, couroSrite;
     [Header("Renderer")]
     [SerializeField]public List<SpriteRenderer> roupaPersonagem;
 
@@ -118,12 +118,12 @@ public class Inventario : MonoBehaviour
             default:
                 for (int i = 0; i < equipamentosQuadado.Count; i++)
                 {
-                    if (equipamentosQuadado[i].Imagem == null)
+                    if (equipamentosQuadado[i].Imagem == new Color(0,0,0,0))
                     {
                         equipamentosQuadado[i].Iteam = Iteam;
                         equipamentosQuadado[i].Imagem = Imagem;
                         equipamentosQuadado[i].texto.text = equipamentosQuadado[i].Iteam.Nome;
-
+                        equipamentosQuadado[i].ImagemLocal.color = Imagem;
                         switch (equipamentosQuadado[i].Iteam.tipo)
                         {
                             case TipoIteam.capacete:
@@ -257,7 +257,10 @@ public class Inventario : MonoBehaviour
         {
             if (equipamentosQuadado[positiom].Imagem != null) 
             {
-                descricao.text += equipamentosQuadado[positiom].Iteam.descricao;
+                if(equipamentosQuadado[positiom].Iteam.descricao == "")
+                    descricao.text += equipamentosQuadado[positiom].Iteam.descricao;
+                else
+                    descricao.text = equipamentosQuadado[positiom].Iteam.descricao;
 
                 descricaoObj.SetActive(true);
             }
@@ -339,6 +342,33 @@ public class Inventario : MonoBehaviour
             posintiom *= -1;
             posintiom -= 1;
             IterfaceEquipavel[posintiom].SetActive(true);
+        }
+    }
+
+    public Sprite conficOfColor(TipoIteam iteam)
+    {
+        switch (iteam)
+        {
+            case TipoIteam.capacete:
+                return capeceteStripe;
+
+            case TipoIteam.peitoral:
+                return peitoralStripe;
+
+            case TipoIteam.calca:
+                return calcaStripe;
+
+            case TipoIteam.bolta:
+                return boltaStripe;
+
+            case TipoIteam.la:
+                return laSrite;
+
+            case TipoIteam.couro:
+                return couroSrite;
+
+            default:
+                return null;
         }
     }
 }

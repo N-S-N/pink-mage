@@ -4,7 +4,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.VirtualTexturing;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static Iteam;
 
 public class lojaControl : MonoBehaviour
@@ -15,7 +18,10 @@ public class lojaControl : MonoBehaviour
     [SerializeField] float distacy;
     [SerializeField] GameObject Ui;
     [SerializeField] TMP_Text descricaoUi;
-
+    [SerializeField] RectTransform trasformUi;
+    [SerializeField] float alementoTamanho;
+    [SerializeField] EventSystem system;
+    [SerializeField] GameObject slider;
 
     [Header("scripts")]
     [SerializeField] PlayerControler playerControl;
@@ -30,6 +36,11 @@ public class lojaControl : MonoBehaviour
     [Header("buttom")]
     public List<EventTrigger> triger;
     public List<rquipamentos> equipamentosQuadado;
+    public List<butomLojaControl> ButtomControler;
+
+
+    private bool bayIteam = false;
+    Scrollbar scrol;
     #endregion
 
     #region funcao
@@ -51,6 +62,7 @@ public class lojaControl : MonoBehaviour
     {
         playerControl.UiLoja = Ui;
         //pegando config de iteam
+        trasformUi.offsetMin = new Vector2(trasformUi.offsetMin.x,0);
         for (int i = 0; i < iteamLoja.Count; i++)
         {
             Iteam inteam = iteamLoja[i].IteamOBJ.GetComponent<Iteam>();
@@ -58,8 +70,27 @@ public class lojaControl : MonoBehaviour
             //
             iteamLoja[i].Iteam = inteam.ItemConfig;
             iteamLoja[i].Imagem = inteam.imagem;
-        }
 
+            //conficurar os item da loja
+            ButtomControler[i].controler.Nome.text = inteam.ItemConfig.Nome;
+            ButtomControler[i].controler.Imagem.color = inteam.imagem;
+            ButtomControler[i].controler.Imagem.sprite = Inventario.conficOfColor(inteam.ItemConfig.tipo);
+
+            for (int j = 0; j < ButtomControler[i].controler.bay.Count; j++)
+            {
+                if (iteamLoja[i].bay.Count-1 !< j)
+                {
+                    ButtomControler[i].controler.bay[j].imagem.enabled = false;
+                }
+                else
+                {
+                    ButtomControler[i].controler.bay[j].imagem.sprite = Inventario.conficOfColor(iteamLoja[i].bay[j].tipo);
+                    ButtomControler[i].controler.bay[j].quantidade.text = iteamLoja[i].bay[j].cost.ToString();
+                }
+            }
+            trasformUi.offsetMin -= new Vector2(0, alementoTamanho);
+        }
+        scrol = slider.GetComponent<Scrollbar>();
     }
 
     void updateDaita()
@@ -82,6 +113,7 @@ public class lojaControl : MonoBehaviour
         for (int i = 0; i < iteamLoja.Count; i++)
         {
             triger[i].enabled = true;
+            ButtomControler[i].controler.FundoDeIndisponibilidade.gameObject.SetActive(false);
             for (int j = 0; j < iteamLoja[i].bay.Count; j++)
             {
                 switch (iteamLoja[i].bay[j].tipo)
@@ -90,17 +122,27 @@ public class lojaControl : MonoBehaviour
                         if (Inventario.la < iteamLoja[i].bay[j].cost)
                         {
                             triger[i].enabled = false;
+                            ButtomControler[i].controler.FundoDeIndisponibilidade.gameObject.SetActive(true);
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.red;
                             break;
                         }
-
+                        else
+                        {
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.white;
+                        }
                         break;
                     case TipoIteam.couro:
                         if (Inventario.couro < iteamLoja[i].bay[j].cost)
                         {
                             triger[i].enabled = false;
+                            ButtomControler[i].controler.FundoDeIndisponibilidade.gameObject.SetActive(true);
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.red;
                             break;
                         }
-
+                        else
+                        {
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.white;
+                        }
                         break;
                     default:
                         break;
@@ -109,10 +151,31 @@ public class lojaControl : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!bayIteam) return;
+        if (system.currentSelectedGameObject != slider)
+        {
+            scrol.image.color = Color.white;
+            bayIteam = false;
+        }
+
+    }
+
     public void AddRoupaInInventory(int intex)
     {
         Inventario.ColoetarItema(iteamLoja[intex].Iteam, iteamLoja[intex].Imagem);
+
+        system.currentSelectedGameObject = slider;
+        
+        scrol.image.color = scrol.colors.selectedColor;
+
+        bayIteam = true;
+
+        ButtomControler[intex].gameObject.SetActive(false);
+        trasformUi.offsetMin += new Vector2(0, alementoTamanho);
         updateDaita();
+        
     }
 
     public void descricaoIteam(int intex)

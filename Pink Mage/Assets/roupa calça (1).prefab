@@ -55,7 +55,7 @@ MonoBehaviour:
     Life: 50
     Mana: 5
     Medo: 0
-    tipo: 3
+    tipo: 0
     descricao: "\r- Veste uma t\xFAnica rosa com um chap\xE9u de mago pontudo rosa\r\n\r\n-
       Apresenta uma apar\xEAncia ador\xE1vel e amig\xE1vel, o que leva os outros
       a subestim\xE1-lo frequentemente.\r\n\r\n- Pink Sparkle\n    - Descri\xE7\xE3o:
@@ -102,7 +102,7 @@ MonoBehaviour:
     Immunidades: 
     Vulnerabilities: 
     Resistances: 
-  imagem: {r: 1, g: 0, b: 0.84705883, a: 1}
+  imagem: {r: 0.041301966, g: 1, b: 0, a: 1}
   "descri\xE7\xE3o": {fileID: 568254441028389684}
 --- !u!23 &3832585738107502486
 MeshRenderer:
