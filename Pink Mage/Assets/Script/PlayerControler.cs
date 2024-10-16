@@ -484,10 +484,8 @@ public class PlayerControler : characterBasics
 
         if(ButomDoAttteck.enabled == false)
         {
-            Debug.Log("bbbbb");
             if (events[0].currentSelectedGameObject == ButomDoAttteck.gameObject || events[0].currentSelectedGameObject == null)
             {
-                Debug.Log("aaa");
                 events[0].SetSelectedGameObject(defend);
             }
 
