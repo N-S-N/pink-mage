@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -37,8 +38,10 @@ public class PlayerControler : characterBasics
 
     [Header("combate")]
     [SerializeField] Button ButomDoAttteck;
+    [SerializeField] GameObject defend;
     [SerializeField] Image[] CorDoAtteck;
     [SerializeField] TMP_Text[] CustoDoAtteck;
+    [SerializeField] EventSystem[] events;
     [SerializeField] bool CombaterSena = false;
 
     [Header("Scripts")]
@@ -445,6 +448,32 @@ public class PlayerControler : characterBasics
             if (Mana < atteck[i].custoMana)
             {
                 buttom[i].enabled = false;
+
+                //mudando o eventSystem
+                if (events[1].currentSelectedGameObject == buttom[i].gameObject || events[1].currentSelectedGameObject == null)
+                {
+                    for (int j = i; j < buttom.Length; j++)
+                    {
+                        if (Mana >= atteck[j].custoMana)
+                        {
+                            events[1].SetSelectedGameObject(buttom[j].gameObject);
+                            break;
+                        }
+                    }
+                    for (int j = i; j >= 0; j--)
+                    {
+                        if (events[1].currentSelectedGameObject != null)
+                        {
+                            break;
+                        }
+                        if (Mana >= atteck[j].custoMana)
+                        {
+                            events[1].SetSelectedGameObject(buttom[j].gameObject);
+                            break;
+                        }
+                    }
+                }
+
             }
             else
             {
@@ -453,6 +482,18 @@ public class PlayerControler : characterBasics
             }
         }
 
+        if(ButomDoAttteck.enabled == false)
+        {
+            Debug.Log("bbbbb");
+            if (events[0].currentSelectedGameObject == ButomDoAttteck.gameObject || events[0].currentSelectedGameObject == null)
+            {
+                Debug.Log("aaa");
+                events[0].SetSelectedGameObject(defend);
+            }
+
+        }
+
+        Debug.Log(events[0].currentSelectedGameObject);
 
         personagemEscolido = inimigo[0];
     }

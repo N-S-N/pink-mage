@@ -173,6 +173,11 @@ public class EnimyControler : characterBasics
     [SerializeField] List<int> referencias1 = new List<int>();
     public void CombaterComander()
     {
+        if (playerScripter.Life <= 0) 
+        {
+            Time.timeScale = 0f;
+            return;
+        }
         combaterSenaData itemdata2 = new combaterSenaData(referencias, referencias1);
         
         itemdata2.enimy.Add(prefebEnimy.IndexOf(gameObject));

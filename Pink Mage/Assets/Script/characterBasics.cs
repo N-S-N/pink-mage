@@ -343,8 +343,6 @@ public class characterBasics : MonoBehaviour
                 playerStript.playertime(personagem);
 
             }
-                
-
         }
         //Debug.Log(Life + "  " + atteck.Bonus);
 
@@ -352,7 +350,14 @@ public class characterBasics : MonoBehaviour
         if (!seaplicado)
             if (Life <= 0)
             {
-                damegeUi.text = "";
+                if (damegeUi != null) 
+                {
+                    damegeUi.text = "";
+                }
+                else
+                {
+                    combater.playerControler = player;
+                }
                 dead();
             }
     }
