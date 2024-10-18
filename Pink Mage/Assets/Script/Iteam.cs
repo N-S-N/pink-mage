@@ -18,7 +18,10 @@ public class Iteam : MonoBehaviour
         calca,
         bolta,
         couro,
-        la
+        la,
+        coracao_Envenenado,
+        cranio,
+        lingua
     }
 
 }

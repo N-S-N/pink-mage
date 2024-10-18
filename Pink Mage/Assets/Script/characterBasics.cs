@@ -74,7 +74,10 @@ public class characterBasics : MonoBehaviour
     { 
         dano,
         diversos,
-        nada
+        critico,
+        ignora,
+        nada,
+        acumulando
     }
 
     public enum tiposDiversos 
@@ -85,7 +88,8 @@ public class characterBasics : MonoBehaviour
         confuso,
         Imobilizacao,
         cura,
-        nada
+        nada,
+        ista
     }
 
     public enum tipoCondicao
@@ -265,7 +269,7 @@ public class characterBasics : MonoBehaviour
     #endregion
 
     #region função de combates
-    public void levardano(BonusDamed atteck, EfeitosCausados efeitosaplicados = null, bool seaplicado = false)
+    public void levardano(BonusDamed atteck, EfeitosCausados efeitosaplicados = null, bool seaplicado = false, bool inginorar = false, float istaMorte = 0)
     {
       
         if (efeitosaplicados!= null)
@@ -282,30 +286,34 @@ public class characterBasics : MonoBehaviour
                     EfeitoAtivos.Remove(EfeitoAtivos[EfeitoAtivos.Count - 1]);
             }
         }
-
-        if (Immunidades.IndexOf(atteck.Elemento) != -1)
+        if (!inginorar) 
         {
-            atteck.Bonus = 0;
-        }
-        if (Resistances.IndexOf(atteck.Elemento) != -1)
-        {
-            atteck.Bonus /= 2;
+            if (Immunidades.IndexOf(atteck.Elemento) != -1)
+            {
+                atteck.Bonus = 0;
+            }
+            if (Resistances.IndexOf(atteck.Elemento) != -1)
+            {
+                atteck.Bonus /= 2;
+            }
         }
         if (Vulnerabilities.IndexOf(atteck.Elemento) != -1)
         {
             atteck.Bonus *= 2;
         }
 
-        for (int i = 0; i < bunusResistem.Count; i++)
+        if (!inginorar) 
         {
-            if(bunusResistem[i].Elemento == atteck.Elemento)
+            for (int i = 0; i < bunusResistem.Count; i++)
             {
-                atteck.Bonus -= bunusResistem[i].Bonus;
-                if (atteck.Bonus <= 0)
-                    atteck.Bonus = 0;
+                if (bunusResistem[i].Elemento == atteck.Elemento)
+                {
+                    atteck.Bonus -= bunusResistem[i].Bonus;
+                    if (atteck.Bonus <= 0)
+                        atteck.Bonus = 0;
+                }
             }
         }
-
         for(int i = 0;i < EfeitoAutoAplicadoAtivos.Count;i++)
         {
             if (EfeitoAutoAplicadoAtivos[i].AtrubutoDiminuir == tiposDiversos.dano)
@@ -332,6 +340,16 @@ public class characterBasics : MonoBehaviour
         }
 
         Life -= atteck.Bonus;
+
+        if (istaMorte != 0)
+        {
+            if((LifeMax * istaMorte)/100 == Life)
+            {
+                Life = -10;
+                atteck.Bonus += 9999;
+            }
+        }
+
         if (damegeUi != null)
         {
             

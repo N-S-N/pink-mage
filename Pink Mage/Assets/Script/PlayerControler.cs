@@ -295,7 +295,7 @@ public class PlayerControler : characterBasics
     }
     public void savePersonagem()
     {
-        personagem itemdata = new personagem(LifeMax,Life,MaxMana,Mana, Medo, inventario.la, inventario.couro);
+        personagem itemdata = new personagem(LifeMax,Life,MaxMana,Mana, Medo, inventario.la, inventario.couro, inventario.coracao_Envenenado, inventario.cranio, inventario.lingua);
 
         string jsonData = JsonUtility.ToJson(itemdata);
 
@@ -347,6 +347,10 @@ public class PlayerControler : characterBasics
                 Medo = lineMapdafe.medo;
                 inventario.la = lineMapdafe.la;
                 inventario.couro = lineMapdafe.couro;
+                inventario.cranio = lineMapdafe.Cranio;
+                inventario.lingua = lineMapdafe.Lingua;
+                inventario.coracao_Envenenado = lineMapdafe.Coracao;
+
             }
             
             if (File.Exists("InventarioQuadados" + slot.ToString() + ".json"))
@@ -503,6 +507,10 @@ public class PlayerControler : characterBasics
 
     public void startCombate()
     {
+        int criticobonus = 1;
+        bool inginorar = false;
+        float acumuladodano = 1;
+        float instamorte = 0;
         if (!efeitosaplicados())
         {
             dead();
@@ -521,6 +529,7 @@ public class PlayerControler : characterBasics
         }
         else
         {
+            
 
             float randomAcerto = Random.Range(0, 100.0f);
             float demegerBonus = 0;
@@ -535,7 +544,34 @@ public class PlayerControler : characterBasics
                     if (bunusDamege[i].Elemento == ataqueEscolido.Elemento)
                         demegerBonus += bunusDamege[i].Bonus;
                 }
+                
+                if(ataqueEscolido.efeitos.efeito == efeitos.critico)
+                {
+                    if (Random.Range(0, 100.0f) <= ataqueEscolido.efeitos.porcentagemAceto)
+                    {
+                        criticobonus = 2;
+                    }
+                }
+                if (ataqueEscolido.efeitos.efeito == efeitos.ignora)
+                {
+                    if (Random.Range(0, 100.0f) <= ataqueEscolido.efeitos.porcentagemAceto)
+                    {
+                        inginorar = true;
+                    }
+                }
+                if (ataqueEscolido.efeitos.AtrubutoDiminuir == tiposDiversos.ista)
+                {
+                    instamorte = ataqueEscolido.efeitos.porcentagemDano;
+                }
 
+                for (int i = 0; i < EfeitoAutoAplicadoAtivos.Count; i++)
+                {
+                    if (EfeitoAutoAplicadoAtivos[i].efeito == efeitos.acumulando)
+                    {
+                        acumuladodano = EfeitoAutoAplicadoAtivos[i].porcentagemDano;
+                        EfeitoAutoAplicadoAtivos[i].porcentagemDano += EfeitoAutoAplicadoAtivos[i].porcentagemDano;
+                    }
+                }
                 if (personagemEscolido.playerControler != null)
                 {
                     for (int i = 0; i < personagemEscolido.playerControler.EfeitoAtivos.Count; i++)
@@ -557,8 +593,9 @@ public class PlayerControler : characterBasics
                             break;
                         }
                     }
+                    
                     personagemEscolido.playerControler.levardano(new BonusDamed(ataqueEscolido.Elemento,
-                                                                     Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
+                                                                     (((Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus)* criticobonus) * (acumuladodano*100))/100),
                                                                      new EfeitosCausados(ataqueEscolido.efeitos.efeito,
                                                                                          ataqueEscolido.efeitos.elementoDoDano,
                                                                                          ataqueEscolido.efeitos.Maxdano,
@@ -567,7 +604,7 @@ public class PlayerControler : characterBasics
                                                                                          Random.Range(1, ataqueEscolido.efeitos.multiplos),
                                                                                          ataqueEscolido.efeitos.AtrubutoDiminuir,
                                                                                          ataqueEscolido.efeitos.porcentagemDano,
-                                                                                         ataqueEscolido.efeitos.porcentagemAceto));
+                                                                                         ataqueEscolido.efeitos.porcentagemAceto),false, inginorar, instamorte);
 
 
                 }
@@ -594,7 +631,7 @@ public class PlayerControler : characterBasics
                     }
 
                     personagemEscolido.personagmeScrips.levardano(new BonusDamed(ataqueEscolido.Elemento,
-                                                                         Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus),
+                                                                         (((Random.Range(ataqueEscolido.MimDamege, ataqueEscolido.maxdamege) + demegerBonus ) * criticobonus) * (acumuladodano * 100)) / 100),
                                                                          new EfeitosCausados(ataqueEscolido.efeitos.efeito,
                                                                                              ataqueEscolido.efeitos.elementoDoDano,
                                                                                              ataqueEscolido.efeitos.Maxdano,
@@ -603,7 +640,7 @@ public class PlayerControler : characterBasics
                                                                                              Random.Range(1, ataqueEscolido.efeitos.multiplos),
                                                                                              ataqueEscolido.efeitos.AtrubutoDiminuir,
                                                                                              ataqueEscolido.efeitos.porcentagemDano,
-                                                                                             ataqueEscolido.efeitos.porcentagemAceto));
+                                                                                             ataqueEscolido.efeitos.porcentagemAceto),false, inginorar, instamorte);
                 }
                 if (ataqueEscolido.efeitosAuto.efeito != efeitos.nada)
                 {
@@ -769,8 +806,11 @@ public class personagem
     public float medo;
     public int la;
     public int couro;
+    public int Coracao;
+    public int Cranio;
+    public int Lingua;
 
-    public personagem(float VidaMax,float VidaMim, float ManaMax, float ManaMim,float medo, int la, int couro)
+    public personagem(float VidaMax,float VidaMim, float ManaMax, float ManaMim,float medo, int la, int couro,int Coracao,int Cranio,int Lingua)
     {
         this.VidaMax = VidaMax;
         this.VidaMim = VidaMim;
@@ -779,6 +819,9 @@ public class personagem
         this.medo = medo;
         this.la = la;
         this.couro = couro;
+        this.Coracao = Coracao;
+        this.Cranio = Cranio;
+        this.Lingua = Lingua;
 
     }
 }

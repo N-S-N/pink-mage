@@ -21,12 +21,16 @@ public class Inventario : MonoBehaviour
     public TMP_Text[] NomeAtteck;
 
     [Header("Texto dos equipamentos")]
-    [SerializeField]TMP_Text laText, courotext,descricao;
+    [SerializeField]TMP_Text laText, courotext, coracaotext, craniotext, linguatext, descricao;
     [SerializeField] GameObject descricaoObj;
 
     [Header("Materia prima")]
     public int la;
     public int couro;
+    public int coracao_Envenenado;
+    public int cranio;
+    public int lingua;
+
 
     [Header("ropa Inicial")]
     [SerializeField] GameObject capacete;
@@ -34,7 +38,7 @@ public class Inventario : MonoBehaviour
 
     [Header("imagem Ropa")]
     [SerializeField]public Sprite capeceteStripe, peitoralStripe, calcaStripe, boltaStripe;
-    [SerializeField] public Sprite laSrite, couroSrite;
+    [SerializeField] public Sprite laSrite, couroSrite, coracao_EnvenenadoSrite, cranioSrite, linguaSrite;
     [Header("Renderer")]
     [SerializeField]public List<SpriteRenderer> roupaPersonagem;
 
@@ -59,6 +63,9 @@ public class Inventario : MonoBehaviour
             Destroy(bota);
             laText.text = la.ToString();
             courotext.text = couro.ToString();
+            linguatext.text = lingua.ToString();
+            craniotext.text = cranio.ToString();
+            coracaotext.text = coracao_Envenenado.ToString();
             return;
         }  
 
@@ -114,6 +121,18 @@ public class Inventario : MonoBehaviour
             case TipoIteam.couro:
                 couro++;
                 courotext.text = couro.ToString();
+                break;
+            case TipoIteam.coracao_Envenenado:
+                coracao_Envenenado++;
+                coracaotext.text = coracao_Envenenado.ToString();
+                break;
+            case TipoIteam.cranio:
+                cranio++;
+                craniotext.text = cranio.ToString();
+                break;
+            case TipoIteam.lingua:
+                lingua++;
+                linguatext.text = lingua.ToString();
                 break;
             default:
                 for (int i = 0; i < equipamentosQuadado.Count; i++)
@@ -318,10 +337,11 @@ public class Inventario : MonoBehaviour
 
         equipamentosUnsando[positiomSubsituir] = new rquipamentos(adiquirir.Iteam, adiquirir.Imagem, subistuir.texto, equipamentosUnsando[positiomSubsituir].ImagemLocal);
         equipamentosQuadado[positionEquipamento] = new rquipamentos(subistuir.Iteam, subistuir.Imagem, adiquirir.texto, equipamentosQuadado[positionEquipamento].ImagemLocal);
+
         equipamentosQuadado[positionEquipamento].texto.text = equipamentosQuadado[positionEquipamento].Iteam.Nome;
-        equipamentosUnsando[positionEquipamento].texto.text = equipamentosUnsando[positionEquipamento].Iteam.Nome;
+        equipamentosUnsando[positiomSubsituir].texto.text = equipamentosUnsando[positiomSubsituir].Iteam.Nome;
         equipamentosQuadado[positionEquipamento].ImagemLocal.color = equipamentosQuadado[positionEquipamento].Imagem;
-        equipamentosUnsando[positionEquipamento].ImagemLocal.color = equipamentosUnsando[positionEquipamento].Imagem;
+        equipamentosUnsando[positiomSubsituir].ImagemLocal.color = equipamentosUnsando[positiomSubsituir].Imagem;
 
         #endregion
 
@@ -366,6 +386,15 @@ public class Inventario : MonoBehaviour
 
             case TipoIteam.couro:
                 return couroSrite;
+
+            case TipoIteam.coracao_Envenenado:
+                return coracao_EnvenenadoSrite;
+
+            case TipoIteam.cranio:
+                return cranioSrite;
+
+            case TipoIteam.lingua:
+                return linguaSrite;
 
             default:
                 return null;

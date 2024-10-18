@@ -221,8 +221,9 @@ MonoBehaviour:
       Immunidades: 
       Vulnerabilities: 
       Resistances: 
-    quantidadeIteam: 1
+    quantidadeIteam: 0
     color: {r: 1, g: 1, b: 1, a: 1}
+  damegeUi: {fileID: 0}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}

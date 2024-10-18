@@ -91,11 +91,11 @@ MonoBehaviour:
   EfeitoAutoAplicadoAtivos: []
   drop:
     Iteam:
-      Nome: linguqa
+      Nome: "L\xEDngua"
       Life: 0
       Mana: 0
       Medo: 0
-      tipo: 4
+      tipo: 8
       descricao: 
       atteck:
         Nome: 
@@ -139,6 +139,7 @@ MonoBehaviour:
       Resistances: 
     quantidadeIteam: 1
     color: {r: 1, g: 1, b: 1, a: 1}
+  damegeUi: {fileID: 0}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}

@@ -20,7 +20,7 @@ public class lojaControl : MonoBehaviour
     [SerializeField] float alementoTamanho;
     [SerializeField] EventSystem system;
     [SerializeField] GameObject slider;
-
+    [SerializeField] TMP_Text[] material;
     [Header("scripts")]
     [SerializeField] PlayerControler playerControl;
     [SerializeField] Inventario Inventario;
@@ -93,14 +93,17 @@ public class lojaControl : MonoBehaviour
 
     void updateDaita()
     {
+        Debug.Log("aaa");
         //mudar item no inventario
-        for (int i = 0 ; i < Inventario.equipamentosQuadado.Count; i++)
+        for (int i = 0; i < Inventario.equipamentosQuadado.Count; i++)
         {
-            
+
             equipamentosQuadado[i].ImagemLocal.sprite = Inventario.equipamentosQuadado[i].ImagemLocal.sprite;
             equipamentosQuadado[i].Iteam = Inventario.equipamentosQuadado[i].Iteam;
             equipamentosQuadado[i].texto.text = Inventario.equipamentosQuadado[i].texto.text;
             equipamentosQuadado[i].Imagem = Inventario.equipamentosQuadado[i].Imagem;
+            equipamentosQuadado[i].ImagemLocal.preserveAspect = true;
+            Inventario.equipamentosQuadado[i].ImagemLocal.preserveAspect = true;
             if (Inventario.equipamentosQuadado[i].Imagem.a != 0)
                 equipamentosQuadado[i].ImagemLocal.color = Inventario.equipamentosQuadado[i].Imagem;
             else
@@ -142,11 +145,59 @@ public class lojaControl : MonoBehaviour
                             ButtomControler[i].controler.bay[j].imagem.color = Color.white;
                         }
                         break;
+                    case TipoIteam.coracao_Envenenado:
+                        if (Inventario.coracao_Envenenado < iteamLoja[i].bay[j].cost)
+                        {
+                            triger[i].enabled = false;
+                            ButtomControler[i].controler.FundoDeIndisponibilidade.gameObject.SetActive(true);
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.red;
+                            break;
+                        }
+                        else
+                        {
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.white;
+                        }
+                        break;
+                    case TipoIteam.cranio:
+                        if (Inventario.cranio < iteamLoja[i].bay[j].cost)
+                        {
+                            triger[i].enabled = false;
+                            ButtomControler[i].controler.FundoDeIndisponibilidade.gameObject.SetActive(true);
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.red;
+                            break;
+                        }
+                        else
+                        {
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.white;
+                        }
+                        break;
+                    case TipoIteam.lingua:
+                        if (Inventario.lingua < iteamLoja[i].bay[j].cost)
+                        {
+                            triger[i].enabled = false;
+                            ButtomControler[i].controler.FundoDeIndisponibilidade.gameObject.SetActive(true);
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.red;
+                            break;
+                        }
+                        else
+                        {
+                            ButtomControler[i].controler.bay[j].imagem.color = Color.white;
+                        }
+                        break;
                     default:
                         break;
                 }
             }
         }
+
+        //numero do material
+
+        material[0].text = Inventario.la.ToString();
+        material[1].text = Inventario.couro.ToString();
+        material[2].text = Inventario.coracao_Envenenado.ToString();
+        material[3].text = Inventario.cranio.ToString();
+        material[4].text = Inventario.lingua.ToString();
+
     }
 
     private void Update()
@@ -172,13 +223,6 @@ public class lojaControl : MonoBehaviour
 
         ButtomControler[intex].gameObject.SetActive(false);
         trasformUi.offsetMin += new Vector2(0, alementoTamanho);
-        updateDaita();
-        
-    }
-
-    public void descricaoIteam(int intex)
-    {
-        descricaoUi.text = iteamLoja[intex].Iteam.descricao;
 
         //custo
         for (int j = 0; j < iteamLoja[intex].bay.Count; j++)
@@ -193,11 +237,30 @@ public class lojaControl : MonoBehaviour
                     Inventario.couro -= iteamLoja[intex].bay[j].cost;
 
                     break;
+                case TipoIteam.coracao_Envenenado:
+                    Inventario.coracao_Envenenado -= iteamLoja[intex].bay[j].cost;
+
+                    break;
+                case TipoIteam.cranio:
+                    Inventario.cranio -= iteamLoja[intex].bay[j].cost;
+
+                    break;
+                case TipoIteam.lingua:
+                    Inventario.lingua -= iteamLoja[intex].bay[j].cost;
+
+                    break;
                 default:
                     break;
             }
         }
 
+        updateDaita();
+        
+    }
+
+    public void descricaoIteam(int intex)
+    {
+        descricaoUi.text = iteamLoja[intex].Iteam.descricao;
     }
 
     #endregion
