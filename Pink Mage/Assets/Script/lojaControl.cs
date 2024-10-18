@@ -93,7 +93,6 @@ public class lojaControl : MonoBehaviour
 
     void updateDaita()
     {
-        Debug.Log("aaa");
         //mudar item no inventario
         for (int i = 0; i < Inventario.equipamentosQuadado.Count; i++)
         {
