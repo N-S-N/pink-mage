@@ -36,7 +36,7 @@ public class lojaControl : MonoBehaviour
     public List<rquipamentos> equipamentosQuadado;
     public List<butomLojaControl> ButtomControler;
 
-
+    private SpriteRenderer render;
     private bool bayIteam = false;
     Scrollbar scrol;
     #endregion
@@ -58,6 +58,7 @@ public class lojaControl : MonoBehaviour
 
     private void Awake()
     {
+        render = GetComponent<SpriteRenderer>();
         playerControl.UiLoja = Ui;
         //pegando config de iteam
         trasformUi.offsetMin = new Vector2(trasformUi.offsetMin.x,0);
@@ -201,6 +202,15 @@ public class lojaControl : MonoBehaviour
 
     private void Update()
     {
+        if(player.transform.position.z < transform.position.z)
+        {
+            render.sortingOrder = -1;
+        }
+        else
+        {
+            render.sortingOrder = 10;
+        }
+
         if (!bayIteam) return;
         if (system.currentSelectedGameObject != slider)
         {

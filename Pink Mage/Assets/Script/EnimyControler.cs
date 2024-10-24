@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -47,6 +45,7 @@ public class EnimyControler : characterBasics
 
     float medoescondido;
 
+    private SpriteRenderer render;
     #endregion
 
     #region fora de combate
@@ -66,6 +65,7 @@ public class EnimyControler : characterBasics
     bool combate = false;
     private void Start()
     {
+        render = GetComponent<SpriteRenderer>();
         playerStript = playerScripter;
         medoescondido = Medo;
         rb = GetComponent<Rigidbody>();
@@ -78,6 +78,17 @@ public class EnimyControler : characterBasics
     bool invokecansasado = false;
     private void Update()
     {
+
+        if (playerScripter.transform.position.z < transform.position.z)
+        {
+            render.sortingOrder = -1;
+        }
+        else
+        {
+            render.sortingOrder = 10;
+        }
+
+
         //sempre fica para a camera
         sprite.transform.forward = Camera.main.transform.forward;
         if (combate) return;

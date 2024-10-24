@@ -62,6 +62,7 @@ public class PlayerControler : characterBasics
     [HideInInspector] public List<Save> words = new List<Save>();
     private float TimeGame;
     [HideInInspector]public int slot;
+
     #endregion
 
     #endregion
@@ -90,6 +91,7 @@ public class PlayerControler : characterBasics
 
     private void Start()
     {
+
         PlayerState = State.Iddle;
         InimeAnimator = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
@@ -271,6 +273,7 @@ public class PlayerControler : characterBasics
 
 
     #endregion
+
 
     #region funciom de save
     public void saveMundo(bool  mapa = true)
