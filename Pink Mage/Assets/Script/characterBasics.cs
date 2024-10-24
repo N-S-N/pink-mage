@@ -42,6 +42,10 @@ public class characterBasics : MonoBehaviour
     [Header("CombateUi")]
     public TMP_Text damegeUi;
 
+    [Header("som")]
+    public AudioSource conficAudioEfecti;
+    public AudioClip passo, falando, levandoDando, Morrendo;
+
     [Header("scripts")]
     public CombateControler combater;
     protected EnimyControler personagem;
@@ -341,6 +345,8 @@ public class characterBasics : MonoBehaviour
 
         Life -= atteck.Bonus;
 
+        conficAudioEfecti.PlayOneShot(levandoDando);
+
         if (istaMorte != 0)
         {
             if((LifeMax * istaMorte)/100 == Life)
@@ -397,7 +403,9 @@ public class characterBasics : MonoBehaviour
     }
     public void dead()
     {
-        if(player == null)
+        conficAudioEfecti.PlayOneShot(Morrendo);
+
+        if (player == null)
         {
             if (aliado.Count == 0)
             {
@@ -544,6 +552,11 @@ public class atteck
     [Header("Nome")]
     public Color cor;
     [Header("\n")]
+    [Header("som")]
+    public AudioClip acertando;
+    public AudioClip errando;
+
+    [Header("\n")]
     [Header("Elemento Do Ataque")]
     public element Elemento;
     [Header("\n")]
@@ -589,7 +602,9 @@ public class atteck
                   float Maxcondicao,
                   float mimCondicao,
                   EfeitosCausados efeitosAuto,
-                  Color cor)
+                  Color cor,
+                  AudioClip acertando,
+                  AudioClip errando)
     {
         this.Elemento = Elemento;
         this.MimDamege = MimDamege;
@@ -607,6 +622,8 @@ public class atteck
         this.mimCondicao = mimCondicao;
         this.efeitosAuto = efeitosAuto;
         this.cor = cor;
+        this.acertando = acertando;
+        this.errando = errando;
     }
 }
 

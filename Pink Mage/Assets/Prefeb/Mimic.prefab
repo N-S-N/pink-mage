@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3478486608226574043}
   - component: {fileID: 6341553526248890279}
   - component: {fileID: 5223912283121923545}
+  - component: {fileID: 7036890683519433294}
   m_Layer: 0
   m_Name: Mimic
   m_TagString: Untagged
@@ -68,8 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 10
-  LifeMax: 10
+  Life: 120
+  LifeMax: 120
   Speed: 0
   Mana: 10
   MaxMana: 0
@@ -100,6 +101,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -140,6 +143,11 @@ MonoBehaviour:
     quantidadeIteam: 1
     color: {r: 1, g: 1, b: 1, a: 1}
   damegeUi: {fileID: 0}
+  conficAudioEfecti: {fileID: 7036890683519433294}
+  passo: {fileID: 0}
+  falando: {fileID: 0}
+  levandoDando: {fileID: 0}
+  Morrendo: {fileID: 0}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -147,6 +155,8 @@ MonoBehaviour:
   atteck:
   - Nome: Armadilha Adesiva
     cor: {r: 0, g: 0, b: 0, a: 0}
+    acertando: {fileID: 0}
+    errando: {fileID: 0}
     Elemento: 10
     MimDamege: 0
     maxdamege: 0
@@ -181,6 +191,8 @@ MonoBehaviour:
     custoMana: 0
   - Nome: "Devora\xE7\xE3o"
     cor: {r: 0, g: 0, b: 0, a: 0}
+    acertando: {fileID: 0}
+    errando: {fileID: 0}
     Elemento: 10
     MimDamege: 10
     maxdamege: 10
@@ -244,6 +256,7 @@ MonoBehaviour:
   Distancia: 6
   DistanciaOfTriugerCombater: 2
   playerScripter: {fileID: 0}
+  medoescondido: 0
   spawmnwelocal: -1
   referencias: []
   referencias1: []
@@ -269,6 +282,102 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!82 &7036890683519433294
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568679590072206704}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8235133945249880957, guid: 0acb843fe0ab03f4e9de2fa7b18166da, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6918173136139393171
 GameObject:
   m_ObjectHideFlags: 0

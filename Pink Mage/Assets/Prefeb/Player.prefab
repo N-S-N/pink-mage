@@ -11402,6 +11402,7 @@ GameObject:
   - component: {fileID: 5147618641972064889}
   - component: {fileID: 1078985873266587212}
   - component: {fileID: 1556927899822516297}
+  - component: {fileID: 2696518346074239268}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -11514,6 +11515,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11554,6 +11557,11 @@ MonoBehaviour:
     quantidadeIteam: 0
     color: {r: 0, g: 0, b: 0, a: 0}
   damegeUi: {fileID: 0}
+  conficAudioEfecti: {fileID: 2696518346074239268}
+  passo: {fileID: 8300000, guid: 09526ce593a8e1844b3270a2e3bef9cd, type: 3}
+  falando: {fileID: 0}
+  levandoDando: {fileID: 0}
+  Morrendo: {fileID: 0}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -11577,6 +11585,7 @@ MonoBehaviour:
   manaImage: {fileID: 6208148774453474686}
   vidaText: {fileID: 5275762112856215979}
   manaText: {fileID: 6785897004160413598}
+  falandobool: 0
   ButomDoAttteck: {fileID: 1356955530071037592}
   defend: {fileID: 0}
   CorDoAtteck:
@@ -11593,7 +11602,9 @@ MonoBehaviour:
   CombaterSena: 0
   inventario: {fileID: 5147618641972064889}
   UiLoja: {fileID: 3913973505249038976}
+  positiommSave: {x: 0, y: 0, z: 0}
   words: []
+  TimeGame: 0
   slot: 0
   PlayerState: 0
 --- !u!114 &5147618641972064889
@@ -11619,6 +11630,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11669,6 +11682,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11719,6 +11734,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11769,6 +11786,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11820,6 +11839,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11870,6 +11891,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11920,6 +11943,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -11970,6 +11995,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12020,6 +12047,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12070,6 +12099,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12120,6 +12151,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12170,6 +12203,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12220,6 +12255,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12270,6 +12307,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12320,6 +12359,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12370,6 +12411,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12420,6 +12463,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12470,6 +12515,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12520,6 +12567,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12570,6 +12619,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12620,6 +12671,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12670,6 +12723,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12720,6 +12775,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12770,6 +12827,8 @@ MonoBehaviour:
       atteck:
         Nome: 
         cor: {r: 0, g: 0, b: 0, a: 0}
+        acertando: {fileID: 0}
+        errando: {fileID: 0}
         Elemento: 0
         MimDamege: 0
         maxdamege: 0
@@ -12979,6 +13038,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &2696518346074239268
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3913973505249038976}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -8235133945249880957, guid: 0acb843fe0ab03f4e9de2fa7b18166da, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3916572571334744197
 GameObject:
   m_ObjectHideFlags: 0

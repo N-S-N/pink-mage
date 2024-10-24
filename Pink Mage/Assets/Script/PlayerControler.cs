@@ -35,6 +35,7 @@ public class PlayerControler : characterBasics
     [SerializeField] Image vidaImagem;
     [SerializeField] Image manaImage;
     [SerializeField] TMP_Text vidaText, manaText;
+    [HideInInspector]public bool falandobool;
 
     [Header("combate")]
     [SerializeField] Button ButomDoAttteck;
@@ -50,6 +51,7 @@ public class PlayerControler : characterBasics
     [Header("Interacao")]
     public GameObject UiLoja;
     [HideInInspector] public Vector3 positiommSave;
+
     #endregion
 
     #region variaves privadas
@@ -71,7 +73,8 @@ public class PlayerControler : characterBasics
     enum State
     {
         Iddle,
-        Running
+        Running,
+        falando
 
     }
     [Header("estaddo")]
@@ -162,6 +165,11 @@ public class PlayerControler : characterBasics
         switch (State)
         {
             case State.Iddle:
+                //tentando ir para falando
+                if (falandobool)
+                {
+                    return State.falando;
+                }
                 //tentanbo ir para o stado correndo
                 if (moveDirection != Vector2.zero)
                 {
@@ -169,8 +177,21 @@ public class PlayerControler : characterBasics
                 }
                 break;
             case State.Running:
+                //tentando ir para falando
+                if (falandobool)
+                {
+                    return State.falando;
+                }
                 //tentanbo ir para o stado correndo
                 if (moveDirection == Vector2.zero)
+                {
+                    return State.Iddle;
+                }
+
+                break;
+            case State.falando:
+                //tentanbo ir para o stado correndo
+                if (!falandobool)
                 {
                     return State.Iddle;
                 }
@@ -188,6 +209,23 @@ public class PlayerControler : characterBasics
     //entra no estado atual
     void OnStateEnter(State State)
     {
+        switch (State)
+        {
+            case State.Running:
+                conficAudioEfecti.clip = passo;
+                conficAudioEfecti.Play();
+                break;
+            case State.Iddle:
+                conficAudioEfecti.clip = null;
+                conficAudioEfecti.Pause();
+                break;
+            case State.falando:
+                conficAudioEfecti.clip = falando;
+                conficAudioEfecti.Play();
+                break;
+            default:
+                break;
+        }
     }
     //Updete do estado atual
     void OnStateUpdete(State State, float deltaTIme)
@@ -715,6 +753,11 @@ public class PlayerControler : characterBasics
                         }
                     }
                 }
+                conficAudioEfecti.PlayOneShot(ataqueEscolido.acertando);
+            }
+            else
+            {
+                conficAudioEfecti.PlayOneShot(ataqueEscolido.errando);
             }
         }
 
@@ -742,7 +785,7 @@ public class PlayerControler : characterBasics
         {
             defender = false;
 
-            ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto, atteck[randomatteck].cor);
+            ataqueEscolido = new atteck(atteck[randomatteck].Elemento, atteck[randomatteck].maxdamege, atteck[randomatteck].MimDamege, atteck[randomatteck].porcentagemDeAcerto, atteck[randomatteck].efeitos, atteck[randomatteck].custoLife, atteck[randomatteck].custoMana, atteck[randomatteck].speedAtteck, atteck[randomatteck].Nome, atteck[randomatteck].efeitoCondicao, atteck[randomatteck].tipoDaCondição, atteck[randomatteck].porcentagemCondicao, atteck[randomatteck].Maxcondicao, atteck[randomatteck].mimCondicao, atteck[randomatteck].efeitosAuto, atteck[randomatteck].cor, atteck[randomatteck].acertando, atteck[randomatteck].errando);
 
             efeitosSpeed();
 

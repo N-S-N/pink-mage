@@ -13,6 +13,7 @@ public class ControlerMenu : MonoBehaviour
     [SerializeField] GameObject PaiSave;
     [SerializeField] RectTransform save;
     [SerializeField] float alementoTamanho = 231.26f;
+
     #region loud
     private void Awake()
     {
