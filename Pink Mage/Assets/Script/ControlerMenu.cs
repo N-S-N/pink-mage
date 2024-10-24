@@ -94,6 +94,7 @@ public class ControlerMenu : MonoBehaviour
     {
         words.Add(new Save(words.Count,1,Color.white, Color.white, Color.white, Color.white, 0));
         saveMundo();
+        PlayerPrefs.SetInt("voltacombate", 0);
         PlayerPrefs.SetFloat("Tempo", 0);
         PlayerPrefs.SetInt("Carregar", 0);
         PlayerPrefs.SetInt("espaçoDeAmazenamento", words.Count-1);

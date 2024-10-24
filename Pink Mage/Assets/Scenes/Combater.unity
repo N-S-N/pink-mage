@@ -3199,6 +3199,7 @@ MonoBehaviour:
   TelaDeDerrota: {fileID: 32128398}
   TelaDeFuga: {fileID: 778844043}
   recompensaCombate: []
+  control: {fileID: 1493029815}
 --- !u!4 &613102460
 Transform:
   m_ObjectHideFlags: 0
@@ -8181,6 +8182,8 @@ MonoBehaviour:
   - {fileID: 5988019428356690547, guid: 547e56c6ffed33b4d99d2a3aeff28970, type: 3}
   NPC: []
   intprerfebenimy: 
+  intprerfebenimyindex: 
+  combaterprerfebenimy: []
   prefebAliado:
   - {fileID: 6850634302101809899, guid: 9a37101cc1fa1714f9db8c1ec4adf56e, type: 3}
   - {fileID: 7970922153077666176, guid: d1a760397fa06ac45b2bf877a10128ce, type: 3}
@@ -8191,6 +8194,10 @@ MonoBehaviour:
   - {fileID: 5988019428356690547, guid: 547e56c6ffed33b4d99d2a3aeff28970, type: 3}
   NPCAniado: []
   intprefebfrends: 
+  intprefebfrendsindex: 
+  combaterprerfebfrends: []
+  enimy: []
+  frendy: []
 --- !u!4 &1493029816
 Transform:
   m_ObjectHideFlags: 0

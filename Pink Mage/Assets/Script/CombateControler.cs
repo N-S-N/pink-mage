@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +19,8 @@ public class CombateControler : MonoBehaviour
     [SerializeField]public ControlerUiCombater telaDeVitoria, TelaDeDerrota, TelaDeFuga;
 
     public List<recompensas> recompensaCombate = new List<recompensas>();
+
+    [SerializeField] spwamSeneControl control;
     #endregion
 
     #region inicio Combate
@@ -145,7 +149,6 @@ public class CombateControler : MonoBehaviour
             telaDeVitoria.recompensaCombate = recompensaCombate;
             playerControler.Canvas.SetActive(false);
             telaDeVitoria.gameObject.SetActive(true);
-           
         }
         else
         {
@@ -184,10 +187,13 @@ public class CombateControler : MonoBehaviour
     #region Buttom
     public void UIfugar()
     {
+        PlayerPrefs.SetInt("voltacombate", 1);
         //svaer as novas informaçaes do player
-        playerControler.savePersonagem();
+        playerControler.savePersonagem(playerControler.positiommSave);
         playerControler.saveMundo();
         //mandar de volta para o map
+        verificarEnimy();
+
         SceneManager.LoadSceneAsync(playerControler.words[playerControler.slot].fase);
     }
 
@@ -195,15 +201,21 @@ public class CombateControler : MonoBehaviour
     {
         //apagar este save
         //provisorio
+        PlayerPrefs.SetInt("voltacombate", 1);
         Debug.Log(playerControler.slot);
         playerControler.words.Remove(playerControler.words[playerControler.slot]);
         playerControler.saveMundo(false);
+        //
+        verificarEnimy();
+
         //voltar para o menu
         SceneManager.LoadSceneAsync(0);
     }
 
     public void UIVitoria()
     {
+        Debug.Log(control.enimy[0].gameObject.IsDestroyed());
+
         //trop de Iteam para o inventario
         for (int i = 0; i < recompensaCombate.Count; i++) 
         {
@@ -213,11 +225,43 @@ public class CombateControler : MonoBehaviour
             }
         }
         //svaer as novas informaçaes do player
-        playerControler.savePersonagem();
+        PlayerPrefs.SetInt("voltacombate", 1);
+        playerControler.savePersonagem(playerControler.positiommSave);
         playerControler.saveMundo();
+
+        verificarEnimy();
+
         //mandar de volta para o map
         SceneManager.LoadSceneAsync(playerControler.words[playerControler.slot].fase);
+        
     }
+
+
+    void verificarEnimy()
+    {
+        combaterSenaData itemdata2 = new combaterSenaData(control.combaterprerfebenimy, control.combaterprerfebfrends);
+        int INDEX = 0;   
+        for (int i = 0; i < itemdata2.enimy.Count; i++)
+        {
+            if (itemdata2.enimy[i].incombater)
+            {
+                if (control.enimy[INDEX].gameObject.IsDestroyed())
+                {
+                    itemdata2.enimy[i].lifeincombater = 0;
+                    
+                }
+                INDEX++;
+            }
+        }
+
+        combaterSena itemdata = new combaterSena();
+
+        itemdata.enimy = itemdata2;
+        string jsonData = JsonUtility.ToJson(itemdata);
+
+        File.WriteAllText("combater.json", jsonData);
+    }
+
     #endregion
 }
 

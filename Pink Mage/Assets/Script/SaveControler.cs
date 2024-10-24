@@ -18,6 +18,7 @@ public class SaveControler : MonoBehaviour
 
     public void selecionou()
     {
+        PlayerPrefs.SetInt("voltacombate", 0);
         PlayerPrefs.SetInt("Carregar", 1);
         PlayerPrefs.SetInt("espaçoDeAmazenamento", Slot);
         PlayerPrefs.SetFloat("Tempo", tempo);

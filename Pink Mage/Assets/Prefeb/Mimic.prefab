@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2c77eb1317afb449cfb617df44c73e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 120
-  LifeMax: 120
+  Life: 10
+  LifeMax: 10
   Speed: 0
   Mana: 10
   MaxMana: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
       rands: 0
     custoLife: 0
     custoMana: 0
+  control: {fileID: 0}
   _velocityWalk: 0
   _velocityRun: 0
   sprite: {fileID: 6918173136139393171}
@@ -243,8 +244,9 @@ MonoBehaviour:
   Distancia: 6
   DistanciaOfTriugerCombater: 2
   playerScripter: {fileID: 0}
-  referencias: 
-  referencias1: 
+  spawmnwelocal: -1
+  referencias: []
+  referencias1: []
 --- !u!195 &5223912283121923545
 NavMeshAgent:
   m_ObjectHideFlags: 0

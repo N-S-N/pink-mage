@@ -1301,6 +1301,7 @@ MonoBehaviour:
   TelaDeDerrota: {fileID: 66604213}
   TelaDeFuga: {fileID: 0}
   recompensaCombate: []
+  control: {fileID: 0}
 --- !u!4 &381458309
 Transform:
   m_ObjectHideFlags: 0
@@ -1481,6 +1482,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 210687899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &514058286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5679207172956930673, guid: 3dd6d842d6f37c346ac39f57c1e71bb4, type: 3}
+  m_PrefabInstance: {fileID: 4118207076686817849}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8c2e1d56edd1142af364581189db6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &573546215 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5718367345540277667, guid: 65702c004b536e94784f2805a6e84cf6, type: 3}
@@ -1671,6 +1683,61 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 210687899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &909545052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909545054}
+  - component: {fileID: 909545053}
+  m_Layer: 0
+  m_Name: todosspaner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &909545053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909545052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21eba2806f731b146b6eff297db3d97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawms:
+  - {fileID: 514058286}
+  prefebEnimy:
+  - {fileID: 6850634302101809899, guid: 9a37101cc1fa1714f9db8c1ec4adf56e, type: 3}
+  - {fileID: 7970922153077666176, guid: d1a760397fa06ac45b2bf877a10128ce, type: 3}
+  - {fileID: 568679590072206704, guid: 65702c004b536e94784f2805a6e84cf6, type: 3}
+  - {fileID: 4175442327798981770, guid: 202aabc17f1432f47b7b2b627e6a95a1, type: 3}
+  - {fileID: 1996088598386558946, guid: c3183e1844ce26448a91f70352c5775d, type: 3}
+  - {fileID: 1265715637124357379, guid: 8548c497a20582e458c6ddbd00dd328f, type: 3}
+  - {fileID: 5988019428356690547, guid: 547e56c6ffed33b4d99d2a3aeff28970, type: 3}
+  combaterprerfebenimy: []
+--- !u!4 &909545054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909545052}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.349665, y: -8.659339, z: 11.175812}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &946999682
 GameObject:
@@ -3139,10 +3206,11 @@ MonoBehaviour:
   damege:
     Elemento: 10
     Bonus: 0
-  referencias: 
-  referencias1: 
+  referencias: []
+  referencias1: []
   prefebEnimy: []
   prefebAliado: []
+  control: {fileID: 0}
 --- !u!65 &1329064377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4323,6 +4391,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 381458308}
     - target: {fileID: 5679207172956930673, guid: 3dd6d842d6f37c346ac39f57c1e71bb4, type: 3}
+      propertyPath: control
+      value: 
+      objectReference: {fileID: 909545053}
+    - target: {fileID: 5679207172956930673, guid: 3dd6d842d6f37c346ac39f57c1e71bb4, type: 3}
       propertyPath: rota.Array.size
       value: 11
       objectReference: {fileID: 0}
@@ -5375,3 +5447,4 @@ SceneRoots:
   - {fileID: 1850183263}
   - {fileID: 692252577}
   - {fileID: 281481680}
+  - {fileID: 909545054}

@@ -49,7 +49,7 @@ public class PlayerControler : characterBasics
 
     [Header("Interacao")]
     public GameObject UiLoja;
-
+    [HideInInspector] public Vector3 positiommSave;
     #endregion
 
     #region variaves privadas
@@ -60,7 +60,7 @@ public class PlayerControler : characterBasics
     Vector2 moveDirection = Vector2.zero;
     Rigidbody rig;
     [HideInInspector] public List<Save> words = new List<Save>();
-    private float TimeGame;
+    [HideInInspector] public float TimeGame;
     [HideInInspector]public int slot;
 
     #endregion
@@ -265,7 +265,7 @@ public class PlayerControler : characterBasics
         //Scene scene = SceneManager.GetActiveScene();
         words[slot].fase = SceneManager.GetActiveScene().buildIndex;
 
-        savePersonagem();
+        savePersonagem(transform.position);
         //save
         saveMundo();
         SceneManager.LoadSceneAsync(0);
@@ -273,7 +273,6 @@ public class PlayerControler : characterBasics
 
 
     #endregion
-
 
     #region funciom de save
     public void saveMundo(bool  mapa = true)
@@ -296,9 +295,9 @@ public class PlayerControler : characterBasics
 
         File.WriteAllText("menu.json", jsonData);
     }
-    public void savePersonagem()
+    public void savePersonagem(Vector3 positiom)
     {
-        personagem itemdata = new personagem(LifeMax,Life,MaxMana,Mana, Medo, inventario.la, inventario.couro, inventario.coracao_Envenenado, inventario.cranio, inventario.lingua);
+        personagem itemdata = new personagem(positiom, LifeMax,Life,MaxMana,Mana, Medo, inventario.la, inventario.couro, inventario.coracao_Envenenado, inventario.cranio, inventario.lingua);
 
         string jsonData = JsonUtility.ToJson(itemdata);
 
@@ -341,8 +340,16 @@ public class PlayerControler : characterBasics
             if (File.Exists("Personagem" + slot.ToString() + ".json"))
             {
                 string jsonData = File.ReadAllText("Personagem" + slot.ToString() + ".json");
-
                 personagem lineMapdafe = JsonUtility.FromJson<personagem>(jsonData);
+                if (!CombaterSena)
+                {
+                    transform.position = lineMapdafe.positiom;
+                    positiommSave = lineMapdafe.positiom;
+                }
+                else
+                {
+                    positiommSave = lineMapdafe.positiom;
+                }
                 LifeMax = lineMapdafe.VidaMax;
                 Life = lineMapdafe.VidaMim;
                 MaxMana = lineMapdafe.ManaMax;
@@ -497,8 +504,6 @@ public class PlayerControler : characterBasics
             }
 
         }
-
-        Debug.Log(events[0].currentSelectedGameObject);
 
         personagemEscolido = inimigo[0];
     }
@@ -802,6 +807,7 @@ public class PlayerControler : characterBasics
 [System.Serializable]
 public class personagem
 {
+    public Vector3 positiom;
     public float VidaMax;
     public float VidaMim;
     public float ManaMax;
@@ -813,8 +819,9 @@ public class personagem
     public int Cranio;
     public int Lingua;
 
-    public personagem(float VidaMax,float VidaMim, float ManaMax, float ManaMim,float medo, int la, int couro,int Coracao,int Cranio,int Lingua)
+    public personagem(Vector3 positiom,float VidaMax,float VidaMim, float ManaMax, float ManaMim,float medo, int la, int couro,int Coracao,int Cranio,int Lingua)
     {
+        this.positiom = positiom;
         this.VidaMax = VidaMax;
         this.VidaMim = VidaMim;
         this.ManaMax = ManaMax;
