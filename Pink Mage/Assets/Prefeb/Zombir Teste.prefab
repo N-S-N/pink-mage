@@ -146,10 +146,10 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
   damegeUi: {fileID: 0}
   conficAudioEfecti: {fileID: 8706727848097216804}
-  passo: {fileID: 0}
-  falando: {fileID: 0}
-  levandoDando: {fileID: 0}
-  Morrendo: {fileID: 0}
+  passo: {fileID: 8300000, guid: ad1f6e2da9306ed47bd586625e2c84ed, type: 3}
+  falando: {fileID: 8300000, guid: ebde45f552b27e24294105132f592d6a, type: 3}
+  levandoDando: {fileID: 8300000, guid: 6498d6247406b094d9db8bb28ac58030, type: 3}
+  Morrendo: {fileID: 8300000, guid: de3b02a87c7b41647a7b01b017ebd258, type: 3}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -157,8 +157,8 @@ MonoBehaviour:
   atteck:
   - Nome: Golpe Putrefato
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 2
     MimDamege: 8
     maxdamege: 12
@@ -193,8 +193,8 @@ MonoBehaviour:
     custoMana: 0
   - Nome: Mordida Infectada
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 4
     MimDamege: 5
     maxdamege: 10
@@ -229,8 +229,8 @@ MonoBehaviour:
     custoMana: 0
   - Nome: Apodrecer
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 3
     MimDamege: 0
     maxdamege: 0

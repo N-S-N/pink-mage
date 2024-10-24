@@ -11559,9 +11559,9 @@ MonoBehaviour:
   damegeUi: {fileID: 0}
   conficAudioEfecti: {fileID: 2696518346074239268}
   passo: {fileID: 8300000, guid: 09526ce593a8e1844b3270a2e3bef9cd, type: 3}
-  falando: {fileID: 0}
-  levandoDando: {fileID: 0}
-  Morrendo: {fileID: 0}
+  falando: {fileID: 8300000, guid: 6498d6247406b094d9db8bb28ac58030, type: 3}
+  levandoDando: {fileID: 8300000, guid: f49fa5e0a4c30774b821c9e023513c51, type: 3}
+  Morrendo: {fileID: 8300000, guid: ca1afdbc4bc6a014495bba3283e9026a, type: 3}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}

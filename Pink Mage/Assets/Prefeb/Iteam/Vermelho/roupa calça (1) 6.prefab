@@ -65,14 +65,16 @@ MonoBehaviour:
     atteck:
       Nome: Phoenix Flame
       cor: {r: 1, g: 0, b: 0, a: 1}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 0
       MimDamege: 0
       maxdamege: 0
       porcentagemDeAcerto: 100
       speedAtteck: 8
       efeitosAuto:
-        efeito: 1
-        AtrubutoDiminuir: 5
+        efeito: 0
+        AtrubutoDiminuir: 0
         porcentagemAceto: 0
         elementoDoDano: 0
         multiplos: 0

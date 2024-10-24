@@ -144,10 +144,10 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
   damegeUi: {fileID: 0}
   conficAudioEfecti: {fileID: 4808553902252468268}
-  passo: {fileID: 0}
-  falando: {fileID: 0}
-  levandoDando: {fileID: 0}
-  Morrendo: {fileID: 0}
+  passo: {fileID: 8300000, guid: ebde45f552b27e24294105132f592d6a, type: 3}
+  falando: {fileID: 8300000, guid: ebde45f552b27e24294105132f592d6a, type: 3}
+  levandoDando: {fileID: 8300000, guid: 6498d6247406b094d9db8bb28ac58030, type: 3}
+  Morrendo: {fileID: 8300000, guid: 2c926946cbbb68546ba306a93fbbe7c8, type: 3}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -155,8 +155,8 @@ MonoBehaviour:
   atteck:
   - Nome: Investida Leve
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 2
     MimDamege: 3
     maxdamege: 5
@@ -191,8 +191,8 @@ MonoBehaviour:
     custoMana: 0
   - Nome: Balido Sonoro
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 10
     MimDamege: 0
     maxdamege: 0

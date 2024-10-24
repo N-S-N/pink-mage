@@ -144,10 +144,10 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
   damegeUi: {fileID: 0}
   conficAudioEfecti: {fileID: 75296568939076973}
-  passo: {fileID: 0}
-  falando: {fileID: 0}
-  levandoDando: {fileID: 0}
-  Morrendo: {fileID: 0}
+  passo: {fileID: 8300000, guid: aff2732981ae9e949b64dcaadfbf9d57, type: 3}
+  falando: {fileID: 8300000, guid: aff2732981ae9e949b64dcaadfbf9d57, type: 3}
+  levandoDando: {fileID: 8300000, guid: 6b4b45855faf8cc4998401139bce85f6, type: 3}
+  Morrendo: {fileID: 8300000, guid: 99c63661199c5a244a363d8f53787482, type: 3}
   combater: {fileID: 0}
   thispersonagme:
     personagmeScrips: {fileID: 0}
@@ -155,8 +155,8 @@ MonoBehaviour:
   atteck:
   - Nome: "Pancada com a P\xE1"
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 2
     MimDamege: 6
     maxdamege: 10
@@ -191,8 +191,8 @@ MonoBehaviour:
     custoMana: 0
   - Nome: Nuvem de Farinha
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 10
     MimDamege: 0
     maxdamege: 0
@@ -227,8 +227,8 @@ MonoBehaviour:
     custoMana: 0
   - Nome: "P\xE3o Revigorante"
     cor: {r: 0, g: 0, b: 0, a: 0}
-    acertando: {fileID: 0}
-    errando: {fileID: 0}
+    acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+    errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
     Elemento: 10
     MimDamege: 0
     maxdamege: 0

@@ -65,6 +65,8 @@ MonoBehaviour:
     atteck:
       Nome: Mind Flare
       cor: {r: 0.30640554, g: 0, b: 1, a: 1}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 6
       MimDamege: 12
       maxdamege: 12

@@ -65,6 +65,8 @@ MonoBehaviour:
     atteck:
       Nome: Explosive Arrow
       cor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 2
       MimDamege: 12
       maxdamege: 16

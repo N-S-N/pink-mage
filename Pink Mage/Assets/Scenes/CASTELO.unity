@@ -164,8 +164,8 @@ MonoBehaviour:
     atteck:
       Nome: Cute Charm
       cor: {r: 1, g: 0, b: 0.91280556, a: 1}
-      acertando: {fileID: 0}
-      errando: {fileID: 0}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 9
       MimDamege: 6
       maxdamege: 6
@@ -880,8 +880,8 @@ MonoBehaviour:
     atteck:
       Nome: Bubble Burst
       cor: {r: 1, g: 0, b: 0.9137255, a: 1}
-      acertando: {fileID: 0}
-      errando: {fileID: 0}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 9
       MimDamege: 6
       maxdamege: 6
@@ -903,8 +903,8 @@ MonoBehaviour:
       Maxcondicao: 0
       mimCondicao: 0
       efeitos:
-        efeito: 1
-        AtrubutoDiminuir: 1
+        efeito: 0
+        AtrubutoDiminuir: 0
         porcentagemAceto: 100
         elementoDoDano: 0
         multiplos: 1
@@ -3088,8 +3088,8 @@ MonoBehaviour:
     atteck:
       Nome: Heart Slash
       cor: {r: 1, g: 0, b: 0.9137255, a: 1}
-      acertando: {fileID: 0}
-      errando: {fileID: 0}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 9
       MimDamege: 15
       maxdamege: 15
@@ -3111,8 +3111,8 @@ MonoBehaviour:
       Maxcondicao: 0
       mimCondicao: 0
       efeitos:
-        efeito: 4
-        AtrubutoDiminuir: 6
+        efeito: 0
+        AtrubutoDiminuir: 0
         porcentagemAceto: 0
         elementoDoDano: 10
         multiplos: 1
@@ -3842,8 +3842,8 @@ MonoBehaviour:
     atteck:
       Nome: Pink Sparkle
       cor: {r: 1, g: 0, b: 0.9137255, a: 1}
-      acertando: {fileID: 0}
-      errando: {fileID: 0}
+      acertando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
+      errando: {fileID: 8300000, guid: af4a1958100b0eb42a54b0e01aca0b67, type: 3}
       Elemento: 9
       MimDamege: 8
       maxdamege: 8
@@ -3865,8 +3865,8 @@ MonoBehaviour:
       Maxcondicao: 0
       mimCondicao: 0
       efeitos:
-        efeito: 1
-        AtrubutoDiminuir: 2
+        efeito: 0
+        AtrubutoDiminuir: 0
         porcentagemAceto: 100
         elementoDoDano: 0
         multiplos: 1
