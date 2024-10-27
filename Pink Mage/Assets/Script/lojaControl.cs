@@ -43,17 +43,10 @@ public class lojaControl : MonoBehaviour
 
     #region funcao
 
-    public void interection(InputAction.CallbackContext context)
+    public void interection()
     {
-        if (context.performed)
-        {
-            float disstancy = Vector3.Distance(player.transform.position,transform.position);
-            if(disstancy < distacy)
-            {
-                Ui.SetActive(true);
-                updateDaita();
-            }
-        }
+        Ui.SetActive(true);
+        updateDaita();
     }
 
     private void Awake()
