@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 5f2ab7e589ff4424f8c99de8991a741e
   - enabled: 1
-    path: Assets/Scenes/castelo.unity
+    path: Assets/Scenes/CASTELO.unity
     guid: 14fc54b6103d17141a4b80b143ed07cb
   - enabled: 1
     path: Assets/Scenes/florest.unity
