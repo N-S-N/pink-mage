@@ -3456,6 +3456,7 @@ GameObject:
   - component: {fileID: 1086804683}
   - component: {fileID: 1086804682}
   - component: {fileID: 1086804681}
+  - component: {fileID: 1086804686}
   m_Layer: 5
   m_Name: Pause (1)
   m_TagString: Untagged
@@ -3563,6 +3564,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1086804686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086804680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5674dc4b2b43e478aead5302c0426f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausegame: {fileID: 417334235}
+  settinggame: {fileID: 1667652164}
 --- !u!1 &1096448043 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3913973505249038976, guid: 0fa384a1176eb6148924fe1356552d63, type: 3}

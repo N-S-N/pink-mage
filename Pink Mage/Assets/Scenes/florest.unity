@@ -3040,6 +3040,7 @@ GameObject:
   - component: {fileID: 692252575}
   - component: {fileID: 692252574}
   - component: {fileID: 692252578}
+  - component: {fileID: 692252579}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -3147,6 +3148,20 @@ MonoBehaviour:
   volumeSlider: {fileID: 980064248}
   MusicSlider: {fileID: 45783066}
   EfectSlider: {fileID: 1281071417}
+--- !u!114 &692252579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692252573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf5674dc4b2b43e478aead5302c0426f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausegame: {fileID: 953696593}
+  settinggame: {fileID: 1690687588}
 --- !u!4 &707781835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1378187590699139096, guid: 0fa384a1176eb6148924fe1356552d63, type: 3}
