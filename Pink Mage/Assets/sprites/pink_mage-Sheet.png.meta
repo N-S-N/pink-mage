@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -74,7 +74,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -108,18 +108,1030 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pink_mage-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 3053
+        width: 69
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428a1e766525655489ebf3fe69310095
+      internalID: 1957817484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 3038
+        width: 69
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8308eb99218f22f4e85911ca7de18d1c
+      internalID: 81039499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 3068
+        width: 23
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26177b40e3f6df445954a66c36d20f4f
+      internalID: 458926094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 3098
+        width: 23
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67d550a2323cfda40b5d5a257cad17aa
+      internalID: -993660366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 2728
+        width: 69
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a4ae7f0fcbedc4d84227da187c3e1b
+      internalID: 1288996165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2803
+        width: 74
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7aab022d74b494aa8f1d67974d67d6
+      internalID: 1323030518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2728
+        width: 68
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e5001f0692a74448a986183699af9b5
+      internalID: -154370667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 2648
+        width: 74
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c616433c8147fe428521fc4639ac8db
+      internalID: -133102311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 2403
+        width: 44
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533e9e6abe4369a4795d71ee44d936d8
+      internalID: -689399547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 2403
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf31805dad27c640a2e1f57a123f213
+      internalID: -1935011589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 2353
+        width: 44
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd56b78e7dcccc4a85f6cdc9a603bbc
+      internalID: -615781853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 2353
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc64b6da01380754da7dcdbd867838bb
+      internalID: -103665798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 2159
+        width: 29
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1269d28af962e94e989f6661b5feffe
+      internalID: 2023905713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 2159
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33939cd7de76a8144b50c543ff25b8e5
+      internalID: 873492145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 2078
+        width: 44
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3727a37d5e5f0cc4c96bf9eff0246de6
+      internalID: -2061510255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 2078
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9786680d790bfd24d921ec2f1dcb670d
+      internalID: 600644986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 2078
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af902be6ea6663c44b22a5ae4a471e17
+      internalID: 534065500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 2078
+        width: 44
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623b0fc92ff89d441814071b81440b1a
+      internalID: 780868497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1998
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bed05c68b35b4f47a00168d1d1050d2
+      internalID: -1307277678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 1998
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c533ac2514648984bbfb5521daba9404
+      internalID: -2120832729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 1784
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbc4a39bca554541a726bc7af3449a4
+      internalID: -1677811845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1768
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d04c58e11bc9e647b78964bbe0230ce
+      internalID: -2137453500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1538
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 978f900b192339345b7e2e2b8209b274
+      internalID: -92849035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1459
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6ddb3520633d2499a74e76cbef3e67
+      internalID: -1665008793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 1459
+        width: 73
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6c396fd53792a4d9d47a6b6a9dd36d
+      internalID: -1708225655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1378
+        width: 74
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3fe051ff52f1154aa94351bd9578e56
+      internalID: -1206727997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1138
+        width: 149
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 763f7be351184d140b8655c168dc86b7
+      internalID: 126321576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 1153
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1385519eea74697448c44cdd9290b0ce
+      internalID: 1022717502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1134
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d7e66e2c51ce745abefd94e7dc5870
+      internalID: 1956395500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1078
+        width: 53
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57cf048b83c7d041a7f7c0eebf6a547
+      internalID: 60280982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1063
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e196f2fa93a2a564890769387fd54729
+      internalID: 981774296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 1038
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88202289a250edb4883fd9fd0644766e
+      internalID: -1941303990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 893
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236940006011f4b4f8bcd247cf99c6d2
+      internalID: 1777252875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 893
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c41bb850fc0c1dc44b2b192eefcd8299
+      internalID: -1967823975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 838
+        width: 39
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d8c4a1f3fca7e41926265562fead23
+      internalID: 1683705161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 818
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a2d4a1e020208c49a4503a4b0abcdef
+      internalID: 268790539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 818
+        width: 43
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232eeb8df8be67c45aaa960585cdac01
+      internalID: 1793993804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 843
+        width: 43
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15fbca9806baaa4da6e2e8eded1543e
+      internalID: 1790615560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 738
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86fb5cd5533e7447a34092a6f6f2e1b
+      internalID: 1487698218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 738
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e40565d95813d84bb3bf62a1bbba664
+      internalID: 958219644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 559
+        width: 78
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a66f8724d3975d45a264e1150742680
+      internalID: -622486323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 559
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4b55d7e4cefec43871b9a1f2769ec2
+      internalID: -1440070890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 234
+        width: 78
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72c83b586165cb04da77d564d6611561
+      internalID: -529330119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 303
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da353266d47ca44e91c7e9272a9e4d2
+      internalID: 255294576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 234
+        width: 79
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e4342bc49dad8488228216500c8d85
+      internalID: 1356823489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 148
+        width: 84
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e0d59d0fb828a4bba48d5f9d0fda8a
+      internalID: 1594390582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pink_mage-Sheet_0: 1957817484
+      pink_mage-Sheet_1: 81039499
+      pink_mage-Sheet_10: -615781853
+      pink_mage-Sheet_11: -103665798
+      pink_mage-Sheet_12: 2023905713
+      pink_mage-Sheet_13: 873492145
+      pink_mage-Sheet_14: -2061510255
+      pink_mage-Sheet_15: 600644986
+      pink_mage-Sheet_16: 534065500
+      pink_mage-Sheet_17: 780868497
+      pink_mage-Sheet_18: -1307277678
+      pink_mage-Sheet_19: -2120832729
+      pink_mage-Sheet_2: 458926094
+      pink_mage-Sheet_20: -1677811845
+      pink_mage-Sheet_21: -2137453500
+      pink_mage-Sheet_22: -92849035
+      pink_mage-Sheet_23: -1665008793
+      pink_mage-Sheet_24: -1708225655
+      pink_mage-Sheet_25: -1206727997
+      pink_mage-Sheet_26: 126321576
+      pink_mage-Sheet_27: 1022717502
+      pink_mage-Sheet_28: 1956395500
+      pink_mage-Sheet_29: 60280982
+      pink_mage-Sheet_3: -993660366
+      pink_mage-Sheet_30: 981774296
+      pink_mage-Sheet_31: -1941303990
+      pink_mage-Sheet_32: 1777252875
+      pink_mage-Sheet_33: -1967823975
+      pink_mage-Sheet_34: 1683705161
+      pink_mage-Sheet_35: 268790539
+      pink_mage-Sheet_36: 1793993804
+      pink_mage-Sheet_37: 1790615560
+      pink_mage-Sheet_38: 1487698218
+      pink_mage-Sheet_39: 958219644
+      pink_mage-Sheet_4: 1288996165
+      pink_mage-Sheet_40: -622486323
+      pink_mage-Sheet_41: -1440070890
+      pink_mage-Sheet_42: -529330119
+      pink_mage-Sheet_43: 255294576
+      pink_mage-Sheet_44: 1356823489
+      pink_mage-Sheet_45: 1594390582
+      pink_mage-Sheet_5: 1323030518
+      pink_mage-Sheet_6: -154370667
+      pink_mage-Sheet_7: -133102311
+      pink_mage-Sheet_8: -689399547
+      pink_mage-Sheet_9: -1935011589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

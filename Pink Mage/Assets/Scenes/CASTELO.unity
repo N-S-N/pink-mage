@@ -7967,6 +7967,10 @@ PrefabInstance:
       value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
       propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -7983,8 +7987,16 @@ PrefabInstance:
       value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
       objectReference: {fileID: 0}
     - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
       propertyPath: m_VerticalAlignment
@@ -7993,6 +8005,10 @@ PrefabInstance:
     - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 883658385579788541, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 951668479620097180, guid: 1967fedfb7469ad4583fc158cdb76eb1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

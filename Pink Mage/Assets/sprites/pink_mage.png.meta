@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -74,7 +74,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -108,18 +108,174 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pink_mage_1
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 37
+        width: 43
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      physicsShape:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6227ff3b43424d645aa90c8dcfc9ee22
+      internalID: -969736393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage_2
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 4
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      physicsShape:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0ffe45a40b5c3459aec570085b7077
+      internalID: 390531211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage_4
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 3
+        width: 28
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      physicsShape:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcc403891369f2d4e82baac69f309dcf
+      internalID: 396328455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage_5
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 35
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      physicsShape:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f580e35b2dc57a419c795a6942b5a82
+      internalID: 313278471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pink_mage_8
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 35
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      physicsShape:
+      - - {x: 0, y: -32}
+        - {x: 132, y: 0}
+        - {x: 0, y: 32}
+        - {x: -132, y: 0}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb861004cb3d694fae9df932074a361
+      internalID: -1337931928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ed3d2bb451884344f859d392b9b88b39
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pink_mage_0: -1138181183
+      pink_mage_1: -969736393
+      pink_mage_10: 699146581
+      pink_mage_2: 390531211
+      pink_mage_3: -193064525
+      pink_mage_4: 396328455
+      pink_mage_5: 313278471
+      pink_mage_6: -1279516927
+      pink_mage_7: 1036798757
+      pink_mage_8: -1337931928
+      pink_mage_9: -815861706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

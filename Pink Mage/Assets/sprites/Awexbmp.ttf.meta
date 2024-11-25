@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 79b0b4cc73aa77f44af7410d37ac098a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 0
+  fontNames:
+  - Awexbmp
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 70594d9c32c643d41bb831527399ac07, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 1
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

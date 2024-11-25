@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -34,16 +34,16 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -74,7 +74,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -108,18 +108,1932 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 144
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32442f323f36884fa5cdcd6cec115f0
+      internalID: -1105960551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e817618467d782c458b5b0d99856dd63
+      internalID: 172099592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 144
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b91649c842b0d8a45b0a420e9a71d8f1
+      internalID: 565087275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 144
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaefcc808e4a0914fb61b3350e8ebfe9
+      internalID: 632084025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 144
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b07117e47c52a744beb97fc69b44e3d
+      internalID: 1230909054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b967955d9e91de749a15aa18d9173392
+      internalID: -682836042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_6
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 144
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a1f052ce90cd80418974374c5f05485
+      internalID: -1690422213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41878d77194d13b4db63d6a78f1991aa
+      internalID: 153850692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_8
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 144
+        width: 5
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389e980afee9f274da2dadd6d4bbb4e2
+      internalID: -353091828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 144
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04860164d81dc3b438ae610dcca8b35c
+      internalID: 1710256046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbb721c30b573444aba55b2397cf0b0
+      internalID: -1821451735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_11
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 128
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49fa909c63c36644898bd94ded4cee71
+      internalID: 1614603956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 128
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe29dc3a62f524b44b80a5a465c51546
+      internalID: -1208383321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 128
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a928a301d9e7e41bcf0fbd2649dd4d
+      internalID: 1838443005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_14
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 128
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e2662957a3da645a87199a3eb33d8c
+      internalID: 1934029726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_15
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 128
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1bc7c5586d334d498440dc0e2a8ec9e
+      internalID: 582348221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_16
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 128
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92d5e80c39ab9d4d8ddc10663cb9261
+      internalID: 2063481705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_17
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 128
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b654020b197b9844ad7a6d7f7fe0a10
+      internalID: -1187520514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 32
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 801e1c230b04b6c449c6c81a959f6f24
+      internalID: 1600586533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 112
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f4e14365b5e49948b87f9d05e2ee9de
+      internalID: -1091074112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 112
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1177aaef684eb448becc563c17e1c6d
+      internalID: -1649411464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 112
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5bfb68da266ba48bf62eb42684dd3d
+      internalID: -512569916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_22
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 112
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187d612205b0f2b49a54f68d6c6c125c
+      internalID: 113405590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_23
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 112
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b205eee31da7e2419dedc0339d7621a
+      internalID: 795271127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_24
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 112
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efa4d054d224bbd4fb3d2e37c728bed9
+      internalID: -479069236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 5
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23994b2887b9f9c48bb238473b430689
+      internalID: -383932679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_26
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 96
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002c9652813237c4e853c4a9af065045
+      internalID: -1916572220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_27
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 96
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d39406e18c982459b380bfae2b4045
+      internalID: -1516983311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_28
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 96
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba37ba5420397648bafe0c980f27ffd
+      internalID: -1389668359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_29
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 96
+        width: 20
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131572d59b34a824aa3005ca88db0341
+      internalID: -936899890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_30
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 96
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd7104ef59fecd428b5742a43db24dd
+      internalID: 1549047097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_31
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 96
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c90fe89e4d9048b48aacd55434260749
+      internalID: 1682068467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_32
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 96
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa043a83ad1b43498d9b141e173fe0a
+      internalID: 1280074592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_33
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 96
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dd53a0155394bf4c818f53200af4cc3
+      internalID: 722334849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_34
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 80
+        width: 7
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507f1c0bc1023824aabc31f372efa679
+      internalID: -1216990640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_35
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f7d6775aac207469ac39fd8dad7074
+      internalID: -974123622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_36
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 64
+        width: 11
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61aa0eeffa45f1646bbdffe53bc6d68b
+      internalID: 1133933436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 80
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e10fbd65797874f990e5bafafcd6be
+      internalID: -814907832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_38
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 80
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c0aeb982bc262418aa68e94efd39c7
+      internalID: -1348061691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_39
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 80
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f978d798d8a25cb4fb8f523a3bb2637d
+      internalID: 611042006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_40
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 64
+        width: 6
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad2e77a9c86b944ba3c5fc20ce74bb9
+      internalID: 1914802640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_41
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 80
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d59952b0b16decc4e9704554af2c069d
+      internalID: -997875410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_42
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 80
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26aaf9c689b33d04e95fa27ee8eb4a84
+      internalID: 2111025562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_43
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 80
+        width: 5
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1442dded560c59a498792c690a098225
+      internalID: -791379923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_44
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 80
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a713ec2664f78764780e22253191ea38
+      internalID: -591838060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_45
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 64
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11b34da975e8674b8f68142114c393d
+      internalID: -417382882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_46
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 64
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13ce5fb9d3a27541b0e09623b36c4b2
+      internalID: -62483789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_47
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 64
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10996d57b4a1c7e49832e5b7cda4f671
+      internalID: -120268921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_48
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 48
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0171e722445de2f40828db09c1021cf5
+      internalID: -1454492888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_49
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 64
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a074349d0b7ea45bd6cff018a6a199
+      internalID: -875591472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_50
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 48
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0aafa43f29dad49976aeefcc639fab
+      internalID: -425428928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_51
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 64
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7900523c66fa5c4dbbb6fade552edd4
+      internalID: -1456733176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_52
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 64
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9811d9d4ebf462d4181936ea405198a4
+      internalID: -1793302286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_53
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4aefffce78fc4642952ecd3ed4fe8d7
+      internalID: 2030834776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_54
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 48
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b64e681dabf5b4591e83ceb59bc7d5
+      internalID: 1399110092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_55
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 48
+        width: 5
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9799c7b1832f7ac428281dae250df71e
+      internalID: 1706453101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_56
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 48
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07db3f660232aa4439c6470cb99c970a
+      internalID: 597648380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_57
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 48
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1381dd51ba55a4a825149469d32c64
+      internalID: 1773248396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_58
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 48
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de96704f3d8fa9f4bbb198a01be0472d
+      internalID: 538629412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_59
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 48
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50c78863d7541d4db37eb3ddecf9338
+      internalID: 1007070654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_60
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dbea8572433c084dbba5eaff85ef6df
+      internalID: 179823140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_61
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 32
+        width: 11
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de56f6608738864591fcb445fdc324c
+      internalID: 2026753351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_62
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 32
+        width: 11
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187de5a10d179464eba6f9edc269e3a7
+      internalID: -1573156105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_63
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 32
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f847a2548c59d543badde6c0c295ae8
+      internalID: 1615047024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_64
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 32
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b73238a123a6f40b7c0c280ca30938
+      internalID: 1637086029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_65
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 32
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1d96c55fd1e5144ade5b78f8632cd1
+      internalID: 1331818498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_66
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 32
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c493358d63826994b8ca6b6ef757aba0
+      internalID: 1670295466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_67
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 32
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa57bd8ed8d38e4f97fe8da85b79a8b
+      internalID: 720245537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_68
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 32
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354073bfa7112954aa56d0b9970b44d7
+      internalID: 1965332126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_69
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 32
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f7c4903e8d41ca4daf24e36e916f383
+      internalID: -51858789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_70
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 16
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052860f1c4403c04c986fbdfdf9f3b3b
+      internalID: -251731059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_71
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 16
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f270c72bc5c9c384cb110b28844c9173
+      internalID: 1558338443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_72
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 16
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c653533f714c71a45a79219bd97da5a4
+      internalID: 122722143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_73
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 16
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83930dd67487e204eb4ef689574588d2
+      internalID: 851541692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_74
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 11
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df29b263572bd946977efed959f332c
+      internalID: -1011171599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_75
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeff4c208ff69e64d9e3bac76db855dd
+      internalID: -1959242027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_76
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 16
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4596b078645ac4b8e5fc9a36e46678
+      internalID: -953744763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_77
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59bca4128053cd240bd68d5acf1a5eb6
+      internalID: -231213939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_78
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 16
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be03994a0de6f9c4392bafac87d7ed08
+      internalID: 199165272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_79
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 728f26002536b584d85c91daecdcefe1
+      internalID: 1471145462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_80
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c55ebb51049eb9343869e02aaad15daa
+      internalID: 2134954073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_81
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a97bda2f167df24d91567b78785536b
+      internalID: 1332318674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_82
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f47d125c9e927a4fa7cc657ff7480de
+      internalID: -1475438689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_83
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 0
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275b871bd6a0e5341b7e04f004bdf029
+      internalID: 2056801154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_84
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8a6477862021745837ec378ab06c0f
+      internalID: 247434710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_85
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5e10e041d928547ae67f6d5e6702b5
+      internalID: 792973488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mato_pra_caralho-export_86
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca55696c27f861f4ab0f03cf3d5b9f35
+      internalID: -1498995057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 033bb88b1f11aa940a16cc797c9cb06a
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mato_pra_caralho-export_0: -1105960551
+      mato_pra_caralho-export_1: 172099592
+      mato_pra_caralho-export_10: -1821451735
+      mato_pra_caralho-export_11: 1614603956
+      mato_pra_caralho-export_12: -1208383321
+      mato_pra_caralho-export_13: 1838443005
+      mato_pra_caralho-export_14: 1934029726
+      mato_pra_caralho-export_15: 582348221
+      mato_pra_caralho-export_16: 2063481705
+      mato_pra_caralho-export_17: -1187520514
+      mato_pra_caralho-export_18: 1600586533
+      mato_pra_caralho-export_19: -1091074112
+      mato_pra_caralho-export_2: 565087275
+      mato_pra_caralho-export_20: -1649411464
+      mato_pra_caralho-export_21: -512569916
+      mato_pra_caralho-export_22: 113405590
+      mato_pra_caralho-export_23: 795271127
+      mato_pra_caralho-export_24: -479069236
+      mato_pra_caralho-export_25: -383932679
+      mato_pra_caralho-export_26: -1916572220
+      mato_pra_caralho-export_27: -1516983311
+      mato_pra_caralho-export_28: -1389668359
+      mato_pra_caralho-export_29: -936899890
+      mato_pra_caralho-export_3: 632084025
+      mato_pra_caralho-export_30: 1549047097
+      mato_pra_caralho-export_31: 1682068467
+      mato_pra_caralho-export_32: 1280074592
+      mato_pra_caralho-export_33: 722334849
+      mato_pra_caralho-export_34: -1216990640
+      mato_pra_caralho-export_35: -974123622
+      mato_pra_caralho-export_36: 1133933436
+      mato_pra_caralho-export_37: -814907832
+      mato_pra_caralho-export_38: -1348061691
+      mato_pra_caralho-export_39: 611042006
+      mato_pra_caralho-export_4: 1230909054
+      mato_pra_caralho-export_40: 1914802640
+      mato_pra_caralho-export_41: -997875410
+      mato_pra_caralho-export_42: 2111025562
+      mato_pra_caralho-export_43: -791379923
+      mato_pra_caralho-export_44: -591838060
+      mato_pra_caralho-export_45: -417382882
+      mato_pra_caralho-export_46: -62483789
+      mato_pra_caralho-export_47: -120268921
+      mato_pra_caralho-export_48: -1454492888
+      mato_pra_caralho-export_49: -875591472
+      mato_pra_caralho-export_5: -682836042
+      mato_pra_caralho-export_50: -425428928
+      mato_pra_caralho-export_51: -1456733176
+      mato_pra_caralho-export_52: -1793302286
+      mato_pra_caralho-export_53: 2030834776
+      mato_pra_caralho-export_54: 1399110092
+      mato_pra_caralho-export_55: 1706453101
+      mato_pra_caralho-export_56: 597648380
+      mato_pra_caralho-export_57: 1773248396
+      mato_pra_caralho-export_58: 538629412
+      mato_pra_caralho-export_59: 1007070654
+      mato_pra_caralho-export_6: -1690422213
+      mato_pra_caralho-export_60: 179823140
+      mato_pra_caralho-export_61: 2026753351
+      mato_pra_caralho-export_62: -1573156105
+      mato_pra_caralho-export_63: 1615047024
+      mato_pra_caralho-export_64: 1637086029
+      mato_pra_caralho-export_65: 1331818498
+      mato_pra_caralho-export_66: 1670295466
+      mato_pra_caralho-export_67: 720245537
+      mato_pra_caralho-export_68: 1965332126
+      mato_pra_caralho-export_69: -51858789
+      mato_pra_caralho-export_7: 153850692
+      mato_pra_caralho-export_70: -251731059
+      mato_pra_caralho-export_71: 1558338443
+      mato_pra_caralho-export_72: 122722143
+      mato_pra_caralho-export_73: 851541692
+      mato_pra_caralho-export_74: -1011171599
+      mato_pra_caralho-export_75: -1959242027
+      mato_pra_caralho-export_76: -953744763
+      mato_pra_caralho-export_77: -231213939
+      mato_pra_caralho-export_78: 199165272
+      mato_pra_caralho-export_79: 1471145462
+      mato_pra_caralho-export_8: -353091828
+      mato_pra_caralho-export_80: 2134954073
+      mato_pra_caralho-export_81: 1332318674
+      mato_pra_caralho-export_82: -1475438689
+      mato_pra_caralho-export_83: 2056801154
+      mato_pra_caralho-export_84: 247434710
+      mato_pra_caralho-export_85: 792973488
+      mato_pra_caralho-export_86: -1498995057
+      mato_pra_caralho-export_9: 1710256046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
