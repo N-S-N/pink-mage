@@ -19,6 +19,9 @@ public class characterBasics : MonoBehaviour
     public float MaxMana;
     public float Medo;
 
+    public ParticleSystem particulas;
+    public SpriteRenderer[] render;
+
     [Header("Bonus Elementar")]
     public List<BonusDamed> bunusDamege = new List<BonusDamed>();
     public List<BonusDamed> bunusResistem = new List<BonusDamed>();
@@ -345,7 +348,13 @@ public class characterBasics : MonoBehaviour
 
         Life -= atteck.Bonus;
 
+        particulas.Play();
         conficAudioEfecti.PlayOneShot(levandoDando);
+
+        for(int i = 0; i < render.Length; i++)
+        {
+            render[i].color = Color.red;
+        }
 
         if (istaMorte != 0)
         {
@@ -386,6 +395,7 @@ public class characterBasics : MonoBehaviour
             }
     }
     EnimyControler controlenimyUi;
+
     public void playertime(EnimyControler eni)
     {
         Invoke("time", 1f);
@@ -395,11 +405,20 @@ public class characterBasics : MonoBehaviour
     void time()
     {
         controlenimyUi.damegeUi.text = "";
+        for (int i = 0; i < controlenimyUi.render.Length; i++)
+        {
+            controlenimyUi.render[i].color = Color.white;
+        }
+
     }
 
     void LipesaTMP()
     {
         damegeUi.text = "";
+        for (int i = 0; i < render.Length; i++)
+        {
+            render[i].color = Color.white;
+        }
     }
     public void dead()
     {
